@@ -1,8 +1,14 @@
 # Main Plugin
 
+***
+
 ## Quiz Plugin (similar to quiz jockey)
 
+***
+
 ## Challenges
+
+***
 
 - How to deploy code?
 - Use XAMPP locally? (why not)
@@ -14,7 +20,10 @@
   - Use a page reloader instead of gulp.
 - How to handle table modifications???
 
+
 ## Introduction
+
+***
 
 - https://github.com/DevinVinson/WordPress-Plugin-Boilerplate
 - What are hooks/filters?
@@ -25,9 +34,9 @@
 - What are Shortcodes?
 - Why plugins???
 
-***
-
 ### Stage 1
+
+***
 
 - Shortcodes to display quizzes in posts (this will be version 1.1).
   - [https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present](https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present)
@@ -43,17 +52,17 @@
   - Adding menu pages
   - Adding custom pages
 
-***
-
 ### Stage 2
+
+***
 
 - Shortcodes Api
 - Public pages
 - Translations
 
-***
-
 ### Stage 3 (this will be an add-on plugin)
+
+***
 
 - Add actions hooks to plugin do_action( 'unique_name' )
 - Add filters to plugin add_filter
@@ -66,18 +75,18 @@
     - JS/CSS
         - vanilla / libraries (handlebars)
 
-***
-
 ### Stage 4 (Another add-on)
+
+***
 
 - Stripe to allow users to pay for credits to do quizzes.
 - Turn site into membership site.
 - Block access to pages based upon roles (manage roles with Stripe credits).
 - Use Handlebars as the templating library for the front-end
 
-***
-
 ### Stage 5
+
+***
 
 - Publishing to the WordPress directory (SVN)
 - [https://kinsta.com/blog/publish-plugin-wordpress-plugin-directory/](https://kinsta.com/blog/publish-plugin-wordpress-plugin-directory/)
@@ -86,21 +95,21 @@
 - WordPress version on activate (table creation).
 - Testing (basic testing)
 
-***
-
 ### TODO
 
-- -Go through WordPress plugin courses to get more ideas
-- -e.g.
-- -Sell plugins on CodeCanyon
-  - -Read the sections no this page thoroughly before beginning:
+***
+
+- Go through WordPress plugin courses to get more ideas
+- e.g.
+- Sell plugins on CodeCanyon
+  -Read the sections no this page thoroughly before beginning:
   - [https://www.udemy.com/instructor/courses/](https://www.udemy.com/instructor/courses/)
 - Create course outline before filming (but after creating local plugins)
 - Write a Course Landing Page (spend time on this).
 
-***
-
 ### Extra Considerations
+
+***
 
 - How can students practice?
   - Local XAMPP – no dev ops. Simple libraries (Handlebars.js).
