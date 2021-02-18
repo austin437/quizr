@@ -25,55 +25,68 @@
 - What are Shortcodes?
 - Why plugins???
 
+***
+
 ### Stage 1
 
 - Shortcodes to display quizzes in posts (this will be version 1.1).
   - [https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present](https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present)
 - Use spl\_autoload and make sure that a secondary plugin can read the classes of this plugin before going to far into it.
 - Deals with:
+  - Admin side of plugin
   - is\_admin
   - Custom Post Types.
-  -
-  -
+  - Categories
   - Tags
   - Hooks/filters
   - Settings Api
-  - Shortcodes Api
-  - is\_admin
-  - Translations
-  - Testing (basic testing)
-  - WP-cron???
+  - Adding menu pages
+  - Adding custom pages
 
-### Stage 2 (this will be version 2.1)
+***
 
+### Stage 2
+
+- Shortcodes Api
+- Public pages
+- Translations
+
+***
+
+### Stage 3 (this will be an add-on plugin)
+
+- Add actions hooks to plugin do_action( 'unique_name' )
+- Add filters to plugin add_filter
 - Quiz Jockey style plugin
-- Will be add-on plugin
   - Deals with
-  - WordPress api
-  - Custom Tables (???)
-  - CPTs
-    - Quiz Teams
-  - JS/CSS
-    - vanilla / libraries (lodash???)
+    - WordPress api
+    - Custom Tables
+    - CPTs
+        - Quiz Teams
+    - JS/CSS
+        - vanilla / libraries (handlebars)
 
-### Stage 3 (version 3.1)
+***
+
+### Stage 4 (Another add-on)
 
 - Stripe to allow users to pay for credits to do quizzes.
 - Turn site into membership site.
 - Block access to pages based upon roles (manage roles with Stripe credits).
 - Use Handlebars as the templating library for the front-end
 
-### Stage 4
+***
+
+### Stage 5
 
 - Publishing to the WordPress directory (SVN)
 - [https://kinsta.com/blog/publish-plugin-wordpress-plugin-directory/](https://kinsta.com/blog/publish-plugin-wordpress-plugin-directory/)
 - CodeCanyon???
-
-### Other
-
 - Dev-Ops
 - WordPress version on activate (table creation).
--
+- Testing (basic testing)
+
+***
 
 ### TODO
 
@@ -84,6 +97,8 @@
   - [https://www.udemy.com/instructor/courses/](https://www.udemy.com/instructor/courses/)
 - Create course outline before filming (but after creating local plugins)
 - Write a Course Landing Page (spend time on this).
+
+***
 
 ### Extra Considerations
 
