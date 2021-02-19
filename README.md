@@ -43,13 +43,15 @@
 
 ***
 
-- Shortcodes to display quizzes in posts (this will be version 1.1).
+- Shortcodes to display quizzes in posts.
   - [https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present](https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present)
 - Use spl\_autoload and make sure that a secondary plugin can read the classes of this plugin before going to far into it.
 - Deals with:
   - Admin side of plugin
   - is\_admin
   - Custom Post Types.
+        - Questions
+        - Answers
   - Categories
   - Tags
   - Hooks/filters
@@ -73,6 +75,8 @@
 - Add actions hooks to plugin do_action( 'unique_name' )
 - Add filters to plugin add_filter
 - Quiz Jockey style plugin
+  - <https://opentdb.com/>
+        - Get questions from here!!!
   - Deals with
     - WordPress api
         - https://codex.wordpress.org/WordPress_APIs
