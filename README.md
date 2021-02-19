@@ -26,6 +26,7 @@
 ***
 
 - https://github.com/DevinVinson/WordPress-Plugin-Boilerplate
+- http://wppb.io/
 - What are hooks/filters?
   - Where to get list of hooks, filters, etc.
 - WordPress codebase
@@ -33,6 +34,10 @@
 - What are Categories/Taxonomies?
 - What are Shortcodes?
 - Why plugins???
+- Simple 1 page plugin to demonstrate the basics of plugin setup
+    - Hello Dolly style plugin to show a different Chuck Norris joke in the Admin Dashboard
+    - https://api.chucknorris.io/jokes/random 
+- https://developer.wordpress.org/plugins/plugin-basics/best-practices/
 
 ### Stage 1
 
@@ -59,6 +64,7 @@
 - Shortcodes Api
 - Public pages
 - Translations
+- Loco Translate
 
 ### Stage 3 (this will be an add-on plugin)
 
@@ -69,6 +75,7 @@
 - Quiz Jockey style plugin
   - Deals with
     - WordPress api
+        - https://codex.wordpress.org/WordPress_APIs
     - Custom Tables
     - CPTs
         - Quiz Teams
@@ -106,6 +113,8 @@
   - [https://www.udemy.com/instructor/courses/](https://www.udemy.com/instructor/courses/)
 - Create course outline before filming (but after creating local plugins)
 - Write a Course Landing Page (spend time on this).
+- Add staged versions of all code to github repo.
+- Add detailed readme.md file explaining how everything fits together.
 
 ### Extra Considerations
 
