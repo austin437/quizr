@@ -25,8 +25,6 @@
 
 ***
 
-- https://github.com/DevinVinson/WordPress-Plugin-Boilerplate
-- http://wppb.io/
 - What are hooks/filters?
   - Where to get list of hooks, filters, etc.
 - WordPress codebase
