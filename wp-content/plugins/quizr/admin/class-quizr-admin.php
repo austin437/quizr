@@ -3,11 +3,11 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/admin
+ * @package    Quizr
+ * @subpackage Quizr/admin
  */
 
 /**
@@ -16,20 +16,20 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Quizzer
- * @subpackage Quizzer/admin
- * @author     Your Name <email@example.com>
+ * @package    Quizr
+ * @subpackage Quizr/admin
+ * @author     Robert Austin <austin437@hotmail.com>
  */
-class Quizzer_Admin {
+class Quizr_Admin {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $quizzer    The ID of this plugin.
+	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private $quizzer;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Quizzer_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $quizzer       The name of this plugin.
+	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $quizzer, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->quizzer = $quizzer;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -65,15 +65,15 @@ class Quizzer_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Quizzer_Loader as all of the hooks are defined
+		 * defined in Quizr_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Quizzer_Loader will then create the relationship
+		 * The Quizr_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->quizzer, plugin_dir_url( __FILE__ ) . 'css/quizzer-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quizr-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,16 +88,26 @@ class Quizzer_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Quizzer_Loader as all of the hooks are defined
+		 * defined in Quizr_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Quizzer_Loader will then create the relationship
+		 * The Quizr_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->quizzer, plugin_dir_url( __FILE__ ) . 'js/quizzer-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quizr-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
+
+    public function _register_custom_post_types() {
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/class-quizr-cpt-api.php';
+
+        $quizr_Cpt_Api = new Quizr_Cpt_Api();
+
+        $quizr_Cpt_Api->register_custom_post_type_quizr_question_set();
+        $quizr_Cpt_Api->register_custom_post_type_quizr_question();
+
+    }
 
 }

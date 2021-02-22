@@ -3,11 +3,11 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/includes
+ * @package    Quizr
+ * @subpackage Quizr/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Quizzer
- * @subpackage Quizzer/includes
- * @author     Your Name <email@example.com>
+ * @package    Quizr
+ * @subpackage Quizr/includes
+ * @author     Robert Austin <austin437@hotmail.com>
  */
-class Quizzer_Loader {
+class Quizr_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

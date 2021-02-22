@@ -3,11 +3,11 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/includes
+ * @package    Quizr
+ * @subpackage Quizr/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Quizzer
- * @subpackage Quizzer/includes
- * @author     Your Name <email@example.com>
+ * @package    Quizr
+ * @subpackage Quizr/includes
+ * @author     Robert Austin <austin437@hotmail.com>
  */
-class Quizzer_Deactivator {
+class Quizr_Deactivator {
 
 	/**
 	 * Short Description. (use period)

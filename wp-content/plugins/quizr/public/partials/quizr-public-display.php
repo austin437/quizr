@@ -5,11 +5,11 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/public/partials
+ * @package    Quizr
+ * @subpackage Quizr/public/partials
  */
 ?>
 

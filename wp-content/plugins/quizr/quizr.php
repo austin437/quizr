@@ -8,20 +8,20 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
+ * @link              https://robert.austin.com
  * @since             1.0.0
- * @package           Quizzer
+ * @package           Quizr
  *
  * @wordpress-plugin
- * Plugin Name:       Quizzer
- * Plugin URI:        http://example.com/quizzer-uri/
+ * Plugin Name:       Quizr
+ * Plugin URI:        https://quizr.com
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Author:            Robert Austin
+ * Author URI:        https://robert.austin.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       quizzer
+ * Text Domain:       quizr
  * Domain Path:       /languages
  */
 
@@ -35,34 +35,34 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'QUIZZER_VERSION', '1.0.0' );
+define( 'QUIZR_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-quizzer-activator.php
+ * This action is documented in includes/class-quizr-activator.php
  */
-function activate_quizzer() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-quizzer-activator.php';
-	Quizzer_Activator::activate();
+function activate_quizr() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-quizr-activator.php';
+	Quizr_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-quizzer-deactivator.php
+ * This action is documented in includes/class-quizr-deactivator.php
  */
-function deactivate_quizzer() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-quizzer-deactivator.php';
-	Quizzer_Deactivator::deactivate();
+function deactivate_quizr() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-quizr-deactivator.php';
+	Quizr_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_quizzer' );
-register_deactivation_hook( __FILE__, 'deactivate_quizzer' );
+register_activation_hook( __FILE__, 'activate_quizr' );
+register_deactivation_hook( __FILE__, 'deactivate_quizr' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-quizzer.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-quizr.php';
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +73,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-quizzer.php';
  *
  * @since    1.0.0
  */
-function run_quizzer() {
+function run_quizr() {
 
-	$plugin = new Quizzer();
+	$plugin = new Quizr();
 	$plugin->run();
 
 }
-run_quizzer();
+run_quizr();

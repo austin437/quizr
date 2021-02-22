@@ -5,11 +5,11 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/admin/partials
+ * @package    Quizr
+ * @subpackage Quizr/admin/partials
  */
 ?>
 

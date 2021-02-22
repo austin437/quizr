@@ -3,11 +3,11 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/public
+ * @package    Quizr
+ * @subpackage Quizr/public
  */
 
 /**
@@ -16,20 +16,20 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Quizzer
- * @subpackage Quizzer/public
- * @author     Your Name <email@example.com>
+ * @package    Quizr
+ * @subpackage Quizr/public
+ * @author     Robert Austin <austin437@hotmail.com>
  */
-class Quizzer_Public {
+class Quizr_Public {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $quizzer    The ID of this plugin.
+	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private $quizzer;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Quizzer_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $quizzer       The name of the plugin.
+	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $quizzer, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->quizzer = $quizzer;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -65,15 +65,15 @@ class Quizzer_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Quizzer_Loader as all of the hooks are defined
+		 * defined in Quizr_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Quizzer_Loader will then create the relationship
+		 * The Quizr_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->quizzer, plugin_dir_url( __FILE__ ) . 'css/quizzer-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/quizr-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,15 +88,15 @@ class Quizzer_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Quizzer_Loader as all of the hooks are defined
+		 * defined in Quizr_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Quizzer_Loader will then create the relationship
+		 * The Quizr_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->quizzer, plugin_dir_url( __FILE__ ) . 'js/quizzer-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/quizr-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 

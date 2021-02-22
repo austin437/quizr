@@ -6,11 +6,11 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/includes
+ * @package    Quizr
+ * @subpackage Quizr/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Quizzer
- * @subpackage Quizzer/includes
- * @author     Your Name <email@example.com>
+ * @package    Quizr
+ * @subpackage Quizr/includes
+ * @author     Robert Austin <austin437@hotmail.com>
  */
-class Quizzer {
+class Quizr {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Quizzer {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Quizzer_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Quizr_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -44,9 +44,9 @@ class Quizzer {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $quizzer    The string used to uniquely identify this plugin.
+	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
-	protected $quizzer;
+	protected $plugin_name;
 
 	/**
 	 * The current version of the plugin.
@@ -67,12 +67,12 @@ class Quizzer {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'QUIZZER_VERSION' ) ) {
-			$this->version = QUIZZER_VERSION;
+		if ( defined( 'QUIZR_VERSION' ) ) {
+			$this->version = QUIZR_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->quizzer = 'quizzer';
+		$this->plugin_name = 'quizr';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -86,10 +86,10 @@ class Quizzer {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Quizzer_Loader. Orchestrates the hooks of the plugin.
-	 * - Quizzer_i18n. Defines internationalization functionality.
-	 * - Quizzer_Admin. Defines all hooks for the admin area.
-	 * - Quizzer_Public. Defines all hooks for the public side of the site.
+	 * - Quizr_Loader. Orchestrates the hooks of the plugin.
+	 * - Quizr_i18n. Defines internationalization functionality.
+	 * - Quizr_Admin. Defines all hooks for the admin area.
+	 * - Quizr_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -103,33 +103,33 @@ class Quizzer {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizzer-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizzer-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-quizzer-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-quizr-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-quizzer-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-quizr-public.php';
 
-		$this->loader = new Quizzer_Loader();
+		$this->loader = new Quizr_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Quizzer_i18n class in order to set the domain and to register the hook
+	 * Uses the Quizr_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -137,7 +137,7 @@ class Quizzer {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Quizzer_i18n();
+		$plugin_i18n = new Quizr_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -151,11 +151,11 @@ class Quizzer {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
-		$plugin_admin = new Quizzer_Admin( $this->get_quizzer(), $this->get_version() );
+		$plugin_admin = new Quizr_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        $this->loader->add_action( 'init', $plugin_admin, '_register_custom_post_types' );
 
 	}
 
@@ -168,7 +168,7 @@ class Quizzer {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Quizzer_Public( $this->get_quizzer(), $this->get_version() );
+		$plugin_public = new Quizr_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -191,15 +191,15 @@ class Quizzer {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_quizzer() {
-		return $this->quizzer;
+	public function get_plugin_name() {
+		return $this->plugin_name;
 	}
 
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Quizzer_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Quizr_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

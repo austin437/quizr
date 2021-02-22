@@ -6,11 +6,11 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       http://example.com
+ * @link       https://robert.austin.com
  * @since      1.0.0
  *
- * @package    Quizzer
- * @subpackage Quizzer/includes
+ * @package    Quizr
+ * @subpackage Quizr/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Quizzer
- * @subpackage Quizzer/includes
- * @author     Your Name <email@example.com>
+ * @package    Quizr
+ * @subpackage Quizr/includes
+ * @author     Robert Austin <austin437@hotmail.com>
  */
-class Quizzer_i18n {
+class Quizr_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Quizzer_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'quizzer',
+			'quizr',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

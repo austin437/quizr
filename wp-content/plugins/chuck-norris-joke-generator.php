@@ -28,6 +28,8 @@ function chuck_norris_joke_generator()
  
     $body = json_decode( wp_remote_retrieve_body($response) );
 
+    if( ! is_object( $body ) ) exit;
+
     ?>
 
     <div class="notice notice-warning is-dismissible">
