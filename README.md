@@ -39,9 +39,30 @@
     - https://api.chucknorris.io/jokes/random 
 - https://developer.wordpress.org/plugins/plugin-basics/best-practices/
 
+
+### Stage ?
+
+***
+
+- Shortcodes to display quizzes in posts.
+  - [https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present](https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present)
+- Shortcodes Api
+- Use spl\_autoload and make sure that a secondary plugin can read the classes of this plugin before going to far into it.
+- Deals with:
+  - Admin side of plugin
+  - is\_admin
+  - Custom Post Types.
+        - Questions
+        - Answers
+  - Categories
+  - Tags
+  - Hooks/filters
+  - Settings Api
+  - Adding menu pages
+  - Adding custom pages
+
 ### Stage ? - Best Practices
 
-- 
 - https://developer.wordpress.org/plugins/plugin-basics/best-practices/
 - https://code.tutsplus.com/tutorials/how-to-autoload-classes-with-composer-in-php--cms-35649
 - https://secure.wphackedhelp.com/blog/disable-directory-browsing-wordpress/amp/
@@ -64,27 +85,6 @@
 
 ***
 
-- Shortcodes to display quizzes in posts.
-  - [https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present](https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present)
-- Use spl\_autoload and make sure that a secondary plugin can read the classes of this plugin before going to far into it.
-- Deals with:
-  - Admin side of plugin
-  - is\_admin
-  - Custom Post Types.
-        - Questions
-        - Answers
-  - Categories
-  - Tags
-  - Hooks/filters
-  - Settings Api
-  - Adding menu pages
-  - Adding custom pages
-
-### Stage ?
-
-***
-
-- Shortcodes Api
 - Public pages
 - Translations
 - Loco Translate
