@@ -116,6 +116,13 @@ class Quizr {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-quizr-admin.php';
 
+        /**
+		 * The classes responsible for loading cpts
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-set-cpt.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-cpt.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-answer-cpt.php';
+
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
@@ -151,11 +158,21 @@ class Quizr {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-		$plugin_admin = new Quizr_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		$plugin_admin = new Quizr_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-        $this->loader->add_action( 'init', $plugin_admin, '_register_custom_post_types' );
+
+        $quiz_question_set = new Quizr_Question_Set_Cpt();
+        $this->loader->add_action( 'init', $quiz_question_set, 'register_custom_post_type_quizr_question_set' );
+
+        $quiz_question = new Quizr_Question_Cpt();
+        $this->loader->add_action( 'init', $quiz_question, 'register_custom_post_type_quizr_question' );
+
+        $quiz_answer = new Quizr_Answer_Cpt();
+        $this->loader->add_action( 'init', $quiz_answer, 'register_custom_post_type_quizr_answer' );
+
+
 
 	}
 

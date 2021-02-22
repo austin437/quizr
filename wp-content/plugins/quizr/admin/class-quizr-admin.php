@@ -100,14 +100,4 @@ class Quizr_Admin {
 
 	}
 
-    public function _register_custom_post_types() {
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/class-quizr-cpt-api.php';
-
-        $quizr_Cpt_Api = new Quizr_Cpt_Api();
-
-        $quizr_Cpt_Api->register_custom_post_type_quizr_question_set();
-        $quizr_Cpt_Api->register_custom_post_type_quizr_question();
-
-    }
-
 }
