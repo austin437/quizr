@@ -39,7 +39,23 @@
     - https://api.chucknorris.io/jokes/random 
 - https://developer.wordpress.org/plugins/plugin-basics/best-practices/
 
-### Stage 1
+### Stage ? - Best Practices
+
+- 
+- https://developer.wordpress.org/plugins/plugin-basics/best-practices/
+- https://code.tutsplus.com/tutorials/how-to-autoload-classes-with-composer-in-php--cms-35649
+- https://secure.wphackedhelp.com/blog/disable-directory-browsing-wordpress/amp/
+- https://developer.wordpress.org/reference/classes/wpdb/
+- Plugin Boilerplate:
+    - https://github.com/DevinVinson/WordPress-Plugin-Boilerplate
+    - http://wppb.io/
+    - https://wppb.me/
+    - Start with basic code file organisation (map out the directory structure)
+    - Talk about existing boilerplates at the end of the course (or this section)
+
+***
+
+### Stage ?
 
 ***
 
@@ -59,7 +75,7 @@
   - Adding menu pages
   - Adding custom pages
 
-### Stage 2
+### Stage ?
 
 ***
 
@@ -68,7 +84,7 @@
 - Translations
 - Loco Translate
 
-### Stage 3 (this will be an add-on plugin)
+### Stage ? (this will be an add-on plugin)
 
 ***
 
@@ -86,7 +102,7 @@
     - JS/CSS
         - vanilla / libraries (handlebars)
 
-### Stage 4 (Another add-on)
+### Stage ? (Another add-on)
 
 ***
 
@@ -95,7 +111,7 @@
 - Block access to pages based upon roles (manage roles with Stripe credits).
 - Use Handlebars as the templating library for the front-end
 
-### Stage 5
+### Stage ?
 
 ***
 
