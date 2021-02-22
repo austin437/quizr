@@ -46,12 +46,17 @@
 - https://code.tutsplus.com/tutorials/how-to-autoload-classes-with-composer-in-php--cms-35649
 - https://secure.wphackedhelp.com/blog/disable-directory-browsing-wordpress/amp/
 - https://developer.wordpress.org/reference/classes/wpdb/
-- Plugin Boilerplate:
+- Plugin Structure:
+    - Use this plugin generator:
+        - https://wppb.me/
+        - Create Lib folder and only use remaining plugin folders for things like Admin/Public hooks.
+    - https://wordpress.stackexchange.com/a/48869
     - https://github.com/DevinVinson/WordPress-Plugin-Boilerplate
     - http://wppb.io/
-    - https://wppb.me/
     - Start with basic code file organisation (map out the directory structure)
     - Talk about existing boilerplates at the end of the course (or this section)
+- Why WPMVC is a bad idea:
+    - https://wordpress.org/plugins/wp-mvc/
 
 ***
 
