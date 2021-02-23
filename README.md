@@ -43,6 +43,9 @@
 ***
 
 - Shortcodes to display quizzes in posts.
+    - Question Sets and Questions will be Custom Post Types.
+    - Answers will be a custom table.
+- Check out handlebars vs mustache (js code)?
   - [https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present](https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present)
 - Shortcodes Api
 - Use spl\_autoload and make sure that a secondary plugin can read the classes of this plugin before going to far into it.

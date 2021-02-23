@@ -165,12 +165,15 @@ class Quizr {
 
         $quiz_question_set = new Quizr_Question_Set_Cpt();
         $this->loader->add_action( 'init', $quiz_question_set, 'register_custom_post_type_quizr_question_set' );
+        $this->loader->add_action( 'add_meta_boxes', $quiz_question_set, 'add_meta_boxes' );
 
         $quiz_question = new Quizr_Question_Cpt();
         $this->loader->add_action( 'init', $quiz_question, 'register_custom_post_type_quizr_question' );
-
-        $quiz_answer = new Quizr_Answer_Cpt();
-        $this->loader->add_action( 'init', $quiz_answer, 'register_custom_post_type_quizr_answer' );
+        $this->loader->add_action( 'add_meta_boxes', $quiz_question, 'add_meta_boxes' );
+        $this->loader->add_action( 'save_post', $quiz_question, 'save_custom_meta_data' );
+   
+        // $quiz_answer = new Quizr_Answer_Cpt();
+        // $this->loader->add_action( 'init', $quiz_answer, 'register_custom_post_type_quizr_answer' );
 
 
 
