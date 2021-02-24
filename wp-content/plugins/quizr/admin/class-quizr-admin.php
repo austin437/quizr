@@ -54,6 +54,13 @@ class Quizr_Admin {
 
 	}
 
+    public function add_tag_to_script( $tag, $handle, $src ) {
+
+        if( $handle !== 'quizr_quizr_admin' ) return $tag; 
+        
+        return '<script type="module" src="' . esc_url( $src ) . '" ></script>';
+    }
+
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
@@ -96,9 +103,6 @@ class Quizr_Admin {
 		 * class.
 		 */
 
-     
-		
-        wp_enqueue_script( $this->plugin_name . '_mustache', plugin_dir_url( __FILE__ ) . 'js/mustache.js', array(), $this->version, false );
         wp_enqueue_script( $this->plugin_name . '_quizr_admin', plugin_dir_url( __FILE__ ) . 'js/quizr-admin.js', array( ), $this->version, false );
     }
 

@@ -162,6 +162,7 @@ class Quizr {
 		$plugin_admin = new Quizr_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        $this->loader->add_action( 'script_loader_tag', $plugin_admin, 'add_tag_to_script', 10, 3 );
 
         $quiz_question_set = new Quizr_Question_Set_Cpt();
         $this->loader->add_action( 'init', $quiz_question_set, 'register_custom_post_type_quizr_question_set' );

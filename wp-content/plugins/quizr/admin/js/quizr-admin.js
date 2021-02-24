@@ -1,18 +1,10 @@
+import {html, render} from '../../node_modules/lit-html/lit-html.js';
+
 window.addEventListener("load", function () {
 
+    const myTemplate = (name) => html`<p>Hello ${name}</p>`;
 
-   var view = {
-       title: "Joe",
-       calc: function () {
-           return 2 + 4;
-       },
-   };
-
-   var output = Mustache.render("{{title}} spends {{calc}}", view);
-
-   var template = document.getElementById("template").innerHTML;
-   var rendered = Mustache.render(template, { name: "Luke" });
-   document.getElementById("target").innerHTML = rendered;
    
+
 });
 
