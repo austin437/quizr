@@ -9,14 +9,24 @@ class Quizr_Question_Cpt {
         add_meta_box(
             'quizr-question-set',
             __( 'Question Set', 'textdomain' ),
-            array( $this, 'render_metabox' ),
+            array( $this, 'render_question_set_metabox' ),
             static::CPT_NAME,
             'side',
             'default'
         );
+
+        add_meta_box(
+            'quizr-answers',
+            __( 'Answers', 'textdomain' ),
+            array( $this, 'render_answers_metabox' ),
+            static::CPT_NAME,
+            'advanced',
+            'default'
+        );
     }
 
-    public function render_metabox( $post ) {
+    public function render_question_set_metabox( $post ) 
+    {
 
         $question_sets = get_posts( array( 'post_type' => 'quizr_question_set' ) );
 
@@ -37,7 +47,15 @@ class Quizr_Question_Cpt {
         <?php
     }
 
-     function save_custom_meta_data($id) {
+    public function render_answers_metabox( $post )
+    {
+        ?>
+            <h1>Answers</h1>
+        <?php
+    }
+
+    function save_custom_meta_data($id) 
+    {
 
         global $post; 
 
