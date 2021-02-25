@@ -24,6 +24,10 @@
 ## Introduction
 
 ***
+- Dependencies
+    - ServerPress
+    - Visual Studio Code
+        - Plugins
 
 - What are hooks/filters?
   - Where to get list of hooks, filters, etc.

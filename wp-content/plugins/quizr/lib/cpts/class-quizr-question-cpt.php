@@ -20,13 +20,18 @@ class Quizr_Question_Cpt {
 
         $question_sets = get_posts( array( 'post_type' => 'quizr_question_set' ) );
 
-        wp_nonce_field( 'quizr_question_set_nonce_action', 'k4EaQtHP' );
+        wp_nonce_field( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $post->ID );
+
+        $meta_value = get_post_meta( $post->ID, 'quizr_question_set_id', true );
 
         ?>
-            <select id="quizr_question_meta" name="quizr_question_meta" class="widefat">
+            <select id="quizr_question_set_id" name="quizr_question_set_id" class="widefat">
                 <option value="" ></option>
                 <?php foreach( $question_sets as $qs ) { ?>
-                    <option value="<?php echo esc_html($qs->ID); ?>"><?php echo esc_html($qs->post_title); ?></option>
+                    <option 
+                        value="<?php echo esc_html($qs->ID); ?>" 
+                        <?php echo (int) $qs->ID === (int) $meta_value ? 'selected="selected"' : ''; ?> 
+                    ><?php echo esc_html($qs->post_title); ?></option>
                 <?php } ?>
             </select>  
         <?php
@@ -40,14 +45,11 @@ class Quizr_Question_Cpt {
 
         if ( $post->post_type !== static::CPT_NAME ) return;
 
-        $post_data = sanitize_post( $_POST );       
+        $post_data = sanitize_post( $_POST );      
 
-        var_dump( $post_data ); die();
-        
-        /* --- security verification --- */
-        // if(!wp_verify_nonce($post_data['aet0ea9e1_custom_attachment_nonce'], plugin_basename(__FILE__))) {
-        //   return $id;
-        // } // end if
+        check_admin_referer( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $id );
+
+        if( array_key_exists('quizr_question_set_id', $post_data) ) update_post_meta($id, 'quizr_question_set_id', $post_data['quizr_question_set_id']);        
 
     }
 
