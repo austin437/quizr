@@ -14,7 +14,7 @@ class Quizr_Answers_Table
 
         global $wpdb;
 
-        $this->table_name  = $wpdb->prefix . 'aet0ea9e1_user_activity';
+        $this->table_name  = $wpdb->prefix . 'quizr_answers';
         $this->primary_key = 'id';
         $this->version     = '1.0';
 
