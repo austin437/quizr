@@ -26,6 +26,8 @@
 ***
 - Dependencies
     - ServerPress
+    - NPM
+    - Composer (?)
     - Visual Studio Code
         - Plugins
 
