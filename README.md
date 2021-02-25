@@ -2,6 +2,9 @@
 
 ***
 
+## YouTube Channel:
+    - Best Practice Programming
+
 ## Quiz Plugin (similar to quiz jockey)
 
 ***
@@ -37,38 +40,15 @@
 - What are Custom Post Types?
 - What are Categories/Taxonomies?
 - What are Shortcodes?
+- Best Practices:
+    - Rendering Shortcodes
 - Why plugins???
 - Simple 1 page plugin to demonstrate the basics of plugin setup
     - Hello Dolly style plugin to show a different Chuck Norris joke in the Admin Dashboard
     - https://api.chucknorris.io/jokes/random 
 - https://developer.wordpress.org/plugins/plugin-basics/best-practices/
 
-
-### Stage ?
-
-***
-
-- Shortcodes to display quizzes in posts.
-    - Question Sets and Questions will be Custom Post Types.
-    - Answers will be a custom table.
-- Check out handlebars vs mustache (js code)?
-  - [https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present](https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present)
-- Shortcodes Api
-- Use spl\_autoload and make sure that a secondary plugin can read the classes of this plugin before going to far into it.
-- Deals with:
-  - Admin side of plugin
-  - is\_admin
-  - Custom Post Types.
-        - Questions
-        - Answers
-  - Categories
-  - Tags
-  - Hooks/filters
-  - Settings Api
-  - Adding menu pages
-  - Adding custom pages
-
-### Stage ? - Best Practices
+### Plugin Boilerplate Code
 
 - https://developer.wordpress.org/plugins/plugin-basics/best-practices/
 - https://code.tutsplus.com/tutorials/how-to-autoload-classes-with-composer-in-php--cms-35649
@@ -88,19 +68,58 @@
 
 ***
 
-### Stage ?
+### Quizr
+
+***
+
+- Shortcodes to display quizzes in posts.
+    - Question Sets and Questions will be Custom Post Types.
+    - Answers will be a custom table.
+
+- Shortcodes Api
+- Admin side of plugin
+- is\_admin
+- Custom Post Types.
+    - Questions
+    - Answers
+    - Meta Data
+    - Best Practices:
+        - Nonces
+- Categories
+- Tags
+- Hooks/filters
+- Settings Api
+- Adding menu pages
+- Adding custom pages
+- Custom Tables
+    - Best Practices:
+        - Custom Tables
+        - Creating custom tables
+        - DB Versioning
+- WPAPI
+    - Best Practices:
+        - await / async
+        - nonces
+
+
+
+### Quizr continued
 
 ***
 
 - Public pages
 - Translations
+- Best Practices:
+    - Naming variables
 - Loco Translate
 
-### Stage ? (this will be an add-on plugin)
+### Quizr Add-on
 
 ***
 
 - Add actions hooks to plugin do_action( 'unique_name' )
+- Best Practices:
+    - Adding hooks/filters
 - Add filters to plugin add_filter
 - Quiz Jockey style plugin
   - <https://opentdb.com/>

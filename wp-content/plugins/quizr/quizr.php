@@ -26,7 +26,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
@@ -36,6 +36,11 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'QUIZR_VERSION', '1.0.0' );
+
+/**
+ * Current db version.
+ */
+define( 'QUIZR_DB_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.

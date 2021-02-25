@@ -117,6 +117,12 @@ class Quizr {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-quizr-admin.php';
 
         /**
+         * Database
+         */
+
+         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-migrate.php';
+
+        /**
 		 * The classes responsible for loading cpts
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-set-cpt.php';
@@ -158,6 +164,9 @@ class Quizr {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
+
+        $quizr_migrate = new Quizr_Migrate();
+        $this->loader->add_action( 'plugins_loaded', $quizr_migrate, 'update_db_check' );
 
 		$plugin_admin = new Quizr_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
