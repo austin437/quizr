@@ -134,6 +134,11 @@ class Quizr {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/apis/class-quizr-rest-api.php';
 
         /**
+         * Database
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/database/class-quizr-answer-table.php';
+
+        /**
          * CONTROLLERS
          */
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/controllers/class-quizr-rest-controller.php';
