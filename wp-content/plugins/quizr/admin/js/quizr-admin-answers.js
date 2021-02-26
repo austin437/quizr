@@ -1,6 +1,10 @@
 class Quizr_Admin_Answers {
 
     constructor( element, html, render) {
+        /**
+         * TODO - get post_id from params
+         *      - Add quizr_script_vars.nonce
+         */
         this.element = element;
         this.html = html;
         this.render = render;      
@@ -44,12 +48,12 @@ class Quizr_Admin_Answers {
     }
 
     get_data(){
-        return;
+        
         const self = this;
 
         async function get_answers() {
    
-            const url = `/wp-json/cc-course-builder/v1/school-admin?question_id=18}`;
+            const url = `/wp-json/quizr/v1/answer?question_id=18`;
 
             try {
                 let r = await fetch(url, {
@@ -57,7 +61,7 @@ class Quizr_Admin_Answers {
                     headers: {
                         contentType: false,
                         processData: false,
-                        "X-WP-Nonce": my_script_vars.nonce,
+                        "X-WP-Nonce": quizr_script_vars.nonce,
                     },
                 });
                 return r.json();
