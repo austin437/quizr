@@ -123,10 +123,20 @@ class Quizr {
          require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-migrate.php';
 
         /**
-		 * The classes responsible for loading cpts
+		 * CPTs
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-set-cpt.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-cpt.php';
+
+        /**
+         * APIS
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/apis/class-quizr-rest-api.php';
+
+        /**
+         * CONTROLLERS
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/controllers/class-quizr-rest-controller.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -180,6 +190,9 @@ class Quizr {
         $this->loader->add_action( 'init', $quiz_question, 'register_custom_post_type_quizr_question' );
         $this->loader->add_action( 'add_meta_boxes', $quiz_question, 'add_meta_boxes' );
         $this->loader->add_action( 'save_post', $quiz_question, 'save_custom_meta_data' );
+
+        $quizr_rest_api = new Quizr_Rest_Api();
+        $this->loader->add_action( 'rest_api_init', $quizr_rest_api, 'rest_api_init' );
 	}
 
 	/**

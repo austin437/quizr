@@ -44,6 +44,7 @@ class Quizr_Admin_Answers {
     }
 
     get_data(){
+        return;
         const self = this;
 
         async function get_answers() {
