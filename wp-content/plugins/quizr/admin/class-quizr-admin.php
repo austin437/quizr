@@ -103,6 +103,7 @@ class Quizr_Admin {
 		 * class.
 		 */
 
+        wp_enqueue_script( $this->plugin_name . '_quizr_admin_answers', plugin_dir_url( __FILE__ ) . 'js/quizr-admin-answers.js', array( ), $this->version, false );
         wp_enqueue_script( $this->plugin_name . '_quizr_admin', plugin_dir_url( __FILE__ ) . 'js/quizr-admin.js', array( ), $this->version, false );
     }
 

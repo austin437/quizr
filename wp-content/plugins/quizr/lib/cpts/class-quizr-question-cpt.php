@@ -50,7 +50,7 @@ class Quizr_Question_Cpt {
     public function render_answers_metabox( $post )
     {
         ?>
-            <h1>Answers</h1>
+            <div id="quizr-admin-answer-container"></div>
         <?php
     }
 

@@ -127,7 +127,6 @@ class Quizr {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-set-cpt.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-cpt.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-answer-cpt.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -181,12 +180,6 @@ class Quizr {
         $this->loader->add_action( 'init', $quiz_question, 'register_custom_post_type_quizr_question' );
         $this->loader->add_action( 'add_meta_boxes', $quiz_question, 'add_meta_boxes' );
         $this->loader->add_action( 'save_post', $quiz_question, 'save_custom_meta_data' );
-   
-        // $quiz_answer = new Quizr_Answer_Cpt();
-        // $this->loader->add_action( 'init', $quiz_answer, 'register_custom_post_type_quizr_answer' );
-
-
-
 	}
 
 	/**
