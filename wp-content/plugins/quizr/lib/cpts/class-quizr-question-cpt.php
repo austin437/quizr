@@ -48,10 +48,10 @@ class Quizr_Question_Cpt {
     }
 
     public function render_answers_metabox( $post )
-    {
-        //add post id field here
+    {        
         ?>
-            <div id="quizr-admin-answer-container"></div>
+            <div id="quizr-admin-answer-container" data-post-id="<?php echo esc_html( $post->ID ); ?>">
+            </div>
         <?php
     }
 

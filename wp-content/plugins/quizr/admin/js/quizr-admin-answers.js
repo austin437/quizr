@@ -1,17 +1,13 @@
 class Quizr_Admin_Answers {
 
     constructor( element, html, render) {
-        /**
-         * TODO - get post_id from params
-         *      - Add quizr_script_vars.nonce
-         */
         this.element = element;
         this.html = html;
         this.render = render;      
     }
 
-    init(){     
-        console.log(this.element);
+    init(){            
+        this.question_id = this.element.dataset.postId;
         this.answers = [];
         this.get_data();
         this.render_template();
@@ -53,7 +49,7 @@ class Quizr_Admin_Answers {
 
         async function get_answers() {
    
-            const url = `/wp-json/quizr/v1/answer?question_id=18`;
+            const url = `/wp-json/quizr/v1/answer?question_id=${self.question_id}`;
 
             try {
                 let r = await fetch(url, {
