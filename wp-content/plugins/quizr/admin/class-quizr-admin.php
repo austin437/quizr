@@ -102,6 +102,10 @@ class Quizr_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+        wp_localize_script( 'wp-api', 'wpApiSettings', array(
+            'root' => esc_url_raw( rest_url() ),
+            'nonce' => wp_create_nonce( 'wp_rest' )
+        ) );
 
         wp_enqueue_script( $this->plugin_name . '_quizr_admin_answers', plugin_dir_url( __FILE__ ) . 'js/quizr-admin-answers.js', array( ), $this->version, false );
         wp_enqueue_script( $this->plugin_name . '_quizr_admin', plugin_dir_url( __FILE__ ) . 'js/quizr-admin.js', array( 'wp-api' ), $this->version, false );

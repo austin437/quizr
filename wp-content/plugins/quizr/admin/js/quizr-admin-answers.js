@@ -1,75 +1,27 @@
 class Quizr_Admin_Answers {
 
     constructor( element, html, render) {
-
-      
-
         this.element = element;
         this.html = html;
-        this.render = render;      
-
-        
+        this.render = render;   
     }
 
     init(){            
-            // const CustomPost = wp.api.models.Post.extend({
-            //     urlRoot: wpApiSettings.root + "/wp-json/quizr/v1/answer",
-            //     defaults: {
-            //         type: "answer",
-            //     },
-            // });
-
-            // console.log(CustomPost);
-
-            // const someCustomPost = new CustomPost();
-            // someCustomPost.fetch().then((posts) => {
-            //    console.log(posts);
-            // });
-
-          const postTemplate = wp.template("quizr-question-answers-meta");
-
-          const myData = {
-              title: "This is awesome!",
-              description: "This is description",
-          };
-
-         
-          this.element.innerHTML = postTemplate(myData);
-
         this.question_id = this.element.dataset.postId;
         this.answers = [];
-       // this.get_data();
-        //this.render_template();
+        this.get_data();
+        this.render_template();
     }
 
     render_template(){
-        const template = this.html`
-            <div>
-               <div>
-                   <table class="widefat">
-                       <thead>
-                           <tr>
-                               <td width="90%">Answer</td>
-                               <td>Correct</td>                              
-                           </tr>
-                       </thead>
-                       <tbody>
-                           ${this.answers.map(
-                               (item) => html`
-                                   <tr>
-                                       <td></td>
-                                       <td></td>
-                                       <td></td>                                     
-                                   </tr>
-                               `
-                           )}
-                       </tbody>
-                   </table>
-               </div>
-           </div>
-        `;
+        const postTemplate = wp.template("quizr-question-answers-meta");
 
-      //  this.render( template, this.element);
+        const myData = {
+            title: "This is awesome!",
+            description: "This is description",
+        };
+
+        this.element.innerHTML = postTemplate(myData);
     }
 
     get_data(){
@@ -78,7 +30,7 @@ class Quizr_Admin_Answers {
 
         async function get_answers() {
    
-            const url = `/wp-json/quizr/v1/answer?question_id=${self.question_id}`;
+            const url = wpApiSettings.root + `quizr/v1/answer?question_id=${self.question_id}`;
 
             try {
                 let r = await fetch(url, {
@@ -86,7 +38,7 @@ class Quizr_Admin_Answers {
                     headers: {
                         contentType: false,
                         processData: false,
-                        "X-WP-Nonce": quizr_script_vars.nonce,
+                        "X-WP-Nonce": wpApiSettings.nonce,
                     },
                 });
                 return r.json();
