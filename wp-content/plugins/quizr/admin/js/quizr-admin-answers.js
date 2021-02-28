@@ -1,16 +1,45 @@
 class Quizr_Admin_Answers {
 
     constructor( element, html, render) {
+
+      
+
         this.element = element;
         this.html = html;
         this.render = render;      
+
+        
     }
 
     init(){            
+            // const CustomPost = wp.api.models.Post.extend({
+            //     urlRoot: wpApiSettings.root + "/wp-json/quizr/v1/answer",
+            //     defaults: {
+            //         type: "answer",
+            //     },
+            // });
+
+            // console.log(CustomPost);
+
+            // const someCustomPost = new CustomPost();
+            // someCustomPost.fetch().then((posts) => {
+            //    console.log(posts);
+            // });
+
+          const postTemplate = wp.template("quizr-question-answers-meta");
+
+          const myData = {
+              title: "This is awesome!",
+              description: "This is description",
+          };
+
+         
+          this.element.innerHTML = postTemplate(myData);
+
         this.question_id = this.element.dataset.postId;
         this.answers = [];
-        this.get_data();
-        this.render_template();
+       // this.get_data();
+        //this.render_template();
     }
 
     render_template(){
@@ -40,7 +69,7 @@ class Quizr_Admin_Answers {
            </div>
         `;
 
-        this.render( template, this.element);
+      //  this.render( template, this.element);
     }
 
     get_data(){

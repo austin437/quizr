@@ -97,6 +97,12 @@
         - Creating custom tables
         - DB Versioning
 - WPAPI
+    - https://codeytek.com/using-underscore-template-in-wordpress/
+    - https://developer.wordpress.org/rest-api/using-the-rest-api/backbone-javascript-client/#working-with-revisions
+    - https://codex.wordpress.org/Javascript_Reference/wp.template
+    - https://lkwdwrd.com/wp-template-js-templates-wp
+    - https://codex.wordpress.org/Javascript_Reference/wp.template
+    - https://themehybrid.com/weblog/intro-to-underscore-js-templates-in-wordpress
     - Best Practices:
         - await / async
         - nonces

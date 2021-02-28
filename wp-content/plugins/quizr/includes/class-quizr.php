@@ -121,6 +121,7 @@ class Quizr {
          */
 
          require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-migrate.php';
+         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/database/class-quizr-answer-table.php';
 
         /**
 		 * CPTs
@@ -134,9 +135,10 @@ class Quizr {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/apis/class-quizr-rest-api.php';
 
         /**
-         * Database
+         * Templates
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/database/class-quizr-answer-table.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-load-html-templates.php';
+        
 
         /**
          * CONTROLLERS
@@ -197,7 +199,11 @@ class Quizr {
         $this->loader->add_action( 'save_post', $quiz_question, 'save_custom_meta_data' );
 
         $quizr_rest_api = new Quizr_Rest_Api();
-        $this->loader->add_action( 'rest_api_init', $quizr_rest_api, 'rest_api_init' );
+        $this->loader->add_action( 'rest_api_init', $quizr_rest_api, 'rest_api_init' );      
+
+        $quizr_load_html_templates = new Quizr_Load_Html_Templates();
+        $this->loader->add_action( 'admin_footer', $quizr_load_html_templates, 'load' );      
+        
 	}
 
 	/**
