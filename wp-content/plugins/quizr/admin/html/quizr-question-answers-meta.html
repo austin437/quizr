@@ -1,6 +1,20 @@
-<script type="text/html" id="tmpl-quizr-question-answers-meta">		
-    <div class="details">
-        <h3>{{{data.title}}}</h3>
-        <p>{{{data.description}}}</p>
-    </div>		
+<script type="text/html" id="tmpl-quizr-question-answers-meta">
+    <table class="widefat">
+        <thead>
+            <tr>
+                <th class="row-title" width="90%">Answer</th>
+                <th>Correct</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <# _.each( data.answers, function(answer) { #> 
+            <tr>
+                <td class="row-title"><label for="tablecell">{{{answer.answer}}}</label></td>
+                <td>{{answer.is_correct}}</td>
+                <td><input class="button-primary quizr-question-answers-meta__update" type="button" name="Example" value="Save" /></td>
+            </tr>
+            <# }); #>
+        </tbody>
+    </table>
 </script>

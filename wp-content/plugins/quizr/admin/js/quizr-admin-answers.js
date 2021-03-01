@@ -10,18 +10,19 @@ class Quizr_Admin_Answers {
         this.question_id = this.element.dataset.postId;
         this.answers = [];
         this.get_data();
-        this.render_template();
     }
 
     render_template(){
         const postTemplate = wp.template("quizr-question-answers-meta");
 
-        const myData = {
-            title: "This is awesome!",
-            description: "This is description",
+        const data = {
+            answers: this.answers
         };
 
-        this.element.innerHTML = postTemplate(myData);
+        this.element.innerHTML = postTemplate( data );
+
+        this.add_event_listeners();
+        
     }
 
     get_data(){
@@ -50,10 +51,26 @@ class Quizr_Admin_Answers {
         get_answers()
             .then((response) => {
                 console.log( response );
+                this.answers = response;
+                this.render_template();
             })
             .finally(() => {
              
             });
 
+    }
+
+    add_event_listeners(){
+
+        const self = this;
+        
+        const els = this.element.getElementsByClassName("quizr-question-answers-meta__update");
+
+        for (let i = 0; i < els.length; i++) {
+            els[i].addEventListener("click", function (ev) {
+                self.answers.push({ id: "4", answer: "London", is_correct: "0" });
+                self.render_template();
+            });
+        }
     }
 }
