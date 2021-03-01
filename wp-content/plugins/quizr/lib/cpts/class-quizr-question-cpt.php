@@ -49,8 +49,58 @@ class Quizr_Question_Cpt {
 
     public function render_answers_metabox( $post )
     {        
+        $quizr_answers_table = new Quizr_Answers_Table();
+        $answers = $quizr_answers_table->index( $post->ID );
+
         ?>
             <div id="quizr-admin-answer-container" data-post-id="<?php echo esc_html( $post->ID ); ?>">
+                <form>
+                    <table class="widefat">
+                        <thead>
+                            <tr>
+                           
+                                <th width="10%" class="row-title" >ID</th>
+                                <th >Description</th>
+                                <th width="10%">Correct</th>
+                                <th width="15%">Action</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach( $answers as $index => $value ) { ?>
+                            <tr>
+                                <td class="row-title">
+                                    <?php echo $value->id; ?>
+                                </td>
+                                <td>
+                                    <input name="quizr_question_answer_description[<?php echo $index; ?>]" class="widefat" value="<?php echo $value->description; ?>" type="text" readonly/>
+                                </td>
+                                <td>
+                                    <input 
+                                        type="checkbox" 
+                                        name="quizr_question_answer_is_correct[<?php echo $index; ?>]"
+                                        value="" 
+                                        readonly
+                                        <?php checked( (int) $value->is_correct === 1 ); ?> 
+                                    />
+                                </td>
+                                <td class="column-columnname">
+                                    <div >
+                                        <span><a class="quizr_answer_edit"  href="#">Edit</a> |</span>
+                                        <span><a class="quizr_answer_delete" data-index="<?php echo $index; ?>" href="#">Delete</a></span>
+                                    </div>
+                                </td>
+                            </tr>                         
+                            <?php } ?>
+                            <tr>
+                                <td>(new)</td>
+                                 <td ><input name="quizr_question_answer_description[]" class="widefat" value="" type="text"/></td>
+                                 <td><input type="checkbox" name="quizr_question_answer_is_correct[]" value=""  /></td>
+                                <td class="column-columnname"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
             </div>
         <?php
     }
@@ -65,6 +115,8 @@ class Quizr_Question_Cpt {
         if ( $post->post_type !== static::CPT_NAME ) return;
 
         $post_data = sanitize_post( $_POST );      
+
+        var_dump( $post_data ); die();
 
         check_admin_referer( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $id );
 
