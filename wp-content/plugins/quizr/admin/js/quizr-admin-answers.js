@@ -59,12 +59,13 @@ class Quizr_Admin_Answers {
             });
 
     }
+    
 
     add_event_listeners(){
 
         const self = this;
         
-        const els = this.element.getElementsByClassName("quizr-question-answers-meta__update");
+        const els = this.element.getElementsByClassName("quizr-update");
 
         for (let i = 0; i < els.length; i++) {
             els[i].addEventListener("click", function (ev) {
