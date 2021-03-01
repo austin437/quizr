@@ -21,7 +21,7 @@ class Quizr_Migrate
         $sql = "CREATE TABLE IF NOT EXISTS $table_name (
             id mediumint(9) NOT NULL AUTO_INCREMENT,
             quizr_question_id INT NOT NULL,
-            answer tinytext NOT NULL,
+            description tinytext NOT NULL,
             is_correct TINYINT(1) NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
             updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
