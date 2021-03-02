@@ -37,22 +37,11 @@ class Quizr_Question_Cpt {
 
         $question_sets = get_posts( array( 'post_type' => 'quizr_question_set' ) );
 
-        wp_nonce_field( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $post->ID );
-
         $meta_value = get_post_meta( $post->ID, 'quizr_question_set_id', true );
 
-        ?>
-            <select id="quizr_question_set_id" name="quizr_question_set_id" class="widefat">
-                <option value="" ></option>
-                <?php foreach( $question_sets as $qs ) { ?>
-                    <option 
-                        value="<?php echo esc_html($qs->ID); ?>" 
-                        <?php echo (int) $qs->ID === (int) $meta_value ? 'selected="selected"' : ''; ?> 
-                    ><?php echo esc_html($qs->post_title); ?></option>
-                <?php } ?>
-            </select>  
-        <?php
-    }
+        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-question-set-meta-box.php';       
+    }   
+
 
     public function render_answers_metabox( $post )
     {        
@@ -93,12 +82,6 @@ class Quizr_Question_Cpt {
                 $this->quizr_Answers_Table->insert( $values_to_be_inserted );
             }          
         }
-
-        var_dump( $post_data ); die();
-
-        /**
-         * Show alert on template (if exists )
-         */
 
     }
 
