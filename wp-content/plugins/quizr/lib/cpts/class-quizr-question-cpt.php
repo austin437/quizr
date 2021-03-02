@@ -4,6 +4,13 @@ class Quizr_Question_Cpt {
 
     const CPT_NAME = 'quizr_question';
 
+    private $quizr_Answers_Table;
+
+    public function __construct( Quizr_Answers_Table $quizr_Answers_Table)
+    {
+        $this->quizr_Answers_Table = $quizr_Answers_Table;
+    }
+
     public function add_meta_boxes()
     {
         add_meta_box(
@@ -113,11 +120,28 @@ class Quizr_Question_Cpt {
 
         $post_data = sanitize_post( $_POST );      
 
-        var_dump( $post_data ); die();
-
         check_admin_referer( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $id );
 
         if( array_key_exists('quizr_question_set_id', $post_data) ) update_post_meta($id, 'quizr_question_set_id', $post_data['quizr_question_set_id']);        
+
+        if( array_key_exists('quizr_question_answer', $post_data) && is_array($post_data['quizr_question_answer'])){
+            
+            foreach( $post_data['quizr_question_answer'] as $answer ){
+                $values_to_be_inserted = array(
+                    'quizr_question_id' => $id,
+                    'description' => $answer['description'],
+                    'is_correct' => array_key_exists( 'is_correct', $answer ) ? '1' : '0'
+                );
+
+                $this->quizr_Answers_Table->insert( $values_to_be_inserted );
+            }          
+        }
+
+        var_dump( $post_data ); die();
+
+        /**
+         * Add answers...
+         */
 
     }
 

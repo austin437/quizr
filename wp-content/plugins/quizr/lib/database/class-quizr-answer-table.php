@@ -32,21 +32,14 @@ class Quizr_Answers_Table
         );
     }
 
-    public function insert()
+    public function insert( $values )
     {
-        // global $wpdb;
+        global $wpdb;
 
-        // $table_name = $wpdb->prefix . 'liveshoutbox';
-
-        // $wpdb->insert( 
-        //     $table_name, 
-        //     array( 
-        //         'time' => current_time( 'mysql' ), 
-        //         'name' => $welcome_name, 
-        //         'text' => $welcome_text, 
-        //     ) 
-        // );
-
+        $wpdb->insert( 
+            $this->table_name, 
+            $values
+        );
     }
 
 
