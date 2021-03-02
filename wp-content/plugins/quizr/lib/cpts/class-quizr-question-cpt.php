@@ -34,9 +34,7 @@ class Quizr_Question_Cpt {
 
     public function render_question_set_metabox( $post ) 
     {
-
         $question_sets = get_posts( array( 'post_type' => 'quizr_question_set' ) );
-
         $meta_value = get_post_meta( $post->ID, 'quizr_question_set_id', true );
 
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-question-set-meta-box.php';       
@@ -73,13 +71,15 @@ class Quizr_Question_Cpt {
             $this->quizr_Answers_Table->delete( $where, $where_format );
             
             foreach( $post_data['quizr_question_answer'] as $answer ){
-                $values_to_be_inserted = array(
-                    'quizr_question_id' => $id,
-                    'description' => $answer['description'],
-                    'is_correct' => array_key_exists( 'is_correct', $answer ) ? '1' : '0'
-                );
+                if( strlen( $answer['description'] ) > 0 ){
+                    $values_to_be_inserted = array(
+                        'quizr_question_id' => $id,
+                        'description' => $answer['description'],
+                        'is_correct' => array_key_exists( 'is_correct', $answer ) ? '1' : '0'
+                    );
 
-                $this->quizr_Answers_Table->insert( $values_to_be_inserted );
+                    $this->quizr_Answers_Table->insert( $values_to_be_inserted );
+                }                
             }          
         }
 

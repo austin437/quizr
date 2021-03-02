@@ -10,9 +10,9 @@
         <table class="widefat">
             <thead>
                 <tr>
-                    <th >Description</th>
-                    <th width="10%">Correct</th>
-                    <th width="15%">Action</th>                                
+                    <th class="row-title">Description</th>
+                    <th class="manage-column column-columnname">Correct</th>
+                    <th class="manage-column column-columnname" width="10%">Action</th>                                
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                         <input name="quizr_question_answer[<?php echo $index; ?>][id]" type="hidden" value="<?php echo $value->id; ?>" />
                         <input name="quizr_question_answer[<?php echo $index; ?>][description]" class="widefat" value="<?php echo $value->description; ?>" type="text" readonly/>
                     </td>
-                    <td>
+                    <th class="check-column">
                         <input 
                             type="checkbox" 
                             name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
@@ -30,7 +30,7 @@
                             readonly
                             <?php checked( (int) $value->is_correct === 1 ); ?> 
                         />
-                    </td>
+                    </th>
                     <td class="column-columnname">
                         <div >
                             <span><a class="quizr_answer_edit"  href="#">Edit</a> |</span>
@@ -44,7 +44,7 @@
                         <input name="quizr_question_answer[<?php echo $index + 1; ?>][id]" type="hidden" value="-1" />
                         <input name="quizr_question_answer[<?php echo $index + 1; ?>][description]" class="widefat" value="" type="text"/>
                     </td>
-                    <td><input type="checkbox" name="quizr_question_answer[<?php echo $index + 1; ?>][is_correct]" value=""  /></td>
+                    <th class="check-column" ><input type="checkbox" name="quizr_question_answer[<?php echo $index + 1; ?>][is_correct]" value=""  /></th>
                     <td class="column-columnname"></td>
                 </tr>
             </tbody>
