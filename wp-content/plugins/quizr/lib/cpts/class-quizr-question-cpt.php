@@ -67,13 +67,13 @@ class Quizr_Question_Cpt {
                             <?php foreach( $answers as $index => $value ) { ?>
                             <tr>
                                 <td>
-                                    <input name="quizr_question_answer_id[<?php echo $index; ?>]" type="hidden" value="<?php echo $value->id; ?>" />
-                                    <input name="quizr_question_answer_description[<?php echo $index; ?>]" class="widefat" value="<?php echo $value->description; ?>" type="text" readonly/>
+                                    <input name="quizr_question_answer[<?php echo $index; ?>][id]" type="hidden" value="<?php echo $value->id; ?>" />
+                                    <input name="quizr_question_answer[<?php echo $index; ?>][description]" class="widefat" value="<?php echo $value->description; ?>" type="text" readonly/>
                                 </td>
                                 <td>
                                     <input 
                                         type="checkbox" 
-                                        name="quizr_question_answer_is_correct[<?php echo $index; ?>]"
+                                        name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
                                         value="" 
                                         readonly
                                         <?php checked( (int) $value->is_correct === 1 ); ?> 
@@ -89,10 +89,10 @@ class Quizr_Question_Cpt {
                             <?php } ?>
                             <tr>        
                                 <td >
-                                    <input name="quizr_question_answer_id[<?php echo $index + 1; ?>]" type="hidden" value="-1" />
-                                    <input name="quizr_question_answer_description[]" class="widefat" value="" type="text"/>
+                                    <input name="quizr_question_answer[<?php echo $index + 1; ?>][id]" type="hidden" value="-1" />
+                                    <input name="quizr_question_answer[<?php echo $index + 1; ?>][description]" class="widefat" value="" type="text"/>
                                 </td>
-                                <td><input type="checkbox" name="quizr_question_answer_is_correct[<?php echo $index + 1; ?>]" value=""  /></td>
+                                <td><input type="checkbox" name="quizr_question_answer[<?php echo $index + 1; ?>][is_correct]" value=""  /></td>
                                 <td class="column-columnname"></td>
                             </tr>
                         </tbody>
