@@ -59,6 +59,10 @@ class Quizr_Question_Cpt {
         $quizr_answers_table = new Quizr_Answers_Table();
         $answers = $quizr_answers_table->index( $post->ID );
 
+        /**
+         * TODO - move to partial template and include/require
+         */
+
         ?>
             <div id="quizr-admin-answer-container" data-post-id="<?php echo esc_html( $post->ID ); ?>">
                 <form>
@@ -125,6 +129,10 @@ class Quizr_Question_Cpt {
         if( array_key_exists('quizr_question_set_id', $post_data) ) update_post_meta($id, 'quizr_question_set_id', $post_data['quizr_question_set_id']);        
 
         if( array_key_exists('quizr_question_answer', $post_data) && is_array($post_data['quizr_question_answer'])){
+
+            $where = array( 'quizr_question_id' => $id );
+            $where_format = array( '%d' );
+            $this->quizr_Answers_Table->delete( $where, $where_format );
             
             foreach( $post_data['quizr_question_answer'] as $answer ){
                 $values_to_be_inserted = array(
@@ -140,7 +148,7 @@ class Quizr_Question_Cpt {
         var_dump( $post_data ); die();
 
         /**
-         * Add answers...
+         * Show alert on template (if exists )
          */
 
     }

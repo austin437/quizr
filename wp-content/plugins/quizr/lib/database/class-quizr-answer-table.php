@@ -42,6 +42,17 @@ class Quizr_Answers_Table
         );
     }
 
+    public function delete( $where, $where_format )
+    {
+        global $wpdb;
+
+        $wpdb->delete( 
+            $this->table_name, 
+            $where,
+            $where_format
+        );
+    }
+
 
 
 }
