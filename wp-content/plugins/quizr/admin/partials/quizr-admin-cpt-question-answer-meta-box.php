@@ -2,10 +2,11 @@
 
 /**
  * @param array $answers
+ * @param int $post_id
  */
 
 ?>
-<div id="quizr-admin-answer-container" data-post-id="<?php echo esc_html( $post->ID ); ?>">
+<div class="quizr-admin-answer-container" data-post-id="<?php echo esc_html( $post_id ); ?>">
     <form>
         <table class="widefat">
             <thead>

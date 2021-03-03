@@ -45,6 +45,7 @@ class Quizr_Question_Cpt {
     {        
         $quizr_answers_table = new Quizr_Answers_Table();
         $answers = $quizr_answers_table->index( $post->ID );
+        $post_id = $post->ID;
 
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-answer-meta-box.php';        
     }
