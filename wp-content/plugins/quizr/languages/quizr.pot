@@ -1,0 +1,39 @@
+# Copyright (C) 2021 Robert Austin
+# This file is distributed under the same license as the Quizr plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Quizr 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/quizr\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-03-03T11:38:50+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: quizr\n"
+
+#. Plugin Name of the plugin
+msgid "Quizr"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://quizr.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "This is a short description of what the plugin does. It's displayed in the WordPress admin area."
+msgstr ""
+
+#. Author of the plugin
+msgid "Robert Austin"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://robert.austin.com"
+msgstr ""
+
+#: admin/partials/quizr-admin-cpt-question-answer-meta-box.php:14
+msgid "Description"
+msgstr ""
