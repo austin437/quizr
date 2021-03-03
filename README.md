@@ -110,7 +110,12 @@
         - await / async
         - nonces
 
+### Translations
 
+***
+
+- https://wplang.org/translate-theme-plugin/#:~:text=POT%20file%20is%20put%20at,in%20the%20plugin%20languages%20folder.
+- https://www.gnu.org/software/gettext/
 
 ### Quizr continued
 

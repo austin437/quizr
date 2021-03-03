@@ -11,7 +11,7 @@
         <table class="widefat">
             <thead>
                 <tr>
-                    <th class="row-title">Description</th>
+                    <th class="row-title"> <?php echo __( 'Description', 'quizr' ); ?></th>
                     <th class="manage-column column-columnname">Correct</th>
                     <th class="manage-column column-columnname" width="10%">Action</th>                                
                 </tr>
