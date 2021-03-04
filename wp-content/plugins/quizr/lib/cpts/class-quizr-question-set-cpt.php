@@ -17,18 +17,9 @@ class Quizr_Question_Set_Cpt {
     }
 
     public function render_metabox( $post ) {
-        wp_nonce_field( 'custom_nonce_action', 'custom_nonce' );
-        ?>
-            <div style="display:flex; justify-content: space-between;">
-                <div id="target">Loading...</div>
-                <script id="template" type="x-tmpl-mustache">
-                    Hello {{ name }}!
-                </script>
+        
 
-            </div>
-            
-            
-        <?php
+        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-set-question-meta-box.php';       
     }
 
 
