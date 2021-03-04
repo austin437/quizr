@@ -34,6 +34,7 @@ class Quizr_Question_Cpt {
 
     public function render_question_set_metabox( $post ) 
     {
+        $post_id = $post->ID;
         $question_sets = get_posts( array( 'post_type' => 'quizr_question_set' ) );
         $meta_value = get_post_meta( $post->ID, 'quizr_question_set_id', true );
 
@@ -42,10 +43,10 @@ class Quizr_Question_Cpt {
 
 
     public function render_answers_metabox( $post )
-    {        
+    {   
+        $post_id = $post->ID;     
         $quizr_answers_table = new Quizr_Answers_Table();
-        $answers = $quizr_answers_table->index( $post->ID );
-        $post_id = $post->ID;
+        $answers = $quizr_answers_table->index( $post->ID );        
 
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-answer-meta-box.php';        
     }
@@ -64,6 +65,8 @@ class Quizr_Question_Cpt {
         check_admin_referer( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $id );
 
         if( array_key_exists('quizr_question_set_id', $post_data) ) update_post_meta($id, 'quizr_question_set_id', $post_data['quizr_question_set_id']);        
+
+        check_admin_referer( 'quizr_question_answer_nonce', 'quizr_question_answer_nonce_' . $id );
 
         if( array_key_exists('quizr_question_answer', $post_data) && is_array($post_data['quizr_question_answer'])){
 

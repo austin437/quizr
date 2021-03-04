@@ -8,16 +8,25 @@ class Quizr_Question_Set_Cpt {
     {
         add_meta_box(
             'quizr-questions',
-            __( 'Questions', 'textdomain' ),
-            array( $this, 'render_metabox' ),
+            __( 'Questions', 'quizr' ),
+            array( $this, 'render_questions_metabox' ),
             static::CPT_NAME,
             'advanced',
             'default'
         );
     }
 
-    public function render_metabox( $post ) {
+    public function render_questions_metabox( $post ) {
         
+        $post_id = $post->ID;
+
+        $questions = get_posts( 
+            array( 
+                'post_type' => 'quizr_question',
+                'meta_key' => 'quizr_question_set_id',
+                'meta_value' => (int) $post->ID,
+            ) 
+        );
 
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-set-question-meta-box.php';       
     }

@@ -5,7 +5,7 @@
  * @param int $post_id
  */
 
- wp_nonce_field( 'quizr_question_answer_nonce', 'quizr_question_answer_nonce_' . $post->ID );
+ wp_nonce_field( 'quizr_question_answer_nonce', 'quizr_question_answer_nonce_' . $post_id );
 
 ?>
 <div class="quizr-admin-answer-container" data-post-id="<?php echo esc_html( $post_id ); ?>">
@@ -35,9 +35,9 @@
                         />
                     </th>
                     <td class="column-columnname">
-                        <div >
-                            <span><a class="quizr_answer_edit"  href="#">Edit</a> |</span>
-                            <span><a class="quizr_answer_delete" data-index="<?php echo $index; ?>" href="#">Delete</a></span>
+                        <div class="quizr-button-group">
+                            <a class="button button-secondary quizr_answer_edit" href="#" class="button button-secondary">Edit</a>
+                            <a class="quizr_answer_delete quizr-button-delete" data-index="<?php echo $index; ?>" href="#">Delete</a>
                         </div>
                     </td>
                 </tr>                         

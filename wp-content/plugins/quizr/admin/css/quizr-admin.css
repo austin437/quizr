@@ -1,4 +1,26 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+.quizr-select-edit{
+    display: flex;
+}
+
+.quizr-select-edit select {
+    margin-right: 3px;
+}
+
+.quizr-button-group{
+    display:flex;
+}
+
+.quizr-button-group :first-child{
+    margin-right: 3px;
+}
+
+.quizr-button-group a {
+    width: 60px;
+    text-align: center;
+}
+
+.quizr-button-group .quizr-button-delete {
+    color: #a00;
+    text-decoration: underline;
+    margin: auto;
+}
