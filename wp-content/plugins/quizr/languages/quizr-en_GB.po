@@ -4,25 +4,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quizr 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/quizr\n"
-"Language-Team: English\n"
+"Language-Team: English (UK)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-03-03T11:38:50+01:00\n"
-"PO-Revision-Date: 2021-03-04 09:25+0000\n"
+"PO-Revision-Date: 2021-03-04 09:58+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: quizr\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: en\n"
+"Language: en_GB\n"
 "X-Loco-Version: 2.5.1; wp-5.6.1"
+
+#: admin/partials/quizr-admin-cpt-question-answer-meta-box.php:16
+msgid "Action"
+msgstr ""
+
+#: admin/partials/quizr-admin-cpt-question-answer-meta-box.php:15
+msgid "Correct"
+msgstr "Is this correct?"
+
+#: admin/partials/quizr-admin-cpt-question-answer-meta-box.php:14
+msgid "Description"
+msgstr "Description(s)"
+
+#. Plugin URI of the plugin
+msgid "https://quizr.com"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://robert.austin.com"
+msgstr ""
 
 #. Plugin Name of the plugin
 msgid "Quizr"
 msgstr ""
 
-#. Plugin URI of the plugin
-msgid "https://quizr.com"
+#. Author of the plugin
+msgid "Robert Austin"
 msgstr ""
 
 #. Description of the plugin
@@ -30,15 +50,3 @@ msgid ""
 "This is a short description of what the plugin does. It's displayed in the "
 "WordPress admin area."
 msgstr ""
-
-#. Author of the plugin
-msgid "Robert Austin"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://robert.austin.com"
-msgstr ""
-
-#: admin/partials/quizr-admin-cpt-question-answer-meta-box.php:14
-msgid "Description"
-msgstr "Big Description"

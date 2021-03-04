@@ -12,8 +12,8 @@
             <thead>
                 <tr>
                     <th class="row-title"> <?php echo __( 'Description', 'quizr' ); ?></th>
-                    <th class="manage-column column-columnname">Correct</th>
-                    <th class="manage-column column-columnname" width="10%">Action</th>                                
+                    <th class="manage-column column-columnname"><?php echo __( 'Correct', 'quizr' ); ?></th>
+                    <th class="manage-column column-columnname" width="10%"><?php echo __( 'Action', 'quizr' ); ?></th>                                
                 </tr>
             </thead>
             <tbody>
