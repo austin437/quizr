@@ -92,6 +92,8 @@
 - Tags
 - Hooks/filters
 - Settings Api
+    - Create settings page:
+        - Setting 1: Show Questions in sidebar
 - Adding menu pages
 - Adding custom pages
 - Custom Tables

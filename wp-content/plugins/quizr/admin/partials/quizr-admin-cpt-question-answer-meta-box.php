@@ -42,10 +42,10 @@
                 <?php } ?>
                 <tr>        
                     <td >
-                        <input name="quizr_question_answer[<?php echo $index + 1; ?>][id]" type="hidden" value="-1" />
-                        <input name="quizr_question_answer[<?php echo $index + 1; ?>][description]" class="widefat" value="" type="text"/>
+                        <input name="quizr_question_answer[<?php echo count( $answers ) + 1; ?>][id]" type="hidden" value="-1" />
+                        <input name="quizr_question_answer[<?php echo count( $answers ) + 1; ?>][description]" class="widefat" value="" type="text"/>
                     </td>
-                    <th class="check-column" ><input type="checkbox" name="quizr_question_answer[<?php echo $index + 1; ?>][is_correct]" value=""  /></th>
+                    <th class="check-column" ><input type="checkbox" name="quizr_question_answer[<?php echo count( $answers ) + 1; ?>][is_correct]" value=""  /></th>
                     <td class="column-columnname"></td>
                 </tr>
             </tbody>
