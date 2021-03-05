@@ -133,6 +133,7 @@ class Quizr {
          * APIS
          */
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/apis/class-quizr-rest-api.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/apis/class-quizr-settings-api.php';
 
         /**
          * Templates
@@ -188,6 +189,11 @@ class Quizr {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
         $this->loader->add_action( 'script_loader_tag', $plugin_admin, 'add_tag_to_script', 10, 3 );
+
+        $settings_api = new Quizr_Settings_Api();
+
+        $this->loader->add_action( 'admin_menu', $settings_api, 'register_options_page' );
+        $this->loader->add_action( 'admin_init', $settings_api, 'register_settings' );
 
         $quiz_question_set = new Quizr_Question_Set_Cpt();
         $this->loader->add_action( 'init', $quiz_question_set, 'register_custom_post_type_quizr_question_set' );
