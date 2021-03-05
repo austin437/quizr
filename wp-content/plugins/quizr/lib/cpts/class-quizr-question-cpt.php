@@ -21,8 +21,9 @@ class Quizr_Question_Cpt {
                     'name'          => __('Questions', 'textdomain'),
                     'singular_name' => __('Question', 'textdomain'),
                 ),
-                    'public'      => (bool) get_option('quizr_show_cpt_question_in_menu', QUIZR_SHOW_QUESTIONS_IN_MENU_DEFAULT),
-                    'has_archive' => true,
+                'public'      => true,
+                'has_archive' => true,
+                'show_in_menu' => (bool) get_option('quizr_show_cpt_question_in_menu', QUIZR_SHOW_QUESTIONS_IN_MENU_DEFAULT),
             )
         );
     }
@@ -119,6 +120,7 @@ class Quizr_Question_Cpt {
 
     public function load_query_params()
     {
+        
         if ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'quizr_question' ) {
             if( isset( $_GET['question_set_id'] ) ) $this->meta_value = (int) $_GET['question_set_id'];          
         }        

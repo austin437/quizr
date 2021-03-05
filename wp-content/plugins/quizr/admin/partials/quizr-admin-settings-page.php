@@ -4,7 +4,6 @@
     <form method="post" action="options.php">
         <?php settings_fields( 'quizr_options_group' ); ?>
         <?php do_settings_sections( 'quizr_options_group' ); ?>
-        <h3>Conquer Maths</h3>
         <table class="form-table">
             <tr valign="top">
                 <th scope="row">Max Answers Per Question</th>
