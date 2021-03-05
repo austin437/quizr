@@ -1,0 +1,30 @@
+/* quizr-select-group-flex */
+
+.quizr-select-group-flex{
+    display: flex;
+}
+
+.quizr-select-group-flex select {
+    margin-right: 3px;
+}
+
+/* quizr-button-group-flex */
+
+.quizr-button-group-flex{
+    display:flex;
+}
+
+.quizr-button-group-flex :first-child{
+    margin-right: 3px;
+}
+
+.quizr-button-group-flex a {
+    width: 60px;
+    text-align: center;
+}
+
+.quizr-button-group-flex .quizr-button-group-flex--quizr-button-delete {
+    color: #a00;
+    text-decoration: underline;
+    margin: auto;
+}
