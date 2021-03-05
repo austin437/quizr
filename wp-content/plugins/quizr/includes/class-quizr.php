@@ -197,6 +197,7 @@ class Quizr {
         $this->loader->add_action( 'init', $quiz_question, 'register_custom_post_type_quizr_question' );
         $this->loader->add_action( 'add_meta_boxes', $quiz_question, 'add_meta_boxes' );
         $this->loader->add_action( 'save_post', $quiz_question, 'save_custom_meta_data' );
+        $this->loader->add_action( 'load-post-new.php', $quiz_question, 'load_query_params' );
 
         $quizr_rest_api = new Quizr_Rest_Api();
         $this->loader->add_action( 'rest_api_init', $quizr_rest_api, 'rest_api_init' );      

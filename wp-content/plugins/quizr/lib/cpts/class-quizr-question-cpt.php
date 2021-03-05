@@ -5,10 +5,12 @@ class Quizr_Question_Cpt {
     const CPT_NAME = 'quizr_question';
 
     private $quizr_Answers_Table;
+    private $meta_value;
 
     public function __construct( Quizr_Answers_Table $quizr_Answers_Table)
     {
         $this->quizr_Answers_Table = $quizr_Answers_Table;
+        $this->meta_value = -1;
     }
 
     public function add_meta_boxes()
@@ -34,9 +36,19 @@ class Quizr_Question_Cpt {
 
     public function render_question_set_metabox( $post ) 
     {
-        $post_id = $post->ID;
+        global $pagenow;
+       
+        $post_id = $post->ID;        
         $question_sets = get_posts( array( 'post_type' => 'quizr_question_set' ) );
-        $meta_value = get_post_meta( $post->ID, 'quizr_question_set_id', true );
+
+        if( $pagenow === 'post-new.php' )
+        {
+            $meta_value = $this->meta_value;
+        }
+        else 
+        {
+            $meta_value = get_post_meta( $post->ID, 'quizr_question_set_id', true );
+        }
 
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-question-set-meta-box.php';       
     }   
@@ -103,4 +115,12 @@ class Quizr_Question_Cpt {
             )
         );
     }
+
+    public function load_query_params()
+    {
+        if ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'quizr_question' ) {
+            if( isset( $_GET['question_set_id'] ) ) $this->meta_value = (int) $_GET['question_set_id'];          
+        }        
+    }
+
 }

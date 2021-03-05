@@ -9,7 +9,7 @@ wp_nonce_field( 'quizr_question_set_question_nonce', 'quizr_question_set_questio
 
 ?>
 <div class="quizr-question-set-question-container" data-post-id="<?php echo esc_html( $post_id ); ?>">
-    <a class="button" href="<?php echo admin_url('post-new.php?post_type=quizr_question'); ?>">Add New</a>
+    <a class="button" href="<?php echo admin_url('post-new.php?post_type=quizr_question') . "&question_set_id=$post_id"; ?>">Add New</a>
     <hr />
     <table class="widefat">
         <thead>
