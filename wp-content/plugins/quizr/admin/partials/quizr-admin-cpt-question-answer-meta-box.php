@@ -2,6 +2,7 @@
 
 /**
  * @param array $answers
+ * @param array $quizr_max_answers_per_question
  * @param int $post_id
  */
 
@@ -42,14 +43,17 @@
                     </td>
                 </tr>                         
                 <?php } ?>
+
+                <?php for( $i=count($answers); $i<$quizr_max_answers_per_question; $i++) { ?>
                 <tr>        
                     <td >
-                        <input name="quizr_question_answer[<?php echo count( $answers ) + 1; ?>][id]" type="hidden" value="-1" />
-                        <input name="quizr_question_answer[<?php echo count( $answers ) + 1; ?>][description]" class="widefat" value="" type="text"/>
+                        <input name="quizr_question_answer[<?php echo $i; ?>][id]" type="hidden" value="-1" />
+                        <input name="quizr_question_answer[<?php echo $i; ?>][description]" class="widefat" value="" type="text"/>
                     </td>
-                    <th class="check-column" ><input type="checkbox" name="quizr_question_answer[<?php echo count( $answers ) + 1; ?>][is_correct]" value=""  /></th>
+                    <th class="check-column" ><input type="checkbox" name="quizr_question_answer[<?php echo $i; ?>][is_correct]" value=""  /></th>
                     <td class="column-columnname"></td>
                 </tr>
+                <?php } ?>
             </tbody>
         </table>
     </form>

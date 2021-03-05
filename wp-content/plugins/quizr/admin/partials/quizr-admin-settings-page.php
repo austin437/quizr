@@ -14,7 +14,7 @@
                         type="text" 
                         id="quizr_max_answers_per_question" 
                         name="quizr_max_answers_per_question" 
-                        value="<?php echo esc_attr( get_option('quizr_max_answers_per_question', 5) ); ?>" 
+                        value="<?php echo esc_attr( get_option('quizr_max_answers_per_question', QUIZR_MAX_ANSWERS_PER_QUESTION_DEFAULT) ); ?>" 
                     />
                 </td>
             </tr>
@@ -27,7 +27,7 @@
                         id="checkbox_example" 
                         name="quizr_show_cpt_question_in_menu" 
                         value="1"
-                        <?php checked( 1, get_option('quizr_show_cpt_question_in_menu', 1), true ); ?>
+                        <?php checked( 1, get_option('quizr_show_cpt_question_in_menu', QUIZR_SHOW_QUESTIONS_IN_MENU_DEFAULT), true ); ?>
                     />
                 </td>
             </tr>

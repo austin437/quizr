@@ -43,6 +43,12 @@ define( 'QUIZR_VERSION', '1.0.1' );
 define( 'QUIZR_DB_VERSION', '1.0.0' );
 
 /**
+ * Option Defaults
+ */
+define( 'QUIZR_SHOW_QUESTIONS_IN_MENU_DEFAULT', '1' );
+define( 'QUIZR_MAX_ANSWERS_PER_QUESTION_DEFAULT', '5' );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-quizr-activator.php
  */

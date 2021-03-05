@@ -13,6 +13,20 @@ class Quizr_Question_Cpt {
         $this->meta_value = -1;
     }
 
+    public function register_custom_post_type_quizr_question()
+    {
+        register_post_type( static::CPT_NAME,
+            array(
+                'labels'      => array(
+                    'name'          => __('Questions', 'textdomain'),
+                    'singular_name' => __('Question', 'textdomain'),
+                ),
+                    'public'      => (bool) get_option('quizr_show_cpt_question_in_menu', QUIZR_SHOW_QUESTIONS_IN_MENU_DEFAULT),
+                    'has_archive' => true,
+            )
+        );
+    }
+
     public function add_meta_boxes()
     {
         add_meta_box(
@@ -58,7 +72,8 @@ class Quizr_Question_Cpt {
     {   
         $post_id = $post->ID;     
         $quizr_answers_table = new Quizr_Answers_Table();
-        $answers = $quizr_answers_table->index( $post->ID );        
+        $answers = $quizr_answers_table->index( $post->ID );     
+        $quizr_max_answers_per_question = get_option('quizr_max_answers_per_question', QUIZR_MAX_ANSWERS_PER_QUESTION_DEFAULT) ;  
 
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-answer-meta-box.php';        
     }
@@ -72,7 +87,7 @@ class Quizr_Question_Cpt {
 
         if ( $post->post_type !== static::CPT_NAME ) return;
 
-        $post_data = sanitize_post( $_POST );      
+        $post_data = sanitize_post( $_POST );   
 
         check_admin_referer( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $id );
 
@@ -101,20 +116,6 @@ class Quizr_Question_Cpt {
 
     }
 
-
-    public function register_custom_post_type_quizr_question()
-    {
-        register_post_type( static::CPT_NAME,
-            array(
-                'labels'      => array(
-                    'name'          => __('Questions', 'textdomain'),
-                    'singular_name' => __('Question', 'textdomain'),
-                ),
-                    'public'      => true,
-                    'has_archive' => true,
-            )
-        );
-    }
 
     public function load_query_params()
     {
