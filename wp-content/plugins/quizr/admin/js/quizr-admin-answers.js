@@ -25,12 +25,12 @@ class Quizr_Admin_Answers {
     
     add_event_listeners(){
 
-        const update_els = this.element.querySelectorAll(".quizr_answer_edit");
+        const update_els = this.element.querySelectorAll(".quizr-answer-edit");
         for( let item of update_els ){
             item.addEventListener("click", this.enable_element_edit);
         }
 
-        const delete_els = this.element.querySelectorAll(".quizr_answer_delete");
+        const delete_els = this.element.querySelectorAll(".quizr-answer-delete");
         for (let item of delete_els) {
             item.addEventListener("click", this.remove_element_from_dom);
         }

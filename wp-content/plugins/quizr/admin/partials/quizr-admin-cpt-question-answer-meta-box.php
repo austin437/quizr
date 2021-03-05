@@ -35,9 +35,9 @@
                         />
                     </th>
                     <td class="column-columnname">
-                        <div class="quizr-button-group">
-                            <a class="button button-secondary quizr_answer_edit" href="#" class="button button-secondary">Edit</a>
-                            <a class="quizr_answer_delete quizr-button-delete" data-index="<?php echo $index; ?>" href="#">Delete</a>
+                        <div class="quizr-button-group-flex">
+                            <a class="button button-secondary quizr-answer-edit" href="#" class="button button-secondary">Edit</a>
+                            <a class="quizr-answer-delete quizr-button-group-flex--quizr-button-delete" data-index="<?php echo $index; ?>" href="#">Delete</a>
                         </div>
                     </td>
                 </tr>                         
