@@ -15,5 +15,13 @@ class Quizr_Settings_Api {
         register_setting( 'quizr_options_group', 'quizr_show_cpt_question_in_menu', array( 'type' => 'string', 'sanitize_callback' => 'sanitize_text_field'  ) );        
     }
 
+    public function add_plugin_page_settings_link( $links ){
+        $links[] = '<a href="' .
+		    admin_url( 'options-general.php?page=quizr-settings' ) .
+		    '">' . __('Settings') . '</a>';
+	    
+        return $links;
+    }
+
 
 }

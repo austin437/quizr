@@ -194,6 +194,8 @@ class Quizr {
 
         $this->loader->add_action( 'admin_menu', $settings_api, 'register_options_page' );
         $this->loader->add_action( 'admin_init', $settings_api, 'register_settings' );
+        $this->loader->add_filter( 'plugin_action_links_quizr/quizr.php', $settings_api, 'add_plugin_page_settings_link' );
+
 
         $quiz_question_set = new Quizr_Question_Set_Cpt();
         $this->loader->add_action( 'init', $quiz_question_set, 'register_custom_post_type_quizr_question_set' );
