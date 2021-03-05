@@ -1,8 +1,8 @@
-.quizr-select-edit{
+.quizr-select-group-flex{
     display: flex;
 }
 
-.quizr-select-edit select {
+.quizr-select-group-flex select {
     margin-right: 3px;
 }
 

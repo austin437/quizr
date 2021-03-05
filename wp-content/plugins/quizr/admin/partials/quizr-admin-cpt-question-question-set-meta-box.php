@@ -9,7 +9,7 @@
 wp_nonce_field( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $post_id );
 
 ?>
-<div class="quizr-select-edit">
+<div class="quizr-select-group-flex">
     <select id="quizr_question_set_id" name="quizr_question_set_id" class="widefat">
         <option value="" ></option>
         <?php foreach( $question_sets as $qs ) { ?>
