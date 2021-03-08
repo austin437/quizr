@@ -7,6 +7,8 @@ class Quizr_Shortcodes_Api {
 
     public function display_quiz(  )
     {
-        var_dump('Quiz being displayed');
+        add_shortcode( 'foobar', function( $atts ){
+            return 'My Foobar shortcode';
+        } );        
     }
 }
