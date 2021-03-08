@@ -87,35 +87,20 @@ class Quizr_Question_Cpt {
     {
         global $post; 
 
+        if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return $id;
+        }
+
+        if( ! current_user_can( 'edit_post', $id ) ){
+            return $id;
+        }
+
         if( ! is_object( $post ) ) return; 
 
         if ( $post->post_type !== static::CPT_NAME ) return;
 
         $post_data = sanitize_post( $_POST );   
-
-
-        /**
-         * TODO - Order of security checks
-         */
-
-        if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return $id;
-        }
-
-         /**
-         * TODO - what is this?
-         */
-        if('page' == $post_data['post_type']) {
-            if(!current_user_can('edit_page', $id)) {
-                return $id;
-            }
-        } else {
-            if(!current_user_can('edit_page', $id)) {
-                return $id;
-            } 
-        }
-   
-
+        
         if( 
             isset( $post_data['quizr_question_set_id_nonce_' . $id ] ) 
             &&  wp_verify_nonce( $post_data['quizr_question_set_id_nonce_' . $id ] , 'quizr_question_set_id_nonce' ) 

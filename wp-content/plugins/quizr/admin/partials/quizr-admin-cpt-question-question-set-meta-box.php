@@ -17,5 +17,5 @@
             ><?php echo esc_html($qs->post_title); ?></option>
         <?php } ?>
     </select>  
-    <a href="<?php echo get_edit_post_link( $meta_value ); ?>" class="button button-secondary">Edit</a>
+    <a href="<?php echo get_edit_post_link( $meta_value ); ?>" class="button button-secondary">View</a>
 </div>
