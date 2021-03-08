@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Quizr_Rest_Controller {
 
     public function get_quizr_answers( $request )

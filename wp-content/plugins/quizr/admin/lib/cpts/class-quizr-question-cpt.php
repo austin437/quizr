@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Quizr_Question_Cpt {
 
     const CPT_NAME = 'quizr_question';

@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Quizr_Settings_Api {
 
     public function register_options_page() {

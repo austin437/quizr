@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Quizr_Rest_Api {
 
     public function rest_api_init()
