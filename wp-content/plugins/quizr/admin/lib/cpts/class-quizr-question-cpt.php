@@ -67,7 +67,7 @@ class Quizr_Question_Cpt {
 
         wp_nonce_field( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $post_id );
 
-        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-question-set-meta-box.php';       
+        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'partials/quizr-admin-cpt-question-question-set-meta-box.php';       
     }   
 
 
@@ -80,7 +80,7 @@ class Quizr_Question_Cpt {
 
         wp_nonce_field( 'quizr_question_answer_nonce', 'quizr_question_answer_nonce_' . $post_id );
 
-        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-answer-meta-box.php';        
+        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'partials/quizr-admin-cpt-question-answer-meta-box.php';        
     }
 
     function save_custom_meta_data($id) 

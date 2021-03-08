@@ -121,19 +121,19 @@ class Quizr {
          */
 
          require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-migrate.php';
-         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/database/class-quizr-answer-table.php';
+         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/database/class-quizr-answer-table.php';
 
         /**
 		 * CPTs
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-set-cpt.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/cpts/class-quizr-question-cpt.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/cpts/class-quizr-question-set-cpt.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/cpts/class-quizr-question-cpt.php';
 
         /**
          * APIS
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/apis/class-quizr-rest-api.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/apis/class-quizr-settings-api.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/apis/class-quizr-rest-api.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/apis/class-quizr-settings-api.php';
 
         /**
          * Templates
@@ -144,7 +144,7 @@ class Quizr {
         /**
          * CONTROLLERS
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/controllers/class-quizr-rest-controller.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/controllers/class-quizr-rest-controller.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing

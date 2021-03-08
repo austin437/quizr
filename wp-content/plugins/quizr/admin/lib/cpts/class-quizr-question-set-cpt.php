@@ -43,7 +43,7 @@ class Quizr_Question_Set_Cpt {
             ) 
         );
 
-        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-set-question-meta-box.php';       
+        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'partials/quizr-admin-cpt-question-set-question-meta-box.php';       
     }
 
 }
