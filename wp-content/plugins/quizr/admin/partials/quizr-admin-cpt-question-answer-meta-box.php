@@ -6,8 +6,6 @@
  * @param int $post_id
  */
 
- wp_nonce_field( 'quizr_question_answer_nonce', 'quizr_question_answer_nonce_' . $post_id );
-
 ?>
 <div class="quizr-admin-answer-container" data-post-id="<?php echo esc_html( $post_id ); ?>">
     <form>

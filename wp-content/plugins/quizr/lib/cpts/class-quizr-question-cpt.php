@@ -65,6 +65,8 @@ class Quizr_Question_Cpt {
             $meta_value = get_post_meta( $post->ID, 'quizr_question_set_id', true );
         }
 
+        wp_nonce_field( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $post_id );
+
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-question-set-meta-box.php';       
     }   
 
@@ -76,12 +78,13 @@ class Quizr_Question_Cpt {
         $answers = $quizr_answers_table->index( $post->ID );     
         $quizr_max_answers_per_question = get_option('quizr_max_answers_per_question', QUIZR_MAX_ANSWERS_PER_QUESTION_DEFAULT) ;  
 
+        wp_nonce_field( 'quizr_question_answer_nonce', 'quizr_question_answer_nonce_' . $post_id );
+
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-cpt-question-answer-meta-box.php';        
     }
 
     function save_custom_meta_data($id) 
     {
-
         global $post; 
 
         if( ! is_object( $post ) ) return; 
@@ -90,31 +93,62 @@ class Quizr_Question_Cpt {
 
         $post_data = sanitize_post( $_POST );   
 
-        check_admin_referer( 'quizr_question_set_id_nonce', 'quizr_question_set_id_nonce_' . $id );
 
-        if( array_key_exists('quizr_question_set_id', $post_data) ) update_post_meta($id, 'quizr_question_set_id', $post_data['quizr_question_set_id']);        
+        /**
+         * TODO - Order of security checks
+         */
 
-        check_admin_referer( 'quizr_question_answer_nonce', 'quizr_question_answer_nonce_' . $id );
-
-        if( array_key_exists('quizr_question_answer', $post_data) && is_array($post_data['quizr_question_answer'])){
-
-            $where = array( 'quizr_question_id' => $id );
-            $where_format = array( '%d' );
-            $this->quizr_Answers_Table->delete( $where, $where_format );
-            
-            foreach( $post_data['quizr_question_answer'] as $answer ){
-                if( strlen( $answer['description'] ) > 0 ){
-                    $values_to_be_inserted = array(
-                        'quizr_question_id' => $id,
-                        'description' => $answer['description'],
-                        'is_correct' => array_key_exists( 'is_correct', $answer ) ? '1' : '0'
-                    );
-
-                    $this->quizr_Answers_Table->insert( $values_to_be_inserted );
-                }                
-            }          
+        if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return $id;
         }
 
+         /**
+         * TODO - what is this?
+         */
+        if('page' == $post_data['post_type']) {
+            if(!current_user_can('edit_page', $id)) {
+                return $id;
+            }
+        } else {
+            if(!current_user_can('edit_page', $id)) {
+                return $id;
+            } 
+        }
+   
+
+        if( 
+            isset( $post_data['quizr_question_set_id_nonce_' . $id ] ) 
+            &&  wp_verify_nonce( $post_data['quizr_question_set_id_nonce_' . $id ] , 'quizr_question_set_id_nonce' ) 
+        ) 
+        {
+            if( array_key_exists('quizr_question_set_id', $post_data) ) update_post_meta($id, 'quizr_question_set_id', $post_data['quizr_question_set_id']); 
+        }
+        
+
+        if( 
+            isset( $post_data['quizr_question_answer_nonce_' . $id] ) &&
+             wp_verify_nonce( $post_data['quizr_question_answer_nonce_' . $id], 'quizr_question_answer_nonce' ) 
+        ) 
+        {
+            if( array_key_exists('quizr_question_answer', $post_data) && is_array($post_data['quizr_question_answer'])){
+
+                $where = array( 'quizr_question_id' => $id );
+                $where_format = array( '%d' );
+                $this->quizr_Answers_Table->delete( $where, $where_format );
+                
+                foreach( $post_data['quizr_question_answer'] as $answer ){
+                    if( strlen( $answer['description'] ) > 0 ){
+                        $values_to_be_inserted = array(
+                            'quizr_question_id' => $id,
+                            'description' => $answer['description'],
+                            'is_correct' => array_key_exists( 'is_correct', $answer ) ? '1' : '0'
+                        );
+
+                        $this->quizr_Answers_Table->insert( $values_to_be_inserted );
+                    }                
+                }          
+            }
+        }
     }
 
 
