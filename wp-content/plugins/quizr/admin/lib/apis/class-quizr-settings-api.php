@@ -9,7 +9,7 @@ class Quizr_Settings_Api {
     }
 
     public function render_options_page() {       
-        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'admin/partials/quizr-admin-settings-page.php';
+        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'partials/quizr-admin-settings-page.php';
     }
 
     public function register_settings() {
