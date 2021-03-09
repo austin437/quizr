@@ -24,42 +24,56 @@ class Quizr_Shortcodes_Api {
         ?>
 
         <div class="quizr-shortcode-question-set">
-            <section>
-                <h2>Quizr Question Set</h2>
-                <p>Choose 1 answer per question and enjoy!</p>            
-            </section>
-
-            <?php foreach( $questions as $index => $q ){ ?>
-
+            <main>
+                <aside>
+                    <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
+                </aside>     
                 <section>
-
-                    <div class="quizr-shortcode-question-set__section__header">                
-                        <h2>Question <?php echo $index + 1; ?></h2>    
-                        
+                    <div class="quizr-shortcode-question-set__section__header">      
+                        <h2>Time for a Quizr</h2>
                     </div>
                     <div class="quizr-shortcode-question-set__section__body">
-                    
-                        <h3><?php echo $q->post_title; ?></h3>            
-
-                        <?php echo apply_filters( 'the_content', $q->post_content ); ?>
-
-                        <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
-
-                            <div class="quizr-shortcode-question-set__section__body__answer-container">
-                                <?php foreach( $answers as $index => $value ) { ?>
-                                    <div>
-                                        <input 
-                                            type="checkbox" 
-                                            name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
-                                            value="" 
-                                        />
-                                        <label><?php echo $value->description; ?></label>
-                                    </div>                      
-                                <?php } ?>
-                            </div>
-                        
-                    </div>
+                        <p>You will be shown some multiple choice questions</p>
+                        <p>Choose your answer and then move on.</p>    
+                        <p>You can move backwards and forwards amongst the questions before submitting your answers at the end</p>
+                    </div>        
                 </section>
+            </main>
+
+            <?php foreach( $questions as $index => $q ){ ?>
+                <main>
+                    <aside>
+                        <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
+                    </aside>     
+                    <section>
+                        <div class="quizr-shortcode-question-set__section__header">      
+                            <h2>Question <?php echo $index + 1; ?></h2>                            
+                        </div>
+                        <div class="quizr-shortcode-question-set__section__body">
+                        
+                            <h3><?php echo $q->post_title; ?></h3>            
+
+                            <?php echo apply_filters( 'the_content', $q->post_content ); ?>
+
+                            <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
+
+                                <div class="quizr-shortcode-question-set__section__body__answer-container">
+                                    <?php foreach( $answers as $index => $value ) { ?>
+                                        <div>
+                                            <input 
+                                                type="checkbox" 
+                                                name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
+                                                value="" 
+                                            />
+                                            <label><?php echo $value->description; ?></label>
+                                        </div>                      
+                                    <?php } ?>
+                                </div>
+                            
+                        </div>
+                    </section>
+                </main>
+             
 
             <?php } ?>
 
