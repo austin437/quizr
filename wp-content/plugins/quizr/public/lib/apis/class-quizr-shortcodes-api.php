@@ -29,34 +29,36 @@ class Quizr_Shortcodes_Api {
                 <p>Choose 1 answer per question and enjoy!</p>            
             </section>
 
-            <?php foreach( $questions as $q ){ ?>
+            <?php foreach( $questions as $index => $q ){ ?>
 
                 <section>
-                
-                    <h2><?php echo $q->post_title; ?></h2>            
 
-                    <?php echo apply_filters( 'the_content', $q->post_content ); ?>
+                    <div class="quizr-shortcode-question-set__section__header">                
+                        <h2>Question <?php echo $index + 1; ?></h2>    
+                        
+                    </div>
+                    <div class="quizr-shortcode-question-set__section__body">
+                    
+                        <h3><?php echo $q->post_title; ?></h3>            
 
-                    <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
+                        <?php echo apply_filters( 'the_content', $q->post_content ); ?>
 
-                    <table>
-                        <tbody>
-                        <?php foreach( $answers as $index => $value ) { ?>
-                            <tr>
-                                <td><input 
-                                        type="checkbox" 
-                                        name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
-                                        value="" 
-                                    />
-                                    <label><?php echo $value->description; ?></label>
-                                </td>                        
-                            </tr>                         
-                        <?php } ?>
-                        </tbody>
-                    </table>
+                        <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
 
-                    <hr />
-
+                            <div class="quizr-shortcode-question-set__section__body__answer-container">
+                                <?php foreach( $answers as $index => $value ) { ?>
+                                    <div>
+                                        <input 
+                                            type="checkbox" 
+                                            name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
+                                            value="" 
+                                        />
+                                        <label><?php echo $value->description; ?></label>
+                                    </div>                      
+                                <?php } ?>
+                            </div>
+                        
+                    </div>
                 </section>
 
             <?php } ?>
