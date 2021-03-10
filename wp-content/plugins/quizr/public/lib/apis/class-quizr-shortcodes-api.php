@@ -74,8 +74,8 @@ class Quizr_Shortcodes_Api {
                 </article>
             <?php } ?>
             <div class="quizr-shortcode-question-set__arrows">
-                <a class="quizr-shortcode-question-set__arrows__prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="quizr-shortcode-question-set__arrows__next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="quizr-shortcode-question-set__arrows__prev">&#10094;</a>
+                <a class="quizr-shortcode-question-set__arrows__next">&#10095;</a>
             </div>
             <ul class="quizr-shortcode-question-set__pips">
                 <li class="quizr-shortcode-question-set__pips__pip active">&#8226;</li>
