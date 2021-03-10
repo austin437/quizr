@@ -1,64 +1,59 @@
-.quizr-shortcode-question-set main{
+.quizr-shortcode-question-set article {
     max-width: 960px;
-    margin: 50px auto;    
-    min-height: 300px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-height: 200px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    position: relative;
+    margin: 20px auto;
 }
 
-.quizr-shortcode-question-set aside{
+
+.quizr-shortcode-question-set article aside {
     width: 20%;
-    height: 100%;  
-    position: absolute;
     background-color: #9DC96B;
-    transition: 0.3s;    
-    z-index: 1000;
 }
 
-.quizr-shortcode-question-set main aside img {
+.quizr-shortcode-question-set article aside img {
     height: 150px;
     top: 10px;
     left: 10px;
     margin: 20px;
 }
 
-.quizr-shortcode-question-set main section{
-    width: 80%;      
-    position: relative;
-    margin-left: 20%;
+.quizr-shortcode-question-set article main {
+    width: 80%;
+    box-sizing: border-box;
 }
 
-
-.quizr-shortcode-question-set main section .quizr-shortcode-question-set__section__header{
-    width: 100%;   
+.quizr-shortcode-question-set main header {
     height: 75px;
     padding: 20px 50px;
     background-color: #90c554;
     transition: 0.3s;    
 }
 
- .quizr-shortcode-question-set .quizr-shortcode-question-set__section__body{
-   padding: 10px 50px;
+.quizr-shortcode-question-set main section{
+    padding: 10px 50px;
 }
 
 
-.quizr-shortcode-question-set .quizr-shortcode-question-set__section__body img{
+.quizr-shortcode-question-set main section img{
     max-width: 300px;
-
 }
 
-.quizr-shortcode-question-set__section__body__answer-container {
+.quizr-shortcode-question-set__answer-container {
     display: flex;
     justify-content: space-evenly;
     position: relative;
 }
 
-.quizr-shortcode-question-set__section__body__answer-container label {
+.quizr-shortcode-question-set__answer-container label {
     font-size: 28px;
     margin: auto;
 }
 
-.quizr-shortcode-question-set__section__body__answer-container input[type='checkbox'] {
+.quizr-shortcode-question-set__answer-container input[type='checkbox'] {
     -webkit-appearance:none;
     width:24px;
     height:24px;
@@ -69,6 +64,6 @@
     cursor: pointer;
 }
 
-.quizr-shortcode-question-set__section__body__answer-container input[type='checkbox']:checked {
+section__answer-container input[type='checkbox']:checked {
     background: #abd;
 } 
