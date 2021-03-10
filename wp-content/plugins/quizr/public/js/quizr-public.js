@@ -1,5 +1,4 @@
 window.addEventListener("load", function () {
-    console.log('quizr-public');
 
     const quizr_public_shortcode_question_set = document.querySelectorAll(".quizr-shortcode-question-set");
 
