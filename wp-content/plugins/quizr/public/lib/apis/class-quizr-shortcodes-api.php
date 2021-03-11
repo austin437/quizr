@@ -24,6 +24,7 @@ class Quizr_Shortcodes_Api {
         ?>
 
         <div class="quizr-shortcode-question-set">
+           
             <article class="hide">
                 <aside>
                     <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
@@ -41,7 +42,7 @@ class Quizr_Shortcodes_Api {
             </article>
 
             <?php foreach( $questions as $index => $q ){ ?>
-                <article class="hide">
+                <article class="hide show">
                     <aside>
                         <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
                     </aside>     
@@ -70,17 +71,20 @@ class Quizr_Shortcodes_Api {
                                 <?php } ?>
                             </div>                            
                         </section>
+                        <footer>
+                            
+                        </footer>
                     </main>
                 </article>
             <?php } ?>
             <div class="quizr-shortcode-question-set__arrows">
-                <a class="quizr-shortcode-question-set__arrows__prev">&#10094;</a>
-                <a class="quizr-shortcode-question-set__arrows__next">&#10095;</a>
+                <a class="quizr-shortcode-question-set__arrows__prev hide">&#10094;</a>
+                <a class="quizr-shortcode-question-set__arrows__next hide show">&#10095;</a>
             </div>
             <ul class="quizr-shortcode-question-set__pips">
                 <li class="quizr-shortcode-question-set__pips__pip active">&#8226;</li>
                 <?php foreach( $questions as $index => $q ){ ?>
-                    <li class="quizr-shortcode-question-set__pips__pip">&#8226;</li>
+                    <li class="quizr-shortcode-question-set__pips__pip"><a href="#">&#8226;</a></li>
                 <?php } ?>
             </ul>
         </div>
