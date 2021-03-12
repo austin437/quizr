@@ -12,9 +12,10 @@ class Quizr_Public_Shortcode_Question_Set {
         this.next_arrow = this.element.querySelector(".quizr-shortcode-question-set__arrows__next");
         this.prev_arrow = this.element.querySelector(".quizr-shortcode-question-set__arrows__prev");
         this.pips = this.element.querySelectorAll(".quizr-shortcode-question-set__pips__pip");
+        this.summary = this.element.querySelector(".quizr-shortcode-question-set__questions__summary__display").lastElementChild;
         this.index = 0;
         this.minItems = 0;
-        this.maxItems = this.pips.length;
+        this.maxItems = this.articles.length;
         this.updateHtml();
         this.addEventListeners();
     }

@@ -87,6 +87,25 @@ class Quizr_Shortcodes_Api {
                         </main>
                     </article>
                 <?php } ?>
+                
+                <article class="quizr-shortcode-question-set__questions__summary hide show"> 
+                    <aside>
+                        <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
+                    </aside> 
+                    <main>
+                        <header> 
+                            <h2>Summary</h2>
+                        </header> 
+                        <section class="quizr-shortcode-question-set__questions__summary__display">
+                            <h3>Please check your answers:</h3>
+                            <p>You can change them by navigating back through the items</p>
+                            <div>
+
+                            </div>
+                        </section>    
+                    </main>
+                </article>
+                
                 <div class="quizr-shortcode-question-set__arrows">
                     <a class="quizr-shortcode-question-set__arrows__prev hide">&#10094;</a>
                     <a class="quizr-shortcode-question-set__arrows__next hide show">&#10095;</a>
@@ -95,6 +114,7 @@ class Quizr_Shortcodes_Api {
                     <?php foreach( $questions as $index => $q ){ ?>
                         <li class="quizr-shortcode-question-set__pips__pip"><a href="#">&#8226;</a></li>
                     <?php } ?>
+                    <li class="quizr-shortcode-question-set__pips__pip"><a href="#">&#8226;</a></li>
                 </ul>
             </div>
         </div>

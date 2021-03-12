@@ -62,12 +62,6 @@
     max-width: 200px;
 }
 
-.quizr-shortcode-question-set main section img:hover{
-    max-width: 540px;
-    transition: max-width 0.3s;
-}
-
-
 .quizr-shortcode-question-set main footer{
     height: 50px;
 }
