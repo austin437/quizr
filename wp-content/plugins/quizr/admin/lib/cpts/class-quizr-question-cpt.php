@@ -123,12 +123,13 @@ class Quizr_Question_Cpt {
                 $where_format = array( '%d' );
                 $this->quizr_Answers_Table->delete( $where, $where_format );
                 
-                foreach( $post_data['quizr_question_answer'] as $answer ){
+                foreach( $post_data['quizr_question_answer'] as $index => $answer ){
+                    
                     if( strlen( $answer['description'] ) > 0 ){
                         $values_to_be_inserted = array(
                             'quizr_question_id' => $id,
                             'description' => $answer['description'],
-                            'is_correct' => array_key_exists( 'is_correct', $answer ) ? '1' : '0'
+                            'is_correct' => (int) $index === (int) $post_data['quizr_question_answer_correct'] ? '1' : '0'
                         );
 
                         $this->quizr_Answers_Table->insert( $values_to_be_inserted );

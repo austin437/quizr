@@ -26,10 +26,9 @@
                     </td>
                     <th class="check-column">
                         <input 
-                            type="checkbox" 
-                            name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
-                            value="" 
-                            readonly
+                            type="radio" 
+                            name="quizr_question_answer_correct"
+                            value="<?php echo $index; ?>" 
                             <?php checked( (int) $value->is_correct === 1 ); ?> 
                         />
                     </th>
@@ -48,7 +47,7 @@
                         <input name="quizr_question_answer[<?php echo $i; ?>][id]" type="hidden" value="-1" />
                         <input name="quizr_question_answer[<?php echo $i; ?>][description]" class="widefat" value="" type="text"/>
                     </td>
-                    <th class="check-column" ><input type="checkbox" name="quizr_question_answer[<?php echo $i; ?>][is_correct]" value=""  /></th>
+                    <th class="check-column" ><input type="radio" name="quizr_question_answer_correct" value="<?php echo $i; ?>"  /></th>
                     <td class="column-columnname"></td>
                 </tr>
                 <?php } ?>
