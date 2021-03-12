@@ -51,12 +51,12 @@ class Quizr_Admin {
 
         add_action( 'init', 'wpdocs_load_textdomain' );
   
-/**
- * Load plugin textdomain.
- */
-function wpdocs_load_textdomain() {
-  load_plugin_textdomain( 'wpdocs_textdomain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
-}
+    /**
+     * Load plugin textdomain.
+     */
+    function wpdocs_load_textdomain() {
+    load_plugin_textdomain( 'wpdocs_textdomain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+    }
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;

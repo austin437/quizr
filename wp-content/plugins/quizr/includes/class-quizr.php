@@ -180,9 +180,6 @@ class Quizr {
 
         $quizr_rest_api = new Quizr_Rest_Api();
         $this->loader->add_action( 'rest_api_init', $quizr_rest_api, 'rest_api_init' );      
-
-        $quizr_load_html_templates = new Quizr_Load_Html_Templates();
-        $this->loader->add_action( 'admin_footer', $quizr_load_html_templates, 'load' );      
         
 	}
 
@@ -200,6 +197,9 @@ class Quizr {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
         $this->loader->add_action( 'init', $plugin_public, 'register_shortcodes');
+
+        $quizr_load_html_templates = new Quizr_Load_Html_Templates();
+        $this->loader->add_action( 'wp_footer', $quizr_load_html_templates, 'load' );    
 
 	}
 

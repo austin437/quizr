@@ -1,7 +1,6 @@
-<script type="text/html" id="tmpl-quizr-question-answers-meta">
-
+<script type="text/html" id="tmpl-quizr-shortcodes-summary">
     <a href="#TB_inline?width=600&height=550&inlineId=modal-window-id" class="thickbox button-primary">Add New</a>
-    
+
     <table class="widefat">
         <thead>
             <tr>
@@ -11,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <# _.each( data.answers, function(answer) { #> 
+            <# _.each( data.answers, function(answer) { #>
             <tr>
                 <td class="row-title"><label for="tablecell">{{{answer.description}}}</label></td>
                 <td>{{answer.is_correct}}</td>
@@ -26,19 +25,19 @@
         <form name="quizr-question-answers-form">
             <div class="form-field">
                 <label>Description</label>
-                <input type="text" value="description" class="regular-text" /><br>
+                <input type="text" value="description" class="regular-text" /><br />
             </div>
             <fieldset>
-	<legend class="screen-reader-text"><span>input type="radio"</span></legend>
-	<label title='g:i a'>
-		<input type="radio" name="example" value="" />
-		<span><?php esc_attr_e( 'Radio description with legend class .screen-reader-text', 'WpAdminStyle' ); ?></span>
-	</label><br>
-	<label title='g:i a'>
-		<input type="radio" name="example" value="" />
-		<span><?php esc_attr_e( 'Radio description #2 with legend class .screen-reader-text', 'WpAdminStyle' ); ?></span>
-	</label>
-</fieldset>
+                <legend class="screen-reader-text"><span>input type="radio"</span></legend>
+                <label title="g:i a">
+                    <input type="radio" name="example" value="" />
+                    <span><?php esc_attr_e( 'Radio description with legend class .screen-reader-text', 'WpAdminStyle' ); ?></span> </label
+                ><br />
+                <label title="g:i a">
+                    <input type="radio" name="example" value="" />
+                    <span><?php esc_attr_e( 'Radio description #2 with legend class .screen-reader-text', 'WpAdminStyle' ); ?></span>
+                </label>
+            </fieldset>
         </form>
     </div>
 </script>

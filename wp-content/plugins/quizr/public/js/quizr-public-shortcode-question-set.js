@@ -1,6 +1,8 @@
 class Quizr_Public_Shortcode_Question_Set {
-    constructor(element) {
+
+    constructor(element, quizr_shortcode_summary ) {
         this.element = element;
+        this.quizr_shortcode_summary = quizr_shortcode_summary;
         this.init();
     }
 
@@ -31,6 +33,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.showArticle();
         this.showArrows();
         this.updatePips();
+        if (parseInt(this.index) === parseInt(this.maxItems - 1) ) this.showSummaryForm();
     }
 
     showArticle() {
@@ -78,6 +81,11 @@ class Quizr_Public_Shortcode_Question_Set {
     handlePipClick(i) {
         this.index = i;
         this.updateHtml();
+    }
+
+    showSummaryForm(){
+        console.log('showing summary form');
+        this.quizr_shortcode_summary.showSummaryForm();
     }
 
     addEventListeners() {
