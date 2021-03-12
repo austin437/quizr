@@ -74,8 +74,8 @@ class Quizr_Shortcodes_Api {
                                             <div>
                                                 <input 
                                                     type="radio" 
-                                                    name="quizr_question_chosen_answer[<?php echo $index; ?>]"
-                                                    value="" 
+                                                    name="quizr_question_id|<?php echo $q->ID; ?>"
+                                                    value="<?php echo $value->id . '|'. $value->description; ?>" 
                                                 />
                                                 <label><?php echo $value->description; ?></label>
                                             </div>                      

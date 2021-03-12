@@ -1,6 +1,5 @@
 class Quizr_Public_Shortcode_Question_Set {
-
-    constructor(element, quizr_shortcode_summary ) {
+    constructor(element, quizr_shortcode_summary) {
         this.element = element;
         this.quizr_shortcode_summary = quizr_shortcode_summary;
         this.init();
@@ -22,10 +21,9 @@ class Quizr_Public_Shortcode_Question_Set {
         this.addEventListeners();
     }
 
-    startQuiz(){
-        this.intro.classList.remove('show');
+    startQuiz() {
+        this.intro.classList.remove("show");
         this.questions.classList.add("show");
-        
     }
 
     updateHtml() {
@@ -33,7 +31,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.showArticle();
         this.showArrows();
         this.updatePips();
-        if (parseInt(this.index) === parseInt(this.maxItems - 1) ) this.showSummaryForm();
+        if (parseInt(this.index) === parseInt(this.maxItems - 1)) this.showSummaryForm();
     }
 
     showArticle() {
@@ -83,16 +81,27 @@ class Quizr_Public_Shortcode_Question_Set {
         this.updateHtml();
     }
 
-    showSummaryForm(){
-        console.log('showing summary form');
+    showSummaryForm() {
+        console.log("showing summary form");
         const quizr_form = this.element.querySelector("[name='quizr-shortcode-question-set-form']");
-        const formData = new FormData( quizr_form );
+        const formData = new FormData(quizr_form);
 
-        for (var pair of formData.entries()) {
-            console.log(pair);
-        }
+        let data = [];
+
+        for (let entry of formData.entries()) {
+
+            let tempData = {};
     
-        this.quizr_shortcode_summary.showSummaryForm();
+            const answer_data = entry[1].split("|");
+
+            tempData.question_id = entry[0].split("|")[1];
+            tempData.answer_id = answer_data[0];
+            tempData.answer_description = answer_data[1];
+
+            data.push( tempData );
+        }
+
+        this.quizr_shortcode_summary.showSummaryForm( data );
     }
 
     addEventListeners() {
