@@ -4,24 +4,17 @@
     <table class="widefat">
         <thead>
             <tr>
-                <th class="row-title" width="90%">Description</th>
-                <th>Correct</th>
-                <th>Action</th>
+                <th class="row-title" width="70%">Question</th>
+                <th>Your Answer</th>
             </tr>
         </thead>
         <tbody>
-            <# _.each( data.answers, function(answer) { #>
+            <# _.each( data.answers, (answer) => { #>
             <tr>
-                <td class="row-title"><label for="tablecell">{{{answer.description}}}</label></td>
-                <td>{{answer.is_correct}}</td>
-                <td><input class="button-primary quizr-update" type="button" name="Example" value="Save" /></td>
+                <td class="row-title"><label for="tablecell">{{{answer.question_title}}}</label></td>
+                <td><strong>{{answer.answer_description}}</strong></td>
             </tr>
             <# }); #>
-            <tr>
-                <td class="row-title"><label for="tablecell">Description</label></td>
-                <td>Is Correct</td>
-                <td><input class="button-primary quizr-update" type="button" name="Example" value="Save" /></td>
-            </tr>
         </tbody>
     </table>
 

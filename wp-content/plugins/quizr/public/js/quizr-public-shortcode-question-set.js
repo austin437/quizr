@@ -97,6 +97,7 @@ class Quizr_Public_Shortcode_Question_Set {
             tempData.question_id = entry[0].split("|")[1];
             tempData.answer_id = answer_data[0];
             tempData.answer_description = answer_data[1];
+            tempData.question_title = answer_data[2];
 
             data.push( tempData );
         }

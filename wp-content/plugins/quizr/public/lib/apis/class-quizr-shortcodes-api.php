@@ -70,16 +70,18 @@ class Quizr_Shortcodes_Api {
                                     <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
 
                                     <div class="quizr-shortcode-question-set__answer-container">
-                                        <?php foreach( $answers as $value ) { ?>
-                                            <div>
-                                                <input 
-                                                    type="radio" 
-                                                    name="quizr_question_id|<?php echo $q->ID; ?>"
-                                                    value="<?php echo $value->id . '|'. $value->description; ?>" 
-                                                />
-                                                <label><?php echo $value->description; ?></label>
-                                            </div>                      
-                                        <?php } ?>
+                                        
+                                            <?php foreach( $answers as $value ) { ?>
+                                                <div>
+                                                    <input 
+                                                        type="radio" 
+                                                        name="quizr_question_id|<?php echo $q->ID; ?>"
+                                                        value="<?php echo esc_html( $value->id ) . '|'.  esc_html( $value->description ) . '|' . esc_html( $q->post_title ); ?>" 
+                                                    />
+                                                    <label><?php echo $value->description; ?></label>
+                                                </div>                              
+                                            <?php } ?>
+                                        
                                     </div>                            
                                 </section>
                                 <footer>
