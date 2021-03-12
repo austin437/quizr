@@ -61,11 +61,11 @@ class Quizr_Shortcodes_Api {
                                 <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
 
                                 <div class="quizr-shortcode-question-set__answer-container">
-                                    <?php foreach( $answers as $index => $value ) { ?>
+                                    <?php foreach( $answers as $value ) { ?>
                                         <div>
                                             <input 
-                                                type="checkbox" 
-                                                name="quizr_question_answer[<?php echo $index; ?>][is_correct]"
+                                                type="radio" 
+                                                name="quizr_question_chosen_answer[<?php echo $index; ?>]"
                                                 value="" 
                                             />
                                             <label><?php echo $value->description; ?></label>
