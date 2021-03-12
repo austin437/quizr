@@ -50,43 +50,45 @@ class Quizr_Shortcodes_Api {
                     </main>
                 </article>
             </div>
-            <div class="quizr-shortcode-question-set__questions hide">
-                <?php foreach( $questions as $index => $q ){ ?>
-                    <article class="hide show">
-                        <aside>
-                            <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
-                        </aside>     
-                        <main>
-                            <header>      
-                                <h2>Question <?php echo $index + 1; ?></h2>                            
-                            </header>
-                            <section>
-                            
-                                <h3><?php echo $q->post_title; ?></h3>            
-
-                                <?php echo apply_filters( 'the_content', $q->post_content ); ?>
-
-                                <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
-
-                                <div class="quizr-shortcode-question-set__answer-container">
-                                    <?php foreach( $answers as $value ) { ?>
-                                        <div>
-                                            <input 
-                                                type="radio" 
-                                                name="quizr_question_chosen_answer[<?php echo $index; ?>]"
-                                                value="" 
-                                            />
-                                            <label><?php echo $value->description; ?></label>
-                                        </div>                      
-                                    <?php } ?>
-                                </div>                            
-                            </section>
-                            <footer>
+            <form name="quizr-shortcode-question-set-form">
+                <div class="quizr-shortcode-question-set__questions hide">
+                    <?php foreach( $questions as $index => $q ){ ?>
+                        <article class="hide show">
+                            <aside>
+                                <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
+                            </aside>     
+                            <main>
+                                <header>      
+                                    <h2>Question <?php echo $index + 1; ?></h2>                            
+                                </header>
+                                <section>
                                 
-                            </footer>
-                        </main>
-                    </article>
-                <?php } ?>
+                                    <h3><?php echo $q->post_title; ?></h3>            
+
+                                    <?php echo apply_filters( 'the_content', $q->post_content ); ?>
+
+                                    <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
+
+                                    <div class="quizr-shortcode-question-set__answer-container">
+                                        <?php foreach( $answers as $value ) { ?>
+                                            <div>
+                                                <input 
+                                                    type="radio" 
+                                                    name="quizr_question_chosen_answer[<?php echo $index; ?>]"
+                                                    value="" 
+                                                />
+                                                <label><?php echo $value->description; ?></label>
+                                            </div>                      
+                                        <?php } ?>
+                                    </div>                            
+                                </section>
+                                <footer>
+                                    
+                                </footer>
+                            </main>
+                        </article>
+                    <?php } ?>
+                </form>
                 
                 <article class="quizr-shortcode-question-set__questions__summary hide show"> 
                     <aside>

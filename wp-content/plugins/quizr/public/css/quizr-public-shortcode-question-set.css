@@ -58,6 +58,10 @@
     padding: 10px 50px;
 }
 
+.quizr-shortcode-question-set main section div{
+    padding-bottom: 20px;
+}
+
 .quizr-shortcode-question-set main section img{
     max-width: 200px;
 }

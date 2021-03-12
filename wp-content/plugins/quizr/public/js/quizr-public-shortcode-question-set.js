@@ -85,6 +85,13 @@ class Quizr_Public_Shortcode_Question_Set {
 
     showSummaryForm(){
         console.log('showing summary form');
+        const quizr_form = this.element.querySelector("[name='quizr-shortcode-question-set-form']");
+        const formData = new FormData( quizr_form );
+
+        for (var pair of formData.entries()) {
+            console.log(pair);
+        }
+    
         this.quizr_shortcode_summary.showSummaryForm();
     }
 
