@@ -10,6 +10,10 @@ class Quizr_Shortcodes_Api {
             'id' => -1
         ), $atts );
 
+        $question_set = get_post( (int) $a['id']);
+
+        print_r( $question_set->post_title );
+
         $questions = get_posts( array(
             'post_type' => 'quizr_question',
             'numberposts' => -1,
@@ -34,9 +38,13 @@ class Quizr_Shortcodes_Api {
                             <h2>Time for a Quizr</h2>
                         </header> 
                         <section>
-                            <p>You will be shown some multiple choice questions</p>
-                            <p>Choose your answer and then move on.</p>    
-                            <p>Add some text here</p>
+                            <h3>Subject: <?php echo $question_set->post_title; ?></h3>
+                            <p>You will be shown some multiple choice questions</p>  
+                            <ul>
+                                <li>You can move backwards and forwards amongst the questions</li>
+                                <li>At the end you will see a summary of your answers</li>
+                                <li>After submitting your answers, you will get your score</li>
+                            </ul>
                             <a class="quizr-shortcode-question-set__intro__start-quiz" href="">START QUIZ</a>
                         </section>    
                     </main>
