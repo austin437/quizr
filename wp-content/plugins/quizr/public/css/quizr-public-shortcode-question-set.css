@@ -82,6 +82,22 @@
     color: white;
 }
 
+.quizr-qs-summary {
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+
+.quizr-summary-submit {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 10px;    
+}
+
+.quizr-summary-submit__a {
+    font-size: 1.5rem;
+}
+
 
 .quizr-qs__arrows__prev,
 .quizr-qs__arrows__next {

@@ -102,21 +102,7 @@ class Quizr_Shortcodes_Api {
                 
             <div class="quizr-qs-summary">
                 <article class="quizr-qs__summary quizr-qs--hide"> 
-                    <aside>
-                        <img src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
-                    </aside> 
-                    <div>
-                        <header> 
-                            <h2>Summary</h2>
-                        </header> 
-                        <section class="quizr-qs__summary__display">
-                            <h3>Please check your answers:</h3>
-                            <p>You can change them by navigating back through the items</p>
-                            <div>
-
-                            </div>
-                        </section>              
-                    </div>
+                    
                 </article>
             </div>
                 

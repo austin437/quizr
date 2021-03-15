@@ -18,7 +18,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.summary = this.element.querySelector(".quizr-qs-summary");
         this.index = 0;
         this.minItems = 0;
-        this.maxItems = this.cards.length;
+        this.maxItems = this.cards.length + 1;
         this.updateHtml();
         this.addEventListeners();
     }
@@ -26,16 +26,22 @@ class Quizr_Public_Shortcode_Question_Set {
     startQuiz() {
         this.intro.classList.remove("quizr-qs--show");
         this.questions.classList.add("quizr-qs--show");
-        this.arrows_container.classList.add('quizr-qs--show');
+        this.arrows_container.classList.add("quizr-qs--show");
         this.pip_container.classList.add("quizr-qs__flex--show");
     }
 
     updateHtml() {
+
         this.hideAllArticles();
-        this.showArticle();
         this.showArrows();
         this.updatePips();
-        if (parseInt(this.index) === parseInt(this.maxItems - 1)) this.showSummaryForm();
+        this.hideSummaryForm();   
+
+        if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {                  
+            this.showArticle();
+        } else {
+            this.showSummaryForm();
+        }
     }
 
     showArticle() {
@@ -87,15 +93,14 @@ class Quizr_Public_Shortcode_Question_Set {
 
     showSummaryForm() {
         console.log("showing summary form");
-        const quizr_form = this.element.querySelector("[name='quizr-shortcode-question-set-form']");
+        const quizr_form = this.element.querySelector("[name='quizr-qs-form']");
         const formData = new FormData(quizr_form);
 
         let data = [];
 
         for (let entry of formData.entries()) {
-
             let tempData = {};
-    
+
             const answer_data = entry[1].split("|");
 
             tempData.question_id = entry[0].split("|")[1];
@@ -103,10 +108,14 @@ class Quizr_Public_Shortcode_Question_Set {
             tempData.answer_description = answer_data[1];
             tempData.question_title = answer_data[2];
 
-            data.push( tempData );
+            data.push(tempData);
         }
 
-        this.quizr_shortcode_summary.showSummaryForm( data );
+        this.quizr_shortcode_summary.showSummaryForm(data);
+    }
+
+    hideSummaryForm() {
+        this.quizr_shortcode_summary.hideSummaryForm();
     }
 
     addEventListeners() {

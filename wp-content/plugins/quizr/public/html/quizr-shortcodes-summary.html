@@ -1,41 +1,23 @@
 <script type="text/html" id="tmpl-quizr-shortcodes-summary">
-    <a href="#TB_inline?width=600&height=550&inlineId=modal-window-id" class="thickbox button-primary">Add New</a>
-
-    <table class="widefat">
-        <thead>
-            <tr>
-                <th class="row-title" width="70%">Question</th>
-                <th>Your Answer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <# _.each( data.answers, (answer) => { #>
-            <tr>
-                <td class="row-title"><label for="tablecell">{{{answer.question_title}}}</label></td>
-                <td><strong>{{answer.answer_description}}</strong></td>
-            </tr>
-            <# }); #>
-        </tbody>
-    </table>
-
-    <div id="modal-window-id" style="display:none;">
-        <h3>Answer</h3>
-        <form name="quizr-question-answers-form">
-            <div class="form-field">
-                <label>Description</label>
-                <input type="text" value="description" class="regular-text" /><br />
-            </div>
-            <fieldset>
-                <legend class="screen-reader-text"><span>input type="radio"</span></legend>
-                <label title="g:i a">
-                    <input type="radio" name="example" value="" />
-                    <span><?php esc_attr_e( 'Radio description with legend class .screen-reader-text', 'WpAdminStyle' ); ?></span> </label
-                ><br />
-                <label title="g:i a">
-                    <input type="radio" name="example" value="" />
-                    <span><?php esc_attr_e( 'Radio description #2 with legend class .screen-reader-text', 'WpAdminStyle' ); ?></span>
-                </label>
-            </fieldset>
-        </form>
+    <div>
+        <table class="widefat">
+            <thead>
+                <tr>
+                    <th class="row-title" width="70%">Question</th>
+                    <th>Your Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <# _.each( data.answers, (answer, index) => { #>
+                <tr>
+                    <td class="row-title"><label for="tablecell">{{{answer.question_title}}}</label></td>
+                    <td><strong>{{answer.answer_description}}</strong></td>
+                </tr>
+                <# }); #>
+            </tbody>
+        </table>
+        <div class="quizr-summary-submit">
+            <a class="quizr-summary-submit__a" href="#">Submit Answers</a>
+        </div>
     </div>
 </script>
