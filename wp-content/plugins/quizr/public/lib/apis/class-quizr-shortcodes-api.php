@@ -46,7 +46,6 @@ class Quizr_Shortcodes_Api {
                                     <li>At the end you will see a summary of your answers</li>
                                     <li>After submitting your answers, you will get your score</li>
                                 </ul>
-                                <a class="quizr-qs-intro__start-quiz" href="">START QUIZ</a>
                             </section>    
                         </div>
                         <div class="quizr-qs-card__answers">
@@ -55,6 +54,7 @@ class Quizr_Shortcodes_Api {
                             </div>
                         </div>
                     </div>
+                    <a class="quizr-qs-intro__start-quiz" href="">START QUIZ</a>
                 </article>
             </div>
             <form name="quizr-qs-form">                
@@ -120,7 +120,7 @@ class Quizr_Shortcodes_Api {
                 </article>
             </div>
                 
-            <div class="quizr-qs__arrows">
+            <div class="quizr-qs__arrows quizr-qs--hide">
                 <a class="quizr-qs__arrows__prev quizr-qs__flex--hide">&#10094;</a>
                 <a class="quizr-qs__arrows__next quizr-qs__flex--hide">&#10095;</a>
             </div>

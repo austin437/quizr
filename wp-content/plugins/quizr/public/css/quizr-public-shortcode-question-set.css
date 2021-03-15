@@ -10,6 +10,16 @@
   filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
 }
 
+.quizr-qs-intro__start-quiz {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    background-color:rgb(125, 150, 196);
+    color: white;
+    padding: 1px 3px;
+    border-radius: 5px;
+}
+
 .quizr-qs-card {
     box-sizing: border-box;
     min-height: 200px;   
