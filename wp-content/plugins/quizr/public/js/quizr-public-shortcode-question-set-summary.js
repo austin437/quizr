@@ -26,7 +26,8 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
         console.log(this.data);
 
         /**
-         * 
+         * TODO - Send data to rest route
+         *  Use class-quizr-rest-api.php...
          */
 
     }
