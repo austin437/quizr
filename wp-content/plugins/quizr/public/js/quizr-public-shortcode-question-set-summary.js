@@ -68,6 +68,9 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     submitData(){
         //console.log( JSON.stringify(this.data));
 
+        /**
+         * show spinner...
+         */
         this.postAnswers()
             .then(response => console.log(response ) );
 
