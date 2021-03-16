@@ -36,14 +36,14 @@
 
 .quizr-qs-card:hover .quizr-qs-card__container {
     transform: translateX(-20%);
-    transition: transform 0.5s;
+    transition: transform 0.5s ease-in-out 0.1s;
 }
 
 .quizr-qs-card__container{
     position: relative;
     display: flex;
     justify-content: space-between;
-    transition: transform 0.5s;
+    transition: transform 0.5s ease-in-out 0.1s;
 }
 
 .quizr-qs-card__sidebar {
@@ -91,7 +91,7 @@
 .quizr-summary-submit {
     display: flex;
     justify-content: flex-end;
-    margin: 20px 10px;    
+    margin: 20px 20px;    
 }
 
 .quizr-summary-submit__a {
