@@ -58,6 +58,7 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
                 processData: false,
             },
         });
+        
         return r.json();
     }
 
