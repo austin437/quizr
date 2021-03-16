@@ -22,14 +22,14 @@ class Quizr_Rest_Api {
         register_rest_route( 'quizr/v1', '/answers_check', array(
             'methods' => 'POST',
             'callback' => array( new Quizr_Rest_Controller(), 'post_check_answers' ),
-            // 'args' => array(
-            //     'data' => array(
-            //         'required' => true,
-            //         'validate_callback' => function($param, $request, $key) {
-            //             return is_array( $param );
-            //         }
-            //     )
-            // )
+            'args' => array(
+                'quizr_question' => array(
+                    'required' => true,
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_array( $param );
+                    }
+                )
+            )
         ) );
     }
 }
