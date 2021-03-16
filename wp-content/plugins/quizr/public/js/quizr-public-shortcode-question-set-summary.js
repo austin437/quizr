@@ -6,37 +6,43 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
         this.formData = {};
     }
 
-    showSummaryForm( formName ){
-        
-        const quizr_form = document.querySelector(`[name='${formName}']`);
-        this.formData = new FormData(quizr_form);
+    showSummaryForm( quizr_forms ){
 
-        let data = [];
+        this.formData = new FormData();
 
-        for (let entry of this.formData.entries()) {
-            // let tempData = {};
+        const data = [];
 
-            // const answer_data = entry[1].split("|");
+        for( let i=0; i<quizr_forms.length; i++ ){
 
-            // tempData.question_id = entry[0].split("|")[1];
-            // tempData.answer_id = answer_data[0];
-            // tempData.answer_description = answer_data[1];
-            // tempData.question_title = answer_data[2];
+            const question_id = quizr_forms[i].dataset['id'];
+            const tempForm = new FormData( quizr_forms[i] );              
+            data[i] = { id: question_id, answer: {} };
 
-            // data.push(tempData);
+            for (let [key, value] of tempForm.entries()) {
+               
+                const newKey = `quizr_question[${question_id}]`;
+
+                if( key === 'question' ){
+                    this.formData.set(`${newKey}[question]`, value);
+                    data[i].question = value;
+                }
+
+                if( key === 'answer' ){
+                    const answer_array = value.split( '|' );            
+                    this.formData.set(`${newKey}[answer][id]`, answer_array[0]);
+                    this.formData.set(`${newKey}[answer][description]`, answer_array[1]);
+
+                    
+                    data[i].answer.id = answer_array[0];
+                    data[i].answer.description = answer_array[1];
+                     
+                }
+            }
         }
-
-
 
         const postTemplate = wp.template("quizr-shortcodes-summary");
 
-        // this.data = {
-        //     answers: data,
-        // };
-
-        this.data = {
-            answers: []
-        }
+        this.data = data;
 
         this.element.innerHTML = postTemplate(this.data);
         this.element.classList.add("quizr-qs--show");
@@ -50,10 +56,6 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     async postAnswers(){
         const self = this;
 
-        for (let entry of this.formData.entries()) {
-            console.log(entry);
-        }
-
         let r = await fetch(`/wp-json/quizr/v1/answers_check`, {
             method: "POST",
             body: self.formData,
@@ -66,8 +68,7 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     }
 
     submitData(){
-        //console.log( JSON.stringify(this.data));
-
+       
         /**
          * show spinner...
          */

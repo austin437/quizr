@@ -115,9 +115,9 @@ class Quizr_Public_Shortcode_Question_Set {
     }
 
     showSummaryForm() {        
-        const formName = "quizr-qs-form";
+        const quizr_forms = document.querySelectorAll('.quizr-form');
 
-        this.quizr_shortcode_summary.showSummaryForm( formName );
+        this.quizr_shortcode_summary.showSummaryForm( quizr_forms );
     }
 
     hideSummaryForm() {

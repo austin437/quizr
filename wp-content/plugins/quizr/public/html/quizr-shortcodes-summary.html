@@ -8,10 +8,10 @@
                 </tr>
             </thead>
             <tbody>
-                <# _.each( data.answers, (answer, index) => { #>
+                <# _.each( data, (item, index) => { #>
                 <tr>
-                    <td class="row-title"><label for="tablecell">{{{answer.question_title}}}</label></td>
-                    <td><strong>{{answer.answer_description}}</strong></td>
+                    <td class="row-title"><label for="tablecell">{{{item.question}}}</label></td>
+                    <td><strong>{{item.answer.description}}</strong></td>
                 </tr>
                 <# }); #>
             </tbody>
