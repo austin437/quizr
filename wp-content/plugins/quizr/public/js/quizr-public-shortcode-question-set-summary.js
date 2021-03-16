@@ -3,14 +3,34 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     constructor(element) {
         this.element = element;
         this.data = {};
+        this.formData = {};
     }
 
-    showSummaryForm( answer_data ){
+    showSummaryForm( formName ){
         
+        const quizr_form = document.querySelector(`[name='${formName}']`);
+        this.formData = new FormData(quizr_form);
+
+        let data = [];
+
+        for (let entry of this.formData.entries()) {
+            let tempData = {};
+
+            const answer_data = entry[1].split("|");
+
+            tempData.question_id = entry[0].split("|")[1];
+            tempData.answer_id = answer_data[0];
+            tempData.answer_description = answer_data[1];
+            tempData.question_title = answer_data[2];
+
+            data.push(tempData);
+        }
+
+
         const postTemplate = wp.template("quizr-shortcodes-summary");
 
         this.data = {
-            answers: answer_data,
+            answers: data,
         };
 
         this.element.innerHTML = postTemplate(this.data);
@@ -22,13 +42,25 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
         this.element.classList.remove("quizr-qs--show");
     }
 
-    submitData(){
-        console.log(this.data);
+    async postAnswers(){
+        const self = this;
 
-        /**
-         * TODO - Send data to rest route
-         *  Use class-quizr-rest-api.php...
-         */
+        let r = await fetch(`/wp-json/quizr/v1/answers_check`, {
+            method: "POST",
+            body: self.formData,
+            headers: {
+                contentType: false,
+                processData: false
+            },
+        });
+        return r.json();
+    }
+
+    submitData(){
+        console.log( JSON.stringify(this.data));
+
+        this.postAnswers()
+            .then(response => console.log(response ) );
 
     }
 

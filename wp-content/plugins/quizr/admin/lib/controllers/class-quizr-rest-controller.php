@@ -18,10 +18,15 @@ class Quizr_Rest_Controller {
         }
         else
         {
-            return new \WP_REST_Response($result, 200);
-        }
+            return new \WP_REST_Response(array( 'data' => $result), 200);
+        }        
+    }
 
-        
-  
+
+    public function post_check_answers( $request )
+    {
+        $answer_data = $request->get_params();
+
+        return new \WP_REST_Response($answer_data, 200);
     }
 }

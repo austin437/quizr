@@ -21,6 +21,30 @@ class Quizr_Public_Shortcode_Question_Set {
         this.maxItems = this.cards.length + 1;
         this.updateHtml();
         this.addEventListeners();
+        this.testApi();
+    }
+
+    async greeting() {
+        let r = await fetch(`/wp-json/quizr/v1/answer?question_id=87`);
+        return r.json();
+    }
+
+    testApi() {
+
+        this.greeting()
+        .then( response =>             console.log(response.data) );
+        
+
+
+        const data = {
+            answers: [
+                { question_id: "85", answer_id: "347", answer_description: "2", question_title: "How many moon's does Mar\"s have?" },
+                { question_id: "84", answer_id: "217", answer_description: "Jupiter", question_title: "Name the planet from the photo:" },
+                { question_id: "81", answer_id: "253", answer_description: "Neptune", question_title: "Name the planet from the photo:" },
+                { question_id: "80", answer_id: "209", answer_description: "Venus", question_title: "What is the closest planet to the sun?" },
+                { question_id: "79", answer_id: "207", answer_description: "Mars", question_title: 'Which planet is known as the "Red Planet"?' },
+            ],
+        };
     }
 
     startQuiz() {
@@ -31,13 +55,12 @@ class Quizr_Public_Shortcode_Question_Set {
     }
 
     updateHtml() {
-
         this.hideAllArticles();
         this.showArrows();
         this.updatePips();
-        this.hideSummaryForm();   
+        this.hideSummaryForm();
 
-        if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {                  
+        if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {
             this.showArticle();
         } else {
             this.showSummaryForm();
@@ -93,25 +116,10 @@ class Quizr_Public_Shortcode_Question_Set {
 
     showSummaryForm() {
         console.log("showing summary form");
-        const quizr_form = this.element.querySelector("[name='quizr-qs-form']");
-        const formData = new FormData(quizr_form);
+        
+        const formName = "quizr-qs-form";
 
-        let data = [];
-
-        for (let entry of formData.entries()) {
-            let tempData = {};
-
-            const answer_data = entry[1].split("|");
-
-            tempData.question_id = entry[0].split("|")[1];
-            tempData.answer_id = answer_data[0];
-            tempData.answer_description = answer_data[1];
-            tempData.question_title = answer_data[2];
-
-            data.push(tempData);
-        }
-
-        this.quizr_shortcode_summary.showSummaryForm(data);
+        this.quizr_shortcode_summary.showSummaryForm( formName );
     }
 
     hideSummaryForm() {
