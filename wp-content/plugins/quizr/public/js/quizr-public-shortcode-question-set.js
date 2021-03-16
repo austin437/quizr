@@ -114,9 +114,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.updateHtml();
     }
 
-    showSummaryForm() {
-        console.log("showing summary form");
-        
+    showSummaryForm() {        
         const formName = "quizr-qs-form";
 
         this.quizr_shortcode_summary.showSummaryForm( formName );

@@ -78,14 +78,17 @@ class Quizr_Shortcodes_Api {
                                     </section>
                                 </div>
                                 <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
-                                <div class="quizr-qs-card__answers">                                
+                                <div class="quizr-qs-card__answers">    
+                                    <input type="hidden" name="quizr_question[<?php echo esc_html( $q->ID ); ?>][post_title]" value="<?php echo esc_html( $q->post_title ); ?>" />                         
                                     <?php foreach( $answers as $value ) { ?>
-                                        <div>                                            
+                                        <div>                                   
+                                            
+                                                   
                                             <label class="quizr-qs-card__answer-label">
                                                 <input
                                                 type="radio" 
-                                                name="quizr_question_id|<?php echo $q->ID; ?>"
-                                                value="<?php echo esc_html( $value->id ) . '|'.  esc_html( $value->description ) . '|' . esc_html( $q->post_title ); ?>" 
+                                                name="quizr_question[<?php echo esc_html( $q->ID ); ?>][answer]"
+                                                value="<?php echo esc_html( $value->id ) . '|'.  esc_html( $value->description ); ?>" 
                                             />
                                                 <?php echo $value->description; ?>
                                             </label>

@@ -14,24 +14,29 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
         let data = [];
 
         for (let entry of this.formData.entries()) {
-            let tempData = {};
+            // let tempData = {};
 
-            const answer_data = entry[1].split("|");
+            // const answer_data = entry[1].split("|");
 
-            tempData.question_id = entry[0].split("|")[1];
-            tempData.answer_id = answer_data[0];
-            tempData.answer_description = answer_data[1];
-            tempData.question_title = answer_data[2];
+            // tempData.question_id = entry[0].split("|")[1];
+            // tempData.answer_id = answer_data[0];
+            // tempData.answer_description = answer_data[1];
+            // tempData.question_title = answer_data[2];
 
-            data.push(tempData);
+            // data.push(tempData);
         }
+
 
 
         const postTemplate = wp.template("quizr-shortcodes-summary");
 
+        // this.data = {
+        //     answers: data,
+        // };
+
         this.data = {
-            answers: data,
-        };
+            answers: []
+        }
 
         this.element.innerHTML = postTemplate(this.data);
         this.element.classList.add("quizr-qs--show");
@@ -45,6 +50,10 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     async postAnswers(){
         const self = this;
 
+        for (let entry of this.formData.entries()) {
+            console.log(entry);
+        }
+
         let r = await fetch(`/wp-json/quizr/v1/answers_check`, {
             method: "POST",
             body: self.formData,
@@ -57,7 +66,7 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     }
 
     submitData(){
-        console.log( JSON.stringify(this.data));
+        //console.log( JSON.stringify(this.data));
 
         this.postAnswers()
             .then(response => console.log(response ) );
