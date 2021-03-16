@@ -21,30 +21,6 @@ class Quizr_Public_Shortcode_Question_Set {
         this.maxItems = this.cards.length + 1;
         this.updateHtml();
         this.addEventListeners();
-        this.testApi();
-    }
-
-    async greeting() {
-        let r = await fetch(`/wp-json/quizr/v1/answer?question_id=87`);
-        return r.json();
-    }
-
-    testApi() {
-
-        this.greeting()
-        .then( response =>             console.log(response.data) );
-        
-
-
-        const data = {
-            answers: [
-                { question_id: "85", answer_id: "347", answer_description: "2", question_title: "How many moon's does Mar\"s have?" },
-                { question_id: "84", answer_id: "217", answer_description: "Jupiter", question_title: "Name the planet from the photo:" },
-                { question_id: "81", answer_id: "253", answer_description: "Neptune", question_title: "Name the planet from the photo:" },
-                { question_id: "80", answer_id: "209", answer_description: "Venus", question_title: "What is the closest planet to the sun?" },
-                { question_id: "79", answer_id: "207", answer_description: "Mars", question_title: 'Which planet is known as the "Red Planet"?' },
-            ],
-        };
     }
 
     startQuiz() {

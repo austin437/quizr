@@ -57,7 +57,7 @@ class Quizr_Shortcodes_Api {
             </div>              
                 <div class="quizr-qs-questions quizr-qs--hide">     
                     <?php foreach( $questions as $index => $q ){ ?>                                                            
-                            <article class="quizr-qs-card quizr-qs--hide quizr-qs--show">
+                            <article class="quizr-qs-card quizr-qs--hide">
                                 <form class="quizr-form" data-id="<?php echo $q->ID; ?>" name="quizr-qs-form-<?php echo $q->ID; ?>">      
                                     <div class="quizr-qs-card__container">
                                         <aside class="quizr-qs-card__sidebar">
