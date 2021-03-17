@@ -51,16 +51,23 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     async postAnswers() {
         const self = this;
 
-        let r = await fetch(`/wp-json/quizr/v1/answers_check/${this.question_set_id}`, {
-            method: "POST",
-            body: self.formData,
-            headers: {
-                contentType: false,
-                processData: false,
-            },
-        });
+        try {
 
-        return r.json();
+            let r = await fetch(`/wp-json/quizr/v1/answers_check/${this.question_set_id}`, {
+                method: "POST",
+                body: self.formData,
+                headers: {
+                    contentType: false,
+                    processData: false,
+                },
+            });
+
+            return r.json();
+        } catch (err) {
+            console.log(err);
+        }
+
+        
     }
 
     submitData() {
