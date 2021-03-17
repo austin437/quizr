@@ -20,7 +20,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.minItems = 0;
         this.maxItems = this.cards.length + 1;
         this.updateHtml();
-        this.addEventListeners();
+        this.addEventListeners();      
     }
 
     startQuiz() {

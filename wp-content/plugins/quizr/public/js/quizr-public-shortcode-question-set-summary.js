@@ -1,8 +1,9 @@
 class Quizr_Public_Shortcode_Question_Set_Summary {
-    constructor(element) {
+    constructor(element, question_set_id) {
         this.element = element;
+        this.question_set_id = question_set_id;
         this.data = {};
-        this.formData = {};
+        this.formData = {};        
     }
 
     showSummaryForm(quizr_forms) {
@@ -50,7 +51,7 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     async postAnswers() {
         const self = this;
 
-        let r = await fetch(`/wp-json/quizr/v1/answers_check`, {
+        let r = await fetch(`/wp-json/quizr/v1/answers_check/${this.question_set_id}`, {
             method: "POST",
             body: self.formData,
             headers: {
@@ -58,7 +59,7 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
                 processData: false,
             },
         });
-        
+
         return r.json();
     }
 

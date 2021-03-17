@@ -10,13 +10,15 @@ class Quizr_Shortcodes_Api {
             'id' => -1
         ), $atts );
 
-        $question_set = get_post( (int) $a['id']);
+        $qs_id = $a['id'];
+
+        $question_set = get_post( (int) $qs_id);
 
         $questions = get_posts( array(
             'post_type' => 'quizr_question',
             'numberposts' => -1,
             'meta_key' => 'quizr_question_set_id',
-            'meta_value' => (int) $a['id']
+            'meta_value' => (int) $qs_id
         ) );
 
         $quizr_answers_table = new Quizr_Answers_Table();          
@@ -25,7 +27,7 @@ class Quizr_Shortcodes_Api {
        
         ?>
 
-        <div class="quizr-qs"> 
+        <div class="quizr-qs" data-question-set-id="<?php echo $qs_id; ?>"> 
             <div class="quizr-qs-intro quizr-qs--hide quizr-qs--show">
                 <article class="quizr-qs-card"> 
                     <div class="quizr-qs-card__container">
