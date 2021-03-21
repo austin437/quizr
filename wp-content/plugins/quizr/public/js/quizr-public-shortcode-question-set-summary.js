@@ -51,6 +51,8 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     async postAnswers() {
         const self = this;
 
+        console.log(self.formData);
+
         try {
 
             let r = await fetch(`/wp-json/quizr/v1/answers_check/${this.question_set_id}`, {
