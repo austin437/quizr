@@ -25,13 +25,12 @@ class Quizr_Rest_Controller {
 
     public function post_check_answers( $request )
     {
-        $question_set_id = $request->get_param( 'question_set_id' );
         $answer_data = $request->get_param('quizr_question');
 
         $quizr_question_set_cpt = new Quizr_Question_Set_Cpt();
 
         try {
-            $result = $quizr_question_set_cpt->check_answers( $question_set_id, $answer_data );
+            $result = $quizr_question_set_cpt->check_answers( $answer_data );
             error_log( is_wp_error( $result ) . PHP_EOL, 3,  LOG_PATH );
             error_log( print_r( $result, true ) . PHP_EOL, 3,  LOG_PATH );
         }

@@ -48,71 +48,39 @@ class Quizr_Question_Set_Cpt {
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'partials/quizr-admin-cpt-question-set-question-meta-box.php';       
     }
 
-    public function check_answers( $question_set_id, $answer_data ){
+    public function check_answers( $answer_data ){
 
-        try {
-
-            $quizr_answers_table = new Quizr_Answers_Table();
+        $quizr_answers_table = new Quizr_Answers_Table();
         
-            $questions = get_posts( 
-                array( 
-                    'post_type' => 'quizr_question',
-                    'meta_key' => 'quizr_question_set_id',
-                    'meta_value' => (int) $question_set_id,
-                ) 
-            );
+        $return_data = [];
 
-            $return_data = [];
+        foreach( $answer_data as $key => $value ) {
 
-            foreach( $answer_data as $key => $value ) {
-                
-                $question_key = array_search( $key, array_column($questions, 'ID') );              
-                $question = $questions[$question_key];
+            $return_data[$key]['question'] = $value['question'];
+            $return_data[$key]['given_answer'] = 'Not supplied';
+            $return_data[$key]['correct_answer'] = 'n/a';
+            $return_data[$key]['was_correct'] = false;
 
-                $return_data[$question_key]['question_id'] = -1;
-                $return_data[$question_key]['question'] = 'n/a';
-                $return_data[$question_key]['given_answer'] = 'Not supplied';
-                $return_data[$question_key]['correct_answer'] = 'n/a';
-                $return_data[$question_key]['was_correct'] = 'false';
+            $answers = $quizr_answers_table->index( $key );
+            $answer_key = array_search( 1, array_column( $answers, 'is_correct' ) );
 
-                //error_log( "Value: " . print_r(  $value, true ) . PHP_EOL, 3,  LOG_PATH );
+            if( $answer_key )
+            {
+                $correct_answer = $answers[$answer_key];
 
-                if( is_object( $question ) )              
+                $return_data[$key]['correct_answer'] = $correct_answer->description;
+
+                if( array_key_exists( 'answer', $value ) )
                 {
-                    $return_data[$question_key]['question_id'] = $question->ID;
-                    $return_data[$question_key]['question'] = $question->post_title;
-
-                    $answers = $quizr_answers_table->index( $question->ID );
-                    $answer_key = array_search( 1, array_column( $answers, 'is_correct' ) );
-
-                    //error_log( "Value: " . print_r(  $value, true ) . PHP_EOL, 3,  LOG_PATH );
-
-                    if( $answer_key )
-                    {
-                        $correct_answer = $answers[$answer_key];
-
-                        $return_data[$question_key]['correct_answer'] = $correct_answer->description;
-
-                        if( array_key_exists( 'answer', $value ) )
-                        {
-                            $return_data[$question_key]['given_answer'] = $value['answer']['description'];
-                            $return_data[$question_key]['was_correct'] = 
-                                (int) $value['answer']['id'] === (int) $correct_answer->id;
-                        }
-                    }
-
-                    //error_log( "Correct Answer: " . print_r( $correct_answer, true ) . PHP_EOL, 3,  LOG_PATH );
+                    $return_data[$key]['given_answer'] = $value['answer']['description'];
+                    $return_data[$key]['was_correct'] = 
+                        (int) $value['answer']['id'] === (int) $correct_answer->id;
                 }
+            }                
 
-            }
-
-            return $return_data;
         }
 
-        catch( \Exception $e ){
-            error_log( $e->getMessage() . PHP_EOL, 3,  LOG_PATH );
-            return [];
-        }
+        return $return_data;      
 
     }
 
