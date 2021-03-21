@@ -10,9 +10,9 @@ class Quizr_Public_Shortcode_Question_Set {
         this.intro = this.element.querySelector(".quizr-qs-intro");
         this.questions = this.element.querySelector(".quizr-qs-questions");
         this.cards = this.questions.children;
-        this.arrows_container = this.element.querySelector(".quizr-qs__arrows");
-        this.next_arrow = this.element.querySelector(".quizr-qs__arrows__next");
-        this.prev_arrow = this.element.querySelector(".quizr-qs__arrows__prev");
+        this.arrows_container = this.element.querySelector(".quizr-qs-arrows");
+        this.next_arrow = this.element.querySelector(".quizr-qs-arrows__next");
+        this.prev_arrow = this.element.querySelector(".quizr-qs-arrows__prev");
         this.pip_container = this.element.querySelector(".quizr-qs__pips");
         this.pips = this.element.querySelectorAll(".quizr-qs__pip-a");
         this.summary = this.element.querySelector(".quizr-qs-summary");

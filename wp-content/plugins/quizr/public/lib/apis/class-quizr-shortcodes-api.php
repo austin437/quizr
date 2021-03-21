@@ -108,9 +108,9 @@ class Quizr_Shortcodes_Api {
                 </article>
             </div>
                 
-            <div class="quizr-qs__arrows quizr-qs--hide">
-                <a class="quizr-qs__arrows__prev quizr-qs__flex--hide">&#10094;</a>
-                <a class="quizr-qs__arrows__next quizr-qs__flex--hide">&#10095;</a>
+            <div class="quizr-qs-arrows quizr-qs--hide">
+                <a class="quizr-qs-arrows__prev quizr-qs__flex--hide">&#10094;</a>
+                <a class="quizr-qs-arrows__next quizr-qs__flex--hide">&#10095;</a>
             </div>
             <ul class="quizr-qs__pips quizr-qs__flex--hide">
                 <?php foreach( $questions as $index => $q ){ ?>

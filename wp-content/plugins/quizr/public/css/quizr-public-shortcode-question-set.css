@@ -103,8 +103,8 @@
 }
 
 
-.quizr-qs__arrows__prev,
-.quizr-qs__arrows__next {
+.quizr-qs-arrows__prev,
+.quizr-qs-arrows__next {
     position: absolute;
     top: 100px; 
     cursor: pointer;   
@@ -126,17 +126,17 @@
 }
 
 
-.quizr-qs__arrows__prev:hover,
-.quizr-qs__arrows__next:hover {
+.quizr-qs-arrows__prev:hover,
+.quizr-qs-arrows__next:hover {
     transition: opacity 0.3s;
     opacity: 0.75;
 }
 
-.quizr-qs__arrows__prev {
+.quizr-qs-arrows__prev {
     left: 0;    
 }
 
-.quizr-qs__arrows__next  {
+.quizr-qs-arrows__next  {
     right: 0;
 }
 
