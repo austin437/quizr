@@ -31,12 +31,10 @@ class Quizr_Rest_Controller {
 
         try {
             $result = $quizr_question_set_cpt->check_answers( $answer_data );
-            error_log( is_wp_error( $result ) . PHP_EOL, 3,  LOG_PATH );
-            error_log( print_r( $result, true ) . PHP_EOL, 3,  LOG_PATH );
         }
 
         catch( \Exception $e ){
-            error_log( $e->getMessage() . PHP_EOL, 0 );
+            error_log( $e->getMessage() . PHP_EOL, 3, LOG_PATH );
             return new \WP_REST_Response([], 400);
         }
 

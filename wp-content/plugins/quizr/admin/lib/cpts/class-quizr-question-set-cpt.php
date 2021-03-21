@@ -48,24 +48,28 @@ class Quizr_Question_Set_Cpt {
         require_once plugin_dir_path( dirname( __DIR__ ) ) . 'partials/quizr-admin-cpt-question-set-question-meta-box.php';       
     }
 
-    public function check_answers( $answer_data ){
+    public function check_answers( $answer_data ){   
 
-        $quizr_answers_table = new Quizr_Answers_Table();
-        
-        $return_data = [];
+            $quizr_answers_table = new Quizr_Answers_Table();
+            
+            $return_data = [];            
 
-        foreach( $answer_data as $key => $value ) {
+            foreach( $answer_data as $key => $value ) {
 
-            $return_data[$key]['question'] = $value['question'];
-            $return_data[$key]['given_answer'] = 'Not supplied';
-            $return_data[$key]['correct_answer'] = 'n/a';
-            $return_data[$key]['was_correct'] = false;
+                $return_data[$key]['question'] = $value['question'];
+                $return_data[$key]['given_answer'] = 'Not supplied';
+                $return_data[$key]['correct_answer'] = 'n/a';
+                $return_data[$key]['was_correct'] = false;
 
-            $answers = $quizr_answers_table->index( $key );
-            $answer_key = array_search( 1, array_column( $answers, 'is_correct' ) );
+                $answers = $quizr_answers_table->index( $key );
 
-            if( $answer_key )
-            {
+                /**
+                 * TODO - convert array_search to array_filter because if array_search
+                 * cannot find a value, it will return a false which will get seen as a 0 
+                 * by PHP
+                 */
+                $answer_key = array_search( 1, array_column( $answers, 'is_correct' ) );
+             
                 $correct_answer = $answers[$answer_key];
 
                 $return_data[$key]['correct_answer'] = $correct_answer->description;
@@ -75,12 +79,12 @@ class Quizr_Question_Set_Cpt {
                     $return_data[$key]['given_answer'] = $value['answer']['description'];
                     $return_data[$key]['was_correct'] = 
                         (int) $value['answer']['id'] === (int) $correct_answer->id;
-                }
-            }                
+                }                               
 
-        }
+            }
 
-        return $return_data;      
+            return $return_data;
+      
 
     }
 
