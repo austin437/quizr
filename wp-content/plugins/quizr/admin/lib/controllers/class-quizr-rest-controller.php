@@ -30,7 +30,16 @@ class Quizr_Rest_Controller {
 
         $quizr_question_set_cpt = new Quizr_Question_Set_Cpt();
 
-        $result = $quizr_question_set_cpt->check_answers( $question_set_id, $answer_data );
+        try {
+            $result = $quizr_question_set_cpt->check_answers( $question_set_id, $answer_data );
+            error_log( is_wp_error( $result ) . PHP_EOL, 3,  LOG_PATH );
+            error_log( print_r( $result, true ) . PHP_EOL, 3,  LOG_PATH );
+        }
+
+        catch( \Exception $e ){
+            error_log( $e->getMessage() . PHP_EOL, 0 );
+            return new \WP_REST_Response([], 400);
+        }
 
         return new \WP_REST_Response($result, 200);
     }

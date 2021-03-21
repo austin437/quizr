@@ -62,27 +62,55 @@ class Quizr_Question_Set_Cpt {
                 ) 
             );
 
-            $log_path = plugin_dir_path( dirname( __DIR__ ) ) . '../logs/debug.log';
-
             $return_data = [];
 
             foreach( $answer_data as $key => $value ) {
+                
+                $question_key = array_search( $key, array_column($questions, 'ID') );              
+                $question = $questions[$question_key];
 
-                $question = $questions[ array_search( $key, array_column($questions, 'ID') ) ];
+                $return_data[$question_key]['question_id'] = -1;
+                $return_data[$question_key]['question'] = 'n/a';
+                $return_data[$question_key]['given_answer'] = 'Not supplied';
+                $return_data[$question_key]['correct_answer'] = 'n/a';
+                $return_data[$question_key]['was_correct'] = 'false';
 
-                $answers = $quizr_answers_table->index( $question->ID );
+                //error_log( "Value: " . print_r(  $value, true ) . PHP_EOL, 3,  LOG_PATH );
 
-                error_log( print_r( $answers, true ) . PHP_EOL, 3,  $log_path);
-                error_log( print_r( $value, true ) . PHP_EOL, 3,  $log_path);
+                if( is_object( $question ) )              
+                {
+                    $return_data[$question_key]['question_id'] = $question->ID;
+                    $return_data[$question_key]['question'] = $question->post_title;
 
-                $return_data[] = $question;
+                    $answers = $quizr_answers_table->index( $question->ID );
+                    $answer_key = array_search( 1, array_column( $answers, 'is_correct' ) );
+
+                    //error_log( "Value: " . print_r(  $value, true ) . PHP_EOL, 3,  LOG_PATH );
+
+                    if( $answer_key )
+                    {
+                        $correct_answer = $answers[$answer_key];
+
+                        $return_data[$question_key]['correct_answer'] = $correct_answer->description;
+
+                        if( array_key_exists( 'answer', $value ) )
+                        {
+                            $return_data[$question_key]['given_answer'] = $value['answer']['description'];
+                            $return_data[$question_key]['was_correct'] = 
+                                (int) $value['answer']['id'] === (int) $correct_answer->id;
+                        }
+                    }
+
+                    //error_log( "Correct Answer: " . print_r( $correct_answer, true ) . PHP_EOL, 3,  LOG_PATH );
+                }
+
             }
 
             return $return_data;
         }
 
         catch( \Exception $e ){
-            error_log( $e->getMessage() . PHP_EOL, 0 );
+            error_log( $e->getMessage() . PHP_EOL, 3,  LOG_PATH );
             return [];
         }
 
