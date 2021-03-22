@@ -107,7 +107,8 @@ class Quizr_Shortcodes_Api {
                                     <h2>Submit Quiz</h2>
                                 </header> 
                                 <section>
-                                    <h3>Submit your quiz when you are ready</h3>                                
+                                    <h3>Submit your quiz when you are ready</h3>  
+                                    <p>You have answered x out of x questions</p>                              
                                 </section>    
                             </div>
                             <div class="quizr-qs-card__answers">
