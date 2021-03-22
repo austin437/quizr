@@ -1,7 +1,7 @@
 class Quizr_Public_Shortcode_Question_Set {
-    constructor(element, quizr_shortcode_summary) {
+    constructor(element) {
         this.element = element;
-        this.quizr_shortcode_summary = quizr_shortcode_summary;
+      //  this.quizr_shortcode_summary = quizr_shortcode_summary;
         this.init();
     }
 
@@ -18,7 +18,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.summary = this.element.querySelector(".quizr-qs-summary");
         this.index = 0;
         this.minItems = 0;
-        this.maxItems = this.cards.length + 1;
+        this.maxItems = this.cards.length;
         this.updateHtml();
         this.addEventListeners();      
     }
@@ -35,12 +35,13 @@ class Quizr_Public_Shortcode_Question_Set {
         this.showArrows();
         this.updatePips();
         this.hideSummaryForm();
+        this.showArticle();
 
-        if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {
-            this.showArticle();
-        } else {
-            this.showSummaryForm();
-        }
+        // if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {
+        //     this.showArticle();
+        // } else {
+        //     this.showSummaryForm();
+        // }
     }
 
     showArticle() {
@@ -91,13 +92,14 @@ class Quizr_Public_Shortcode_Question_Set {
     }
 
     showSummaryForm() {        
-        const quizr_forms = document.querySelectorAll('.quizr-form');
+       // this.summary.classList.add("quizr-qs--show");
+      //  const quizr_forms = document.querySelectorAll('.quizr-form');
 
-        this.quizr_shortcode_summary.showSummaryForm( quizr_forms );
+      //  this.quizr_shortcode_summary.showSummaryForm( quizr_forms );
     }
 
     hideSummaryForm() {
-        this.quizr_shortcode_summary.hideSummaryForm();
+       // this.quizr_shortcode_summary.hideSummaryForm();
     }
 
     addEventListeners() {

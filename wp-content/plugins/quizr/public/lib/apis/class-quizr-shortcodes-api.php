@@ -59,54 +59,66 @@ class Quizr_Shortcodes_Api {
             </div>              
                 <div class="quizr-qs-questions quizr-qs--hide">     
                     <?php foreach( $questions as $index => $q ){ ?>                                                            
-                            <article class="quizr-qs-card quizr-qs--hide">
-                                <form class="quizr-form" data-id="<?php echo $q->ID; ?>" name="quizr-qs-form-<?php echo $q->ID; ?>">      
-                                    <div class="quizr-qs-card__container">
-                                        <aside class="quizr-qs-card__sidebar">
-                                            <img class="quizr-qs-card__img" src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
-                                        </aside>     
-                                        <div class="quizr-qs-card__content">
-                                            <header>      
-                                                <h2>Question <?php echo $index + 1; ?></h2>                            
-                                            </header>
-                                            <section>
-                                            
-                                                <h3><?php echo $q->post_title; ?></h3>            
+                        <article class="quizr-qs-card quizr-qs--hide">
+                            <form class="quizr-form" data-id="<?php echo $q->ID; ?>" name="quizr-qs-form-<?php echo $q->ID; ?>">      
+                                <div class="quizr-qs-card__container">
+                                    <aside class="quizr-qs-card__sidebar">
+                                        <img class="quizr-qs-card__img" src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
+                                    </aside>     
+                                    <div class="quizr-qs-card__content">
+                                        <header>      
+                                            <h2>Question <?php echo $index + 1; ?></h2>                            
+                                        </header>
+                                        <section>
+                                        
+                                            <h3><?php echo $q->post_title; ?></h3>            
 
-                                                <?php echo apply_filters( 'the_content', $q->post_content ); ?>
-                                                            
-                                            </section>
-                                        </div>
-                                        <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
-                                        <div class="quizr-qs-card__answers">    
-                                            <input type="hidden" name="question" value="<?php echo esc_html( $q->post_title ); ?>" />                         
-                                            <?php foreach( $answers as $value ) { ?>
-                                                <div>                                   
-                                                    
+                                            <?php echo apply_filters( 'the_content', $q->post_content ); ?>
                                                         
-                                                    <label class="quizr-qs-card__answer-label">
-                                                        <input
-                                                        type="radio" 
-                                                        name="answer"
-                                                        value="<?php echo esc_html( $value->id ) . '|'.  esc_html( $value->description ); ?>" 
-                                                    />
-                                                        <?php echo $value->description; ?>
-                                                    </label>
-                                                </div>                              
-                                            <?php } ?>                                
-                                        </div>    
-                                    </div>          
-                                </form>     
-                            </article>                     
-                        
+                                        </section>
+                                    </div>
+                                    <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
+                                    <div class="quizr-qs-card__answers">    
+                                        <input type="hidden" name="question" value="<?php echo esc_html( $q->post_title ); ?>" />                   
+                                        <?php foreach( $answers as $value ) { ?>
+                                            <div> 
+                                                <label class="quizr-qs-card__answer-label">
+                                                    <input
+                                                    type="radio" 
+                                                    name="answer"
+                                                    value="<?php echo esc_html( $value->id ) . '|'.  esc_html( $value->description ); ?>" 
+                                                />
+                                                    <?php echo $value->description; ?>
+                                                </label>
+                                            </div>                              
+                                        <?php } ?>                                
+                                    </div>    
+                                </div>          
+                            </form>     
+                        </article>                       
                     <?php } ?>
+                    <article class="quizr-qs-card quizr-qs--hide"> 
+                        <div class="quizr-qs-card__container">
+                            <aside class="quizr-qs-card__sidebar">
+                                <img class="quizr-qs-card__img" src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
+                            </aside>   
+                            <div class="quizr-qs-card__content">
+                                <header> 
+                                    <h2>Submit Quiz</h2>
+                                </header> 
+                                <section>
+                                    <h3>Submit your quiz when you are ready</h3>                                
+                                </section>    
+                            </div>
+                            <div class="quizr-qs-card__answers">
+                                <div class="quizr-qs-card__answer-label">
+                                    <p>You can go back and change your answers before submitting</p>  
+                                </div>
+                            </div>                      
+                        </div>
+                        <a class="quizr-qs-summary__submit-quiz" href="">SUBMIT QUIZ</a>
+                    </article>
                 </div>
-                
-            <div class="quizr-qs-summary">
-                <article class="quizr-qs__summary quizr-qs--hide"> 
-                    
-                </article>
-            </div>
                 
             <div class="quizr-qs-arrows quizr-qs--hide">
                 <a class="quizr-qs-arrows__prev quizr-qs__flex--hide">&#10094;</a>
