@@ -7,6 +7,7 @@ class Quizr_Public_Shortcode_Question_Set {
 
     init() {
         this.start_quiz_link = this.element.querySelector(".quizr-qs-intro__start-quiz");
+        this.submit_quiz_link = this.element.querySelector(".quizr-qs-summary__submit-quiz");
         this.intro = this.element.querySelector(".quizr-qs-intro");
         this.questions = this.element.querySelector(".quizr-qs-questions");
         this.cards = this.questions.children;
@@ -34,7 +35,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.hideAllArticles();
         this.showArrows();
         this.updatePips();
-        this.hideSummaryForm();
+      //  this.hideSummaryForm();
         this.showArticle();
 
         // if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {
@@ -91,21 +92,25 @@ class Quizr_Public_Shortcode_Question_Set {
         this.updateHtml();
     }
 
-    showSummaryForm() {        
-       // this.summary.classList.add("quizr-qs--show");
-      //  const quizr_forms = document.querySelectorAll('.quizr-form');
-
-      //  this.quizr_shortcode_summary.showSummaryForm( quizr_forms );
+    submitQuiz(){
+        console.log('submitting quiz');
+        const myForm = this.element.querySelector('.quizr-form');
+        const submitForm = 
+            new Quizr_Public_Shortcode_Question_Set_Submit(myForm, this.showSummary);
     }
 
-    hideSummaryForm() {
-       // this.quizr_shortcode_summary.hideSummaryForm();
+    showSummary(){
+        console.log('showing summary');
     }
 
     addEventListeners() {
         this.start_quiz_link.addEventListener("click", (ev) => {
             ev.preventDefault();
             this.startQuiz();
+        });
+        this.submit_quiz_link.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            this.submitQuiz();
         });
         this.next_arrow.addEventListener("click", (ev) => {
             ev.preventDefault();

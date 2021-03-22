@@ -1,9 +1,23 @@
 class Quizr_Public_Shortcode_Question_Set_Submit {
-    constructor(element, question_set_id) {
-        this.element = element;
-        this.question_set_id = question_set_id;
+    
+    constructor(form, cb) {
+        this.form = form;
+        this.question_set_id = this.form.dataset.id;
+        this.cb = cb;
         this.data = {};
-        this.formData = {};        
+        this.formData = {};       
+        this.init(); 
+    }
+
+    init(){
+        //this.cb();
+        this.formData = new FormData(this.form);
+
+        for( let [key, value] of this.formData.entries() ){
+            console.log(key, value);
+        }
+
+        this.submitData();
     }
 
     showSummaryForm(quizr_forms) {
@@ -73,12 +87,12 @@ class Quizr_Public_Shortcode_Question_Set_Submit {
     }
 
     submitData() {
-        this.showSpinner(true);
+     //   this.showSpinner(true);
 
         this.postAnswers().then((response) => {
             console.log(response);
 
-            this.showSpinner(false);
+          //  this.showSpinner(false);
         });
     }
 
