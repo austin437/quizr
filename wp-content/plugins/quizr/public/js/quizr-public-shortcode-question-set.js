@@ -16,7 +16,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.prev_arrow = this.element.querySelector(".quizr-qs-arrows__prev");
         this.pip_container = this.element.querySelector(".quizr-qs__pips");
         this.pips = this.element.querySelectorAll(".quizr-qs__pip-a");
-        this.summary = this.element.querySelector(".quizr-qs-summary");
+        this.summaryForm = this.element.nextElementSibling;
         this.spinner = this.element.querySelector(".lds-spinner-container");
         this.index = 0;
         this.minItems = 0;
@@ -108,6 +108,13 @@ class Quizr_Public_Shortcode_Question_Set {
 
     showSummary( data ) {
         this.showSpinner(false);
+        this.element.classList.remove("quizr-qs--show");
+        const summary = new Quizr_Public_Shortcode_Question_Set_Summary( this.summaryForm, data, this.hideSummary );
+        summary.showSummaryForm();
+    }
+
+    hideSummary(){
+        console.log('hiding summary');
     }
 
     showSpinner(show) {

@@ -13,13 +13,13 @@
                 <# _.each( data, (item, index) => { #>
                 <tr>
                     <td class="row-title"><label for="tablecell">{{{item.question}}}</label></td>
-                    <td><strong>{{item.answer.description}}</strong></td>
+                    <td><strong>{{item.given_answer}}</strong></td>
                 </tr>
                 <# }); #>
             </tbody>
         </table>
         <div class="quizr-summary-submit">
-            <a class="quizr-summary-submit__a" href="#">Submit Answers</a>
+            <a class="quizr-summary-submit__a" href="#">View Questions</a>
         </div>
     </div>
 </script>

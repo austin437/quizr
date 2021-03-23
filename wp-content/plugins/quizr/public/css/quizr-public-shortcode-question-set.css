@@ -6,8 +6,7 @@
 
 
 .quizr-qs-intro,
-.quizr-qs-questions,
-.quizr-qs-summary {
+.quizr-qs-questions {
   filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
 }
 
@@ -84,7 +83,7 @@
     color: white;
 }
 
-/* .quizr-qs-summary {
+.quizr-qs-summary {
     width: 80%;
     margin: auto;
     box-shadow: 0 10px 10px rgba(0,0,0,0.5);
@@ -102,7 +101,7 @@
 
 .quizr-summary-submit__a {
     font-size: 1.5rem;
-} */
+}
 
 
 .quizr-qs-arrows__prev,

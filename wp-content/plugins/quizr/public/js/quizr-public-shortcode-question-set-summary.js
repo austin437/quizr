@@ -1,47 +1,17 @@
 class Quizr_Public_Shortcode_Question_Set_Summary {
-    constructor(element, question_set_id) {
+    constructor(element, data, callback) {
         this.element = element;
-        this.question_set_id = question_set_id;
-        this.data = {};
-        this.formData = {};        
+        console.log(this.element);
+        this.data = data;
+        this.callback = callback;        
     }
 
-    showSummaryForm(quizr_forms) {
-        this.formData = new FormData();
-
-        const data = [];
-
-        for (let i = 0; i < quizr_forms.length; i++) {
-            const question_id = quizr_forms[i].dataset["id"];
-            const tempForm = new FormData(quizr_forms[i]);
-            data[i] = { id: question_id, answer: {} };
-
-            for (let [key, value] of tempForm.entries()) {
-                const newKey = `quizr_question[${question_id}]`;
-
-                if (key === "question") {
-                    this.formData.set(`${newKey}[question]`, value);
-                    data[i].question = value;
-                }
-
-                if (key === "answer") {
-                    const answer_array = value.split("|");
-                    this.formData.set(`${newKey}[answer][id]`, answer_array[0]);
-                    this.formData.set(`${newKey}[answer][description]`, answer_array[1]);
-
-                    data[i].answer.id = answer_array[0];
-                    data[i].answer.description = answer_array[1];
-                }
-            }
-        }
-
+    showSummaryForm() {
+       
         const postTemplate = wp.template("quizr-shortcodes-summary");
-
-        this.data = data;
-
         this.element.innerHTML = postTemplate(this.data);
         this.element.classList.add("quizr-qs--show");
-        this.addEventListeners();
+      //  this.addEventListeners();
     }
 
     hideSummaryForm() {

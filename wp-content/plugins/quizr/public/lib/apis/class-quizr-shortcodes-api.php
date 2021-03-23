@@ -27,7 +27,7 @@ class Quizr_Shortcodes_Api {
        
         ?>
 
-        <div class="quizr-qs" data-question-set-id="<?php echo $qs_id; ?>"> 
+        <div class="quizr-qs quizr-qs--hide quizr-qs--show " data-question-set-id="<?php echo $qs_id; ?>">         
             <div class="lds-spinner-container lds-spinner--hide">
                 <div class="lds-spinner">
                     <div></div>
@@ -150,6 +150,8 @@ class Quizr_Shortcodes_Api {
                 <li class="quizr-qs__pips__pip"><a class="quizr-qs__pip-a" href="#">&#8226;</a></li>
             </ul>
         </div>
+        <div class="quizr-qs-summary"></div>
+
 
         <?php
 
