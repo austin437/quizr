@@ -5,21 +5,27 @@
         <table class="widefat">
             <thead>
                 <tr>
-                    <th class="row-title" width="70%">Question</th>
+                    <th class="row-title">Question</th>
+                    <th>Content</th>
                     <th>Your Answer</th>
+                    <th>Correct Answer</th>
+                    <th>Correct?</th>
                 </tr>
             </thead>
             <tbody>
                 <# _.each( data, (item, index) => { #>
                 <tr>
                     <td class="row-title"><label for="tablecell">{{{item.question}}}</label></td>
+                    <td class="row-title">{{{item.content}}}</td>
                     <td><strong>{{item.given_answer}}</strong></td>
+                    <td><strong>{{item.correct_answer}}</strong></td>
+                    <td><strong>{{item.was_correct}}</strong></td>
                 </tr>
                 <# }); #>
             </tbody>
         </table>
         <div class="quizr-summary-submit">
-            <a class="quizr-summary-submit__a" href="#">View Questions</a>
+            <a class="quizr-summary-submit__a" href="#">Restart Quiz</a>
         </div>
     </div>
 </script>

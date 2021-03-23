@@ -3,7 +3,7 @@
     left: 50%;
     width: 80%;
     transform: translateX(-50%);
-    height: 100%;
+    height: calc(100% - 40px);
     display: flex;
     justify-content: center;
     align-items: center;

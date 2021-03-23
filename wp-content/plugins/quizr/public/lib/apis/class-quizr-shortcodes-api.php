@@ -150,7 +150,7 @@ class Quizr_Shortcodes_Api {
                 <li class="quizr-qs__pips__pip"><a class="quizr-qs__pip-a" href="#">&#8226;</a></li>
             </ul>
         </div>
-        <div class="quizr-qs-summary"></div>
+        <div class="quizr-qs-summary quizr-qs--hide"></div>
 
 
         <?php

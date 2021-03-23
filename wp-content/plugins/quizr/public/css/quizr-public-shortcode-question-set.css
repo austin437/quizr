@@ -86,11 +86,16 @@
 .quizr-qs-summary {
     width: 80%;
     margin: auto;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 10px 3px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
 }
 
 .quizr-qs-summary__container {
     padding: 10px;
+}
+
+.quizr-qs-summary__container table img{
+    max-width: 100px;
 }
 
 .quizr-summary-submit {

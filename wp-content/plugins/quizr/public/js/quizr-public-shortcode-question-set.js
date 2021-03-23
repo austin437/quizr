@@ -1,11 +1,6 @@
 class Quizr_Public_Shortcode_Question_Set {
     constructor(element) {
         this.element = element;
-        //  this.quizr_shortcode_summary = quizr_shortcode_summary;
-        this.init();
-    }
-
-    init() {
         this.start_quiz_link = this.element.querySelector(".quizr-qs-intro__start-quiz");
         this.submit_quiz_link = this.element.querySelector(".quizr-qs-summary__submit-quiz");
         this.intro = this.element.querySelector(".quizr-qs-intro");
@@ -17,7 +12,11 @@ class Quizr_Public_Shortcode_Question_Set {
         this.pip_container = this.element.querySelector(".quizr-qs__pips");
         this.pips = this.element.querySelectorAll(".quizr-qs__pip-a");
         this.summaryForm = this.element.nextElementSibling;
-        this.spinner = this.element.querySelector(".lds-spinner-container");
+        this.spinner = this.element.querySelector(".lds-spinner-container");        
+        this.init();
+    }
+
+    init() {
         this.index = 0;
         this.minItems = 0;
         this.maxItems = this.cards.length;
@@ -36,14 +35,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.hideAllArticles();
         this.showArrows();
         this.updatePips();
-        //  this.hideSummaryForm();
         this.showArticle();
-
-        // if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {
-        //     this.showArticle();
-        // } else {
-        //     this.showSummaryForm();
-        // }
     }
 
     showArticle() {
@@ -106,15 +98,19 @@ class Quizr_Public_Shortcode_Question_Set {
         });
     }
 
-    showSummary( data ) {
+    showSummary(data) {
         this.showSpinner(false);
         this.element.classList.remove("quizr-qs--show");
-        const summary = new Quizr_Public_Shortcode_Question_Set_Summary( this.summaryForm, data, this.hideSummary );
+        const summary = new Quizr_Public_Shortcode_Question_Set_Summary(this.summaryForm, data, this.hideSummary.bind(this));
         summary.showSummaryForm();
     }
 
-    hideSummary(){
-        console.log('hiding summary');
+    hideSummary(summary) {
+        summary.hideSummaryForm();
+        const myForm = this.element.querySelector(".quizr-form");
+        myForm.reset();
+        this.init();
+        this.element.classList.add("quizr-qs--show");
     }
 
     showSpinner(show) {
