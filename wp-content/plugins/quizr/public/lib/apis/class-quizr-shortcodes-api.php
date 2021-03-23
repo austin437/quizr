@@ -82,7 +82,7 @@ class Quizr_Shortcodes_Api {
                                     <?php foreach( $answers as $key => $value ) { ?>
                                         <div> 
                                              <input type="hidden" name="quizr_question[<?php echo $key; ?>][question_id]" 
-                                                value="<?php echo esc_html( $q->post_title ); ?>" /> 
+                                                value="<?php echo esc_html( $q->ID ); ?>" /> 
                                             <label class="quizr-qs-card__answer-label">
                                                 <input
                                                 type="radio" 
