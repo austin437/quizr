@@ -59,7 +59,7 @@ class Quizr_Shortcodes_Api {
             </div> 
             <form class="quizr-form" data-id="<?php echo $qs_id; ?>">   
                 <div class="quizr-qs-questions quizr-qs--hide">                      
-                    <?php foreach( $questions as $index => $q ){ ?>                                                            
+                    <?php foreach( $questions as $key => $q ){ ?>                                                            
                         <article class="quizr-qs-card quizr-qs--hide">
                             <div class="quizr-qs-card__container">
                                 <aside class="quizr-qs-card__sidebar">
@@ -67,7 +67,7 @@ class Quizr_Shortcodes_Api {
                                 </aside>     
                                 <div class="quizr-qs-card__content">
                                     <header>      
-                                        <h2>Question <?php echo $index + 1; ?></h2>                            
+                                        <h2>Question <?php echo $key + 1; ?></h2>                            
                                     </header>
                                     <section>
                                     
@@ -79,7 +79,7 @@ class Quizr_Shortcodes_Api {
                                 </div>
                                 <?php $answers = $quizr_answers_table->index( $q->ID );  ?>
                                 <div class="quizr-qs-card__answers">                      
-                                    <?php foreach( $answers as $key => $value ) { ?>
+                                    <?php foreach( $answers as $value ) { ?>
                                         <div> 
                                              <input type="hidden" name="quizr_question[<?php echo $key; ?>][question_id]" 
                                                 value="<?php echo esc_html( $q->ID ); ?>" /> 
@@ -128,7 +128,7 @@ class Quizr_Shortcodes_Api {
                 <a class="quizr-qs-arrows__next quizr-qs__flex--hide">&#10095;</a>
             </div>
             <ul class="quizr-qs__pips quizr-qs__flex--hide">
-                <?php foreach( $questions as $index => $q ){ ?>
+                <?php foreach( $questions as $q ){ ?>
                     <li class="quizr-qs__pips__pip"><a class="quizr-qs__pip-a" href="#">&#8226;</a></li>
                 <?php } ?>
                 <li class="quizr-qs__pips__pip"><a class="quizr-qs__pip-a" href="#">&#8226;</a></li>

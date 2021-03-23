@@ -25,7 +25,7 @@ class Quizr_Rest_Controller {
 
     public function post_check_answers( $request )
     {
-        return $request->get_params();
+       // return $request->get_params();
         
         $question_set_id = $request->get_param('question_set_id');
         $answer_data = $request->get_param('quizr_question');
