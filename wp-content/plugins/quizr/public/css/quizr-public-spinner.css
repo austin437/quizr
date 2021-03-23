@@ -1,13 +1,16 @@
-.lds-spinner-container {
+ .lds-spinner-container {
     position: absolute;
+    left: 50%;
     width: 80%;
-    height: calc( 100% - 40px);
+    transform: translateX(-50%);
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ddd;
     opacity: 0.75;
-}
+    z-index: 100;
+} 
 
 .lds-spinner--hide{
     display: none;

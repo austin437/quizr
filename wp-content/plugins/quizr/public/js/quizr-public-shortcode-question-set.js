@@ -1,7 +1,7 @@
 class Quizr_Public_Shortcode_Question_Set {
     constructor(element) {
         this.element = element;
-      //  this.quizr_shortcode_summary = quizr_shortcode_summary;
+        //  this.quizr_shortcode_summary = quizr_shortcode_summary;
         this.init();
     }
 
@@ -17,11 +17,12 @@ class Quizr_Public_Shortcode_Question_Set {
         this.pip_container = this.element.querySelector(".quizr-qs__pips");
         this.pips = this.element.querySelectorAll(".quizr-qs__pip-a");
         this.summary = this.element.querySelector(".quizr-qs-summary");
+        this.spinner = this.element.querySelector(".lds-spinner-container");
         this.index = 0;
         this.minItems = 0;
         this.maxItems = this.cards.length;
         this.updateHtml();
-        this.addEventListeners();      
+        this.addEventListeners();
     }
 
     startQuiz() {
@@ -35,7 +36,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.hideAllArticles();
         this.showArrows();
         this.updatePips();
-      //  this.hideSummaryForm();
+        //  this.hideSummaryForm();
         this.showArticle();
 
         // if (parseInt(this.index) !== parseInt(this.maxItems - 1)) {
@@ -92,15 +93,29 @@ class Quizr_Public_Shortcode_Question_Set {
         this.updateHtml();
     }
 
-    submitQuiz(){
-        console.log('submitting quiz');
-        const myForm = this.element.querySelector('.quizr-form');
-        const submitForm = 
-            new Quizr_Public_Shortcode_Question_Set_Submit(myForm, this.showSummary);
+    submitQuiz() {
+        const self = this;
+
+        self.showSpinner(true);
+
+        const myForm = self.element.querySelector(".quizr-form");
+        const submitForm = new Quizr_Public_Shortcode_Question_Set_Submit(myForm);
+
+        submitForm.postAnswers().then((response) => {
+            self.showSummary(response);
+        });
     }
 
-    showSummary(){
-        console.log('showing summary');
+    showSummary( data ) {
+        this.showSpinner(false);
+    }
+
+    showSpinner(show) {
+        if (show) {
+            this.spinner.classList.add("lds-spinner--show");
+        } else {
+            this.spinner.classList.remove("lds-spinner--show");
+        }
     }
 
     addEventListeners() {

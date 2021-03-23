@@ -28,6 +28,22 @@ class Quizr_Shortcodes_Api {
         ?>
 
         <div class="quizr-qs" data-question-set-id="<?php echo $qs_id; ?>"> 
+            <div class="lds-spinner-container lds-spinner--hide">
+                <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
             <div class="quizr-qs-intro quizr-qs--hide quizr-qs--show">
                 <article class="quizr-qs-card"> 
                     <div class="quizr-qs-card__container">
