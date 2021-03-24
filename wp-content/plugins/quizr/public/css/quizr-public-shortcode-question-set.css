@@ -108,6 +108,20 @@
     font-size: 1.5rem;
 }
 
+.quizr-qs-summary__answer--true,
+.quizr-qs-summary__answer--false {
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
+.quizr-qs-summary__answer--true {
+    background-color: #49CA65;
+}
+
+.quizr-qs-summary__answer--false {
+    background-color: #EB5653 
+}
+
 
 .quizr-qs-arrows__prev,
 .quizr-qs-arrows__next {

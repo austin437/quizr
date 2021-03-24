@@ -19,7 +19,13 @@
                     <td class="row-title">{{{item.content}}}</td>
                     <td><strong>{{item.given_answer}}</strong></td>
                     <td><strong>{{item.correct_answer}}</strong></td>
-                    <td><strong>{{item.was_correct}}</strong></td>
+                    <td><strong>
+                    <# if(item.was_correct) {
+                        print("<span class='quizr-qs-summary__answer--true'>True</span>")
+                    } else {
+                        print( "<span class='quizr-qs-summary__answer--false'>False</span>");
+                    }                     
+                    #></strong></td>
                 </tr>
                 <# }); #>
             </tbody>
