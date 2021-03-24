@@ -36,12 +36,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'QUIZR_VERSION', '1.0.14' );
-
 /**
  * Current db version.
  */
 define( 'QUIZR_DB_VERSION', '1.0.0' );
 
+define( 'BASE_NAME', plugin_basename( __FILE__ ) );
+define( 'BASE_PATH',  plugin_dir_path( __DIR__ ) .'quizr'   );
+define( 'ADMIN_PATH',  plugin_dir_path( __DIR__ ) .'quizr/admin'   );
+define( 'PUBLIC_PATH',  plugin_dir_path( __DIR__ ) .'quizr/public'   );
 define( 'LOG_PATH', plugin_dir_path( __DIR__ ) .'quizr/logs/debug.log' );
 
 /**
