@@ -1,6 +1,6 @@
 <script type="text/html" id="tmpl-quizr-shortcodes-summary">
     
-    <div class="quizr-qs-summary__container">
+    <div class="quizr-qs-results__container">
         <h2>Summary:</h2>
         <table class="widefat">
             <thead>
@@ -21,9 +21,9 @@
                     <td><strong>{{item.correct_answer}}</strong></td>
                     <td><strong>
                     <# if(item.was_correct) {
-                        print("<span class='quizr-qs-summary__answer--true'>True</span>")
+                        print("<span class='quizr-qs-results__answer--true'>True</span>")
                     } else {
-                        print( "<span class='quizr-qs-summary__answer--false'>False</span>");
+                        print( "<span class='quizr-qs-results__answer--false'>False</span>");
                     }                     
                     #></strong></td>
                 </tr>
@@ -37,8 +37,8 @@
                 </tr>
             </tbody>
         </table>
-        <div class="quizr-summary-submit">
-            <a class="quizr-summary-submit__a" href="#">Restart Quiz</a>
+        <div class="quizr-qs-results__submit">
+            <a class="quizr-qs-results__submit-a" href="#">Restart Quiz</a>
         </div>
     </div>
 </script>

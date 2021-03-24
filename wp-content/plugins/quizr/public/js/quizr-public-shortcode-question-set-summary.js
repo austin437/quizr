@@ -19,7 +19,7 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
 
     addEventListeners() {
         const self = this;
-        const submit = this.element.querySelector(".quizr-summary-submit__a");
+        const submit = this.element.querySelector(".quizr-qs-results__submit-a");
         submit.addEventListener("click", (ev) => {
             ev.preventDefault();
             self.callback(self);

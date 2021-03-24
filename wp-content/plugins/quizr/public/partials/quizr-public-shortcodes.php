@@ -116,7 +116,7 @@
                         </div>
                     </div>                      
                 </div>
-                <a class="quizr-qs-summary__submit-quiz" href="">SUBMIT QUIZ</a>
+                <a class="quizr-qs-results__submit-quiz" href="">SUBMIT QUIZ</a>
             </article>
         </div>        
     </form>          
@@ -131,4 +131,4 @@
         <li class="quizr-qs__pips__pip"><a class="quizr-qs__pip-a" href="#">&#8226;</a></li>
     </ul>
 </div>
-<div class="quizr-qs-summary quizr-qs--hide"></div>
+<div class="quizr-qs-results quizr-qs--hide"></div>

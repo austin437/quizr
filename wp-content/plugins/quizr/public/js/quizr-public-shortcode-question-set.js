@@ -2,7 +2,7 @@ class Quizr_Public_Shortcode_Question_Set {
     constructor(element) {
         this.element = element;
         this.start_quiz_link = this.element.querySelector(".quizr-qs-intro__start-quiz");
-        this.submit_quiz_link = this.element.querySelector(".quizr-qs-summary__submit-quiz");
+        this.submit_quiz_link = this.element.querySelector(".quizr-qs-results__submit-quiz");
         this.intro = this.element.querySelector(".quizr-qs-intro");
         this.questions = this.element.querySelector(".quizr-qs-questions");
         this.cards = this.questions.children;
