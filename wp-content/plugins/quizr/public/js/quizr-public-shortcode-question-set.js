@@ -14,14 +14,14 @@ class Quizr_Public_Shortcode_Question_Set {
         this.summaryForm = this.element.nextElementSibling;
         this.spinner = this.element.querySelector(".lds-spinner-container");        
         this.init();
+        this.addEventListeners();
     }
 
     init() {
         this.index = 0;
         this.minItems = 0;
         this.maxItems = this.cards.length;
-        this.updateHtml();
-        this.addEventListeners();
+        this.updateHtml();        
     }
 
     startQuiz() {
