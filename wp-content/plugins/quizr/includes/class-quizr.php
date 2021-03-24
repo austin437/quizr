@@ -116,15 +116,16 @@ class Quizr {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-quizr-admin.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-migrate.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/database/class-quizr-answer-table.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/cpts/class-quizr-question-set-cpt.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/cpts/class-quizr-question-cpt.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/apis/class-quizr-rest-api.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/apis/class-quizr-settings-api.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/database/class-quizr-answer-table.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/cpts/class-quizr-question-set-cpt.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/cpts/class-quizr-question-cpt.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/apis/class-quizr-rest-api.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/apis/class-quizr-settings-api.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/apis/class-quizr-shortcodes-api.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-quizr-load-html-templates.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/lib/controllers/class-quizr-rest-controller.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/controllers/class-quizr-rest-controller.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-quizr-public.php';
-
+    
 		$this->loader = new Quizr_Loader();
 
 	}

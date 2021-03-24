@@ -99,7 +99,6 @@ class Quizr_Public {
      * @since    1.0.1
      */
     public function register_shortcodes(){
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/lib/apis/class-quizr-shortcodes-api.php';
         $shortcodesApi = new Quizr_Shortcodes_Api();
         $shortcodesApi->display_quiz();
     }
