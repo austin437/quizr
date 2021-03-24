@@ -60,16 +60,18 @@ class Quizr_Question_Set_Cpt {
                 ) 
             );
 
+            $total_correct_answers = 0;
+
             $return_data = [];            
 
             foreach( $answer_data as $key => $value ) {
 
                 $question = $questions[ array_search( $value['question_id'], array_column( $questions, 'ID' ) ) ];
-                $return_data[$key]['question'] = $question->post_title;                
-                $return_data[$key]['content'] = $question->post_content;  
-                $return_data[$key]['given_answer'] = 'Not supplied';
-                $return_data[$key]['correct_answer'] = 'n/a';
-                $return_data[$key]['was_correct'] = false;
+                $return_data['results'][$key]['question'] = $question->post_title;                
+                $return_data['results'][$key]['content'] = $question->post_content;  
+                $return_data['results'][$key]['given_answer'] = 'Not supplied';
+                $return_data['results'][$key]['correct_answer'] = 'n/a';
+                $return_data['results'][$key]['was_correct'] = false;
 
                 $answers = $quizr_answers_table->index( $question->ID );
 
@@ -88,19 +90,24 @@ class Quizr_Question_Set_Cpt {
                     $answer_description = $correct_answer[0]->description;
                 }
 
-                $return_data[$key]['correct_answer'] = $answer_description;
+                $return_data['results'][$key]['correct_answer'] = $answer_description;
 
                 if( array_key_exists( 'answer_id', $value ) )
                 {
                     $given_answer = $answers[ array_search( $value['answer_id'], array_column( $answers, 'id' ) ) ];
-                    $return_data[$key]['given_answer'] = $given_answer->description;
-                    $return_data[$key]['was_correct'] = (int) $given_answer->id === (int) $answer_id;
+                    $return_data['results'][$key]['given_answer'] = $given_answer->description;                    
+                    $return_data['results'][$key]['was_correct'] = (int) $given_answer->id === (int) $answer_id;
+                    if((int) $given_answer->id === (int) $answer_id) $total_correct_answers++;
                 }                 
 
              
                             
 
             }
+
+            $return_data['totals']['total'] = count($answer_data);
+            $return_data['totals']['correct_answers'] = $total_correct_answers;
+            $return_data['totals']['score'] = round( ($total_correct_answers / count($answer_data) ) *100 ) . '%' ;
 
             return $return_data;
       

@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <# _.each( data, (item, index) => { #>
+                <# _.each( data.results, (item, index) => { #>
                 <tr>
                     <td class="row-title"><label for="tablecell">{{{item.question}}}</label></td>
                     <td class="row-title">{{{item.content}}}</td>
@@ -28,6 +28,13 @@
                     #></strong></td>
                 </tr>
                 <# }); #>
+                <tr>
+                    <td><strong>Total:</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>{{data.totals.correct_answers}} / {{data.totals.total}}</strong></td>
+                    <td><strong>{{data.totals.score}}</strong></td>
+                </tr>
             </tbody>
         </table>
         <div class="quizr-summary-submit">

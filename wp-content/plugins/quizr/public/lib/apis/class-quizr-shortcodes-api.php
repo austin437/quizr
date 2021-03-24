@@ -126,7 +126,7 @@ class Quizr_Shortcodes_Api {
                                 </header> 
                                 <section>
                                     <h3>Submit your quiz when you are ready</h3>  
-                                    <p>You have answered x out of x questions</p>                              
+                                    <p>You can retake it afterwards</p>                              
                                 </section>    
                             </div>
                             <div class="quizr-qs-card__answers">
