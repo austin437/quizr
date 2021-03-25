@@ -5,6 +5,7 @@ window.addEventListener("load", function () {
     for( let el of quizr_admin_answers_containers){
         new Quizr_Admin_Answers( el );
     } 
+    
 
 });
 

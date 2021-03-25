@@ -4,9 +4,14 @@ const browserSync = require("browser-sync").create();
 const showSite = (cb) => {
     browserSync.init({
         proxy: "https://www.quizzer.dev.cc",
+        https: {
+            key: "C:/Users/Austi/Certs/localhost.key",
+            cert: "C:/Users/Austi/Certs/localhost.crt",
+        },
     });
     cb();
 };
+
 
 const reload = (cb) => {
     browserSync.reload();
