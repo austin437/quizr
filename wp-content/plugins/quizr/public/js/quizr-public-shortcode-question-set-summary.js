@@ -8,13 +8,13 @@ class Quizr_Public_Shortcode_Question_Set_Summary {
     showSummaryForm() {       
         const postTemplate = wp.template("quizr-shortcodes-summary");
         this.element.innerHTML = postTemplate(this.data);
-        this.element.classList.add("quizr-qs--show");
+        this.element.classList.add("quizr-qs-show--block");
         this.addEventListeners();
     }
 
     hideSummaryForm() {
         this.element.innerHTML = '';
-        this.element.classList.remove("quizr-qs--show");
+        this.element.classList.remove("quizr-qs-show--block");
     }
 
     addEventListeners() {

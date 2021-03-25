@@ -25,10 +25,10 @@ class Quizr_Public_Shortcode_Question_Set {
     }
 
     startQuiz() {
-        this.intro.classList.remove("quizr-qs--show");
-        this.questions.classList.add("quizr-qs--show");
-        this.arrows_container.classList.add("quizr-qs--show");
-        this.pip_container.classList.add("quizr-qs__flex--show");
+        this.intro.classList.remove("quizr-qs-show--block");
+        this.questions.classList.add("quizr-qs-show--block");
+        this.arrows_container.classList.add("quizr-qs-show--block");
+        this.pip_container.classList.add("quizr-qs-show--flex");
     }
 
     updateHtml() {
@@ -39,12 +39,12 @@ class Quizr_Public_Shortcode_Question_Set {
     }
 
     showArticle() {
-        this.cards[this.index].classList.add("quizr-qs--show");
+        this.cards[this.index].classList.add("quizr-qs-show--block");
     }
 
     hideAllArticles() {
         for (let i = 0; i < this.cards.length; i++) {
-            this.cards[i].classList.remove("quizr-qs--show");
+            this.cards[i].classList.remove("quizr-qs-show--block");
         }
     }
 
@@ -61,13 +61,13 @@ class Quizr_Public_Shortcode_Question_Set {
     }
 
     showNextArrow(show) {
-        this.next_arrow.classList.remove("quizr-qs__flex--show");
-        if (show) this.next_arrow.classList.add("quizr-qs__flex--show");
+        this.next_arrow.classList.remove("quizr-qs-show--flex");
+        if (show) this.next_arrow.classList.add("quizr-qs-show--flex");
     }
 
     showPreviousArrow(show) {
-        this.prev_arrow.classList.remove("quizr-qs__flex--show");
-        if (show) this.prev_arrow.classList.add("quizr-qs__flex--show");
+        this.prev_arrow.classList.remove("quizr-qs-show--flex");
+        if (show) this.prev_arrow.classList.add("quizr-qs-show--flex");
     }
 
     handleNextClick() {
@@ -100,7 +100,7 @@ class Quizr_Public_Shortcode_Question_Set {
 
     showSummary(data) {
         this.showSpinner(false);
-        this.element.classList.remove("quizr-qs--show");
+        this.element.classList.remove("quizr-qs-show--block");
         const summary = new Quizr_Public_Shortcode_Question_Set_Summary(this.summaryForm, data, this.hideSummary.bind(this));
         summary.showSummaryForm();
     }
@@ -110,7 +110,7 @@ class Quizr_Public_Shortcode_Question_Set {
         const myForm = this.element.querySelector(".quizr-form");
         myForm.reset();
         this.init();
-        this.element.classList.add("quizr-qs--show");
+        this.element.classList.add("quizr-qs-show--block");
     }
 
     showSpinner(show) {

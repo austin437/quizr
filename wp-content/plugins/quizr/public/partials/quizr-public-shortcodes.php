@@ -8,7 +8,7 @@
 
 ?>
 
-<div class="quizr-qs quizr-qs--hide quizr-qs--show " data-question-set-id="<?php echo $qs_id; ?>">         
+<div class="quizr-qs quizr-qs-hide quizr-qs-show--block " data-question-set-id="<?php echo $qs_id; ?>">         
     <div class="lds-spinner-container lds-spinner--hide">
         <div class="lds-spinner">
             <div></div>
@@ -25,7 +25,7 @@
             <div></div>
         </div>
     </div>
-    <div class="quizr-qs-intro quizr-qs--hide quizr-qs--show">
+    <div class="quizr-qs-intro quizr-qs-hide quizr-qs-show--block">
         <article class="quizr-qs-card"> 
             <div class="quizr-qs-card__container">
                 <aside class="quizr-qs-card__sidebar">
@@ -55,9 +55,9 @@
         </article>
     </div> 
     <form class="quizr-form" data-id="<?php echo $qs_id; ?>">   
-        <div class="quizr-qs-questions quizr-qs--hide">                      
+        <div class="quizr-qs-questions quizr-qs-hide">                      
             <?php foreach( $questions as $key => $q ){ ?>                                                            
-                <article class="quizr-qs-card quizr-qs--hide">
+                <article class="quizr-qs-card quizr-qs-hide">
                     <div class="quizr-qs-card__container">
                         <aside class="quizr-qs-card__sidebar">
                             <img class="quizr-qs-card__img" src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
@@ -96,7 +96,7 @@
                 </article>                       
             <?php } ?>
             
-            <article class="quizr-qs-card quizr-qs--hide"> 
+            <article class="quizr-qs-card quizr-qs-hide"> 
                 <div class="quizr-qs-card__container">
                     <aside class="quizr-qs-card__sidebar">
                         <img class="quizr-qs-card__img" src="https://www.quizzer.dev.cc/wp-content/plugins/quizr/public/img/quizr-logo.png" />   
@@ -120,15 +120,15 @@
             </article>
         </div>        
     </form>          
-    <div class="quizr-qs-arrows quizr-qs--hide">
-        <a class="quizr-qs-arrows__prev quizr-qs__flex--hide">&#10094;</a>
-        <a class="quizr-qs-arrows__next quizr-qs__flex--hide">&#10095;</a>
+    <div class="quizr-qs-arrows quizr-qs-hide">
+        <a class="quizr-qs-arrows__prev quizr-qs-hide">&#10094;</a>
+        <a class="quizr-qs-arrows__next quizr-qs-hide">&#10095;</a>
     </div>
-    <ul class="quizr-qs__pips quizr-qs__flex--hide">
+    <ul class="quizr-qs__pips quizr-qs-hide">
         <?php foreach( $questions as $q ){ ?>
             <li class="quizr-qs__pips__pip"><a class="quizr-qs__pip-a" href="#">&#8226;</a></li>
         <?php } ?>
         <li class="quizr-qs__pips__pip"><a class="quizr-qs__pip-a" href="#">&#8226;</a></li>
     </ul>
 </div>
-<div class="quizr-qs-results quizr-qs--hide"></div>
+<div class="quizr-qs-results quizr-qs-hide"></div>

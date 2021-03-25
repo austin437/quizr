@@ -196,17 +196,17 @@
     list-style: none;
 }
 
-.quizr-qs--hide,
-.quizr-qs__flex--hide
+
+.quizr-qs-hide
 {
     display: none;
 }
 
-.quizr-qs--hide.quizr-qs--show
+.quizr-qs-hide.quizr-qs-show--block
 {
     display: block;
 }
 
-.quizr-qs__flex--hide.quizr-qs__flex--show {
+.quizr-qs-hide.quizr-qs-show--flex {
     display: flex;
 }
