@@ -25,7 +25,7 @@ class Quizr_Shortcodes_Api {
 
         ob_start();
 
-        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'public/partials/quizr-public-shortcodes.php';
+        require_once QUIZR_PUBLIC_PATH . '/partials/quizr-public-shortcodes.php';
 
         return ob_get_clean(); 
     }

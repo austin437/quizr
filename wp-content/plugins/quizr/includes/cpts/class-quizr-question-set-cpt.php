@@ -45,7 +45,7 @@ class Quizr_Question_Set_Cpt {
             ) 
         );
 
-        require_once plugin_dir_path( dirname( __DIR__ ) ) . 'partials/quizr-admin-cpt-question-set-question-meta-box.php';       
+        require_once QUIZR_ADMIN_PATH . '/partials/quizr-admin-cpt-question-set-question-meta-box.php';       
     }
 
     public function check_answers( $question_set_id, $answer_data ){   
