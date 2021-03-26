@@ -75,7 +75,7 @@ class Quizr_Question_Set_Cpt {
 
                 $answers = $quizr_answers_table->index( $question->ID );
 
-                // error_log( "Answers: " . print_r( $answers, true ), 3, LOG_PATH );
+                // error_log( "Answers: " . print_r( $answers, true ), 3, QUIZR_LOG_PATH );
 
                 $answer_id = -1;
                 $answer_description = 'No answer given';

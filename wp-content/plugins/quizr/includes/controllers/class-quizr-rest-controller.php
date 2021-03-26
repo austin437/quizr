@@ -18,7 +18,7 @@ class Quizr_Rest_Controller {
         }
 
         catch( \Exception $e ){
-            error_log( $e->getMessage() . PHP_EOL, 3, LOG_PATH );
+            error_log( $e->getMessage() . PHP_EOL, 3, QUIZR_LOG_PATH );
             return new \WP_REST_Response([], 400);
         }
 
