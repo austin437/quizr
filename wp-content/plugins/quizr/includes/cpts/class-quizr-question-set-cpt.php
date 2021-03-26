@@ -21,7 +21,7 @@ class Quizr_Question_Set_Cpt {
         );
     }
 
-      function manage_quizr_question_set_posts_columns( $columns ) {
+    function manage_quizr_question_set_posts_columns( $columns ) {
                   
         $columns = array(
             'cb' => '&lt;input type="checkbox" />',
@@ -66,6 +66,8 @@ class Quizr_Question_Set_Cpt {
                 'meta_value' => (int) $post->ID,
             ) 
         );
+
+        wp_nonce_field( 'quizr_question_set_question_nonce', 'quizr_question_set_question_nonce_' . $post_id );
 
         require_once QUIZR_ADMIN_PATH . '/partials/quizr-admin-cpt-question-set-question-meta-box.php';       
     }
