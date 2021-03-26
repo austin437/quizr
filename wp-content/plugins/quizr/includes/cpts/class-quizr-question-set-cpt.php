@@ -21,6 +21,28 @@ class Quizr_Question_Set_Cpt {
         );
     }
 
+      function manage_quizr_question_set_posts_columns( $columns ) {
+                  
+        $columns = array(
+            'cb' => '&lt;input type="checkbox" />',
+            'title' => __( 'Title' ),
+            'shortcode' => __( 'Shortcode' ),
+            'date' => __( 'Date' )
+        );
+    
+        return $columns;
+    }
+
+    function manage_quizr_question_set_posts_custom_column( $column, $post_id ) {
+        switch( $column ){
+            case 'shortcode': 
+
+                echo esc_html( "[quizr_question_set id=\"$post_id\"]" );
+
+                break;
+        }
+    }
+
     public function add_meta_boxes()
     {
         add_meta_box(

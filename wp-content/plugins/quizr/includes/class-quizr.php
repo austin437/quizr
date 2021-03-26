@@ -172,6 +172,8 @@ class Quizr {
         $quiz_question_set = new Quizr_Question_Set_Cpt();
         $this->loader->add_action( 'init', $quiz_question_set, 'register_custom_post_type_quizr_question_set' );
         $this->loader->add_action( 'add_meta_boxes', $quiz_question_set, 'add_meta_boxes' );
+        $this->loader->add_filter( 'manage_quizr_question_set_posts_columns', $quiz_question_set, 'manage_quizr_question_set_posts_columns' );
+        $this->loader->add_action( 'manage_quizr_question_set_posts_custom_column', $quiz_question_set, 'manage_quizr_question_set_posts_custom_column', 10, 2 );
 
         $quiz_question = new Quizr_Question_Cpt( new Quizr_Answers_Table() );
         $this->loader->add_action( 'init', $quiz_question, 'register_custom_post_type_quizr_question' );
