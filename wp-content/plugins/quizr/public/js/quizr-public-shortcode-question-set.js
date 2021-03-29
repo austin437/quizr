@@ -24,13 +24,6 @@ class Quizr_Public_Shortcode_Question_Set {
         this.updateHtml();
     }
 
-    startQuiz() {
-        this.intro.classList.remove("quizr-qs-show--block");
-        this.questions.classList.add("quizr-qs-show--block");
-        this.arrows_container.classList.add("quizr-qs-show--block");
-        this.pip_container.classList.add("quizr-qs-show--flex");
-    }
-
     updateHtml() {
         this.hideAllArticles();
         this.showArrows();
@@ -70,34 +63,6 @@ class Quizr_Public_Shortcode_Question_Set {
         if (show) this.prev_arrow.classList.add("quizr-qs-show--flex");
     }
 
-    handleNextClick() {
-        if (parseInt(this.index) < parseInt(this.maxItems - 1)) this.index++;
-        this.updateHtml();
-    }
-
-    handlePrevClick() {
-        if (parseInt(this.index) > 0) this.index--;
-        this.updateHtml();
-    }
-
-    handlePipClick(i) {
-        this.index = i;
-        this.updateHtml();
-    }
-
-    submitQuiz() {
-        const self = this;
-
-        self.showSpinner(true);
-
-        const myForm = self.element.querySelector(".quizr-form");
-        const submitForm = new Quizr_Public_Shortcode_Question_Set_Submit(myForm);
-
-        submitForm.postAnswers().then((response) => {
-            self.showSummary(response);
-        });
-    }
-
     showSummary(data) {
         this.showSpinner(false);
         this.element.classList.remove("quizr-qs-show--block");
@@ -121,14 +86,49 @@ class Quizr_Public_Shortcode_Question_Set {
         }
     }
 
+    handleNextClick() {
+        if (parseInt(this.index) < parseInt(this.maxItems - 1)) this.index++;
+        this.updateHtml();
+    }
+
+    handlePrevClick() {
+        if (parseInt(this.index) > 0) this.index--;
+        this.updateHtml();
+    }
+
+    handlePipClick(i) {
+        this.index = i;
+        this.updateHtml();
+    }
+
+    handleSubmitQuizClick() {
+        const self = this;
+
+        self.showSpinner(true);
+
+        const myForm = self.element.querySelector(".quizr-form");
+        const submitForm = new Quizr_Public_Shortcode_Question_Set_Submit(myForm);
+
+        submitForm.postAnswers().then((response) => {
+            self.showSummary(response);
+        });
+    }
+
+    handleStartQuizClick() {
+        this.intro.classList.remove("quizr-qs-show--block");
+        this.questions.classList.add("quizr-qs-show--block");
+        this.arrows_container.classList.add("quizr-qs-show--block");
+        this.pip_container.classList.add("quizr-qs-show--flex");
+    }
+
     addEventListeners() {
         this.start_quiz_link.addEventListener("click", (ev) => {
             ev.preventDefault();
-            this.startQuiz();
+            this.handleStartQuizClick();
         });
         this.submit_quiz_link.addEventListener("click", (ev) => {
             ev.preventDefault();
-            this.submitQuiz();
+            this.handleSubmitQuizClick();
         });
         this.next_arrow.addEventListener("click", (ev) => {
             ev.preventDefault();
