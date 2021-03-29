@@ -12,7 +12,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.pip_container = this.element.querySelector(".quizr-qs__pips");
         this.pips = this.element.querySelectorAll(".quizr-qs__pip-a");
         this.summaryForm = this.element.nextElementSibling;
-        this.spinner = this.element.querySelector(".lds-spinner-container");        
+        this.spinner = this.element.querySelector(".lds-spinner-container");
         this.init();
         this.addEventListeners();
     }
@@ -21,7 +21,7 @@ class Quizr_Public_Shortcode_Question_Set {
         this.index = 0;
         this.minItems = 0;
         this.maxItems = this.cards.length;
-        this.updateHtml();        
+        this.updateHtml();
     }
 
     startQuiz() {
