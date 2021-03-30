@@ -148,7 +148,6 @@ class Quizr_Question_Cpt {
 
     public function load_query_params()
     {
-        
         if ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'quizr_question' ) {
             if( isset( $_GET['question_set_id'] ) ) $this->meta_value = (int) $_GET['question_set_id'];          
         }        
